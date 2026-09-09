@@ -26,7 +26,7 @@ export default function DepartureStrip({ limit = 4 }: { limit?: number }) {
   const list = upcomingDepartures(limit);
   if (!list.length) return null;
   return (
-    <aside className="rounded-xs bg-white/95 p-5 shadow-[0_20px_60px_-20px_rgba(10,39,51,.45)] backdrop-blur md:p-6" aria-label="Ближайшие заезды">
+    <aside className="rounded-3xl bg-white/95 p-5 shadow-[0_20px_60px_-20px_rgba(10,39,51,.45)] backdrop-blur md:p-6" aria-label="Ближайшие заезды">
       <p className="mb-3 font-semibold text-ice-800">Ближайшие заезды</p>
       <ul className="divide-y divide-ice-100">
         {list.map((d, i) => (
@@ -35,7 +35,7 @@ export default function DepartureStrip({ limit = 4 }: { limit?: number }) {
               <span className="flex min-w-0 items-start gap-2">
                 <RowIcon tour={d.tour} />
                 <span className="min-w-0">
-                  <span className="block truncate text-[15px] font-semibold text-ice-600 group-hover:text-ice-800 group-hover:underline">{d.tour.title}</span>
+                  <span className="block truncate text-[15px] font-bold text-dawn-500 group-hover:text-dawn-600 group-hover:underline">{d.tour.title}</span>
                   <span className="block text-sm text-ice-600">{fmtRange(d)} · {d.seats} мест</span>
                 </span>
               </span>

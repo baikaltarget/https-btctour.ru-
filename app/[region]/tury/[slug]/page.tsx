@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Shell from "@/components/Shell";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import TourImage from "@/components/TourImage";
+import TourGallery from "@/components/TourGallery";
 import TourList from "@/components/TourList";
 import LeadForm from "@/components/LeadForm";
 import Faq from "@/components/Faq";
@@ -88,15 +88,8 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
         <div className="wrap mt-8 grid gap-10 lg:grid-cols-[1fr_340px]">
           <div className="min-w-0">
             <DevFrame note={t.todo}>
-              <div className="relative aspect-[16/9] overflow-hidden rounded-xs"><TourImage src={t.image} alt={t.title} seed={t.title.length} sizes="(max-width: 1024px) 100vw, 800px" priority /></div>
+              <TourGallery images={t.images && t.images.length ? t.images : [t.image ?? ""]} alt={t.title} seedBase={t.title.length} />
             </DevFrame>
-            {t.images && t.images.length > 1 && (
-              <div className="mt-2 grid grid-cols-4 gap-2 sm:grid-cols-5">
-                {t.images.slice(1).map((src, i) => (
-                  <div key={src} className="relative aspect-square overflow-hidden rounded-xs"><TourImage src={src} alt={`${t.title} — фото ${i + 2}`} seed={i} sizes="200px" /></div>
-                ))}
-              </div>
-            )}
             <p className="prose-site mt-8 text-[18px]">{t.summary}</p>
             {t.forWhom && <p className="prose-site text-ink/80"><span className="font-semibold text-ice-800">Кому подойдёт: </span>{t.forWhom}</p>}
             {t.highlights.length > 0 && (
@@ -123,7 +116,7 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
 
             {t.program.length > 0 && (
               <section className="mt-12" id="programma">
-                <h2 className="mb-6">Программа по дням</h2>
+                <h2 className="mb-6">{t.type === "excursion" ? "Маршрут экскурсии" : "Программа по дням"}</h2>
                 <ol className="relative border-l border-ice-200 pl-6">
                   {t.program.map((d) => (
                     <li key={d.day} className="relative mb-8 last:mb-0">

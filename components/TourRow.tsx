@@ -3,15 +3,15 @@ import { type Tour, tourUrl, fmtPrice, daysWord, nightsWord, nextDeparture, fmtR
 import TourImage from "./TourImage";
 import DevFrame from "./DevFrame";
 
-/** Тур как строка, а не одинаковая карточка: обложка слева, суть в середине, цена и ближайший заезд справа. */
+/** Тур как строка, а не одинаковая карточка: крупная обложка слева, суть в середине, цена и ближайший заезд справа. */
 export default function TourRow({ t, index = 0 }: { t: Tour; index?: number }) {
   const next = nextDeparture(t);
   const href = tourUrl(t);
   const tags = t.tags.filter((x) => ["ice", "newyear", "family", "couples", "active", "spa", "gastro", "short", "premium"].includes(x)).slice(0, 3);
   return (
-    <article className="group grid gap-4 border-t border-ice-200 py-6 md:grid-cols-[220px_1fr_auto] md:gap-8 md:py-7">
-      <Link href={href} className="relative block aspect-[4/3] overflow-hidden rounded-xs md:aspect-[5/4]" aria-hidden="true" tabIndex={-1}>
-        <TourImage src={t.image} alt="" seed={index + 1} className="transition-transform duration-500 group-hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, 220px" />
+    <article className="group grid gap-5 border-t border-ice-200 py-6 md:grid-cols-[320px_1fr_auto] md:gap-8 md:py-8">
+      <Link href={href} className="relative block aspect-[4/3] overflow-hidden rounded-xs md:aspect-[16/11]" aria-hidden="true" tabIndex={-1}>
+        <TourImage src={t.image} alt="" seed={index + 1} className="transition-transform duration-500 group-hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, 320px" />
       </Link>
       <div className="min-w-0">
         <p className="mb-1 text-sm text-ice-600">

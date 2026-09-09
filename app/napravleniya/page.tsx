@@ -9,6 +9,8 @@ export default function Page() {
     <Shell>
       <Breadcrumbs items={[{ name: "Другие направления", href: "/napravleniya/" }]} />
       <section className="wrap pt-6 md:pt-10">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/img/icons/icon-nature.webp" alt="" aria-hidden="true" className="mb-3 h-14 w-14 opacity-90" />
         <h1>Другие направления</h1>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink/80">Наш главный продукт — Байкал. Но раз уж наши земляки чаще всего летят на Камчатку, Алтай, во Владивосток и к морю, мы организуем и эти поездки.</p>
         <div className="mt-10 grid gap-8 md:grid-cols-2">

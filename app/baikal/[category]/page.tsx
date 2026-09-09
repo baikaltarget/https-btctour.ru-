@@ -10,6 +10,15 @@ import JsonLd from "@/components/JsonLd";
 import { categories, getCategory, toursForCategory, tourUrl, SITE } from "@/lib/content";
 import { meta } from "@/lib/seo";
 
+/** Иконки-бейджи для категорий, где мотив однозначно совпадает по смыслу (маршрут / вода / природа). Остальным ничего не навязываем. */
+const CATEGORY_ICONS: Record<string, string> = {
+  individualnye: "/img/icons/icon-route.webp",
+  "iz-moskvy": "/img/icons/icon-route.webp",
+  "iz-spb": "/img/icons/icon-route.webp",
+  kruizy: "/img/icons/icon-water.webp",
+  ekskursii: "/img/icons/icon-nature.webp",
+};
+
 export const dynamicParams = false;
 export function generateStaticParams() { return categories.map((c) => ({ category: c.slug })); }
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
@@ -22,12 +31,17 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   const c = getCategory((await params).category);
   if (!c) notFound();
   const list = toursForCategory(c);
+  const icon = CATEGORY_ICONS[c.slug];
   const itemList = { "@context": "https://schema.org", "@type": "ItemList", name: c.h1, itemListElement: list.map((t, i) => ({ "@type": "ListItem", position: i + 1, url: SITE.domain + tourUrl(t), name: t.title })) };
   return (
     <Shell>
       <JsonLd data={itemList} />
       <Breadcrumbs items={[{ name: "Туры на Байкал", href: "/baikal/" }, { name: c.name, href: `/baikal/${c.slug}/` }]} />
       <section className="wrap pt-6 md:pt-10">
+        {icon && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={icon} alt="" aria-hidden="true" className="mb-3 h-14 w-14 opacity-90" />
+        )}
         <h1>{c.h1}</h1>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink/80">{c.intro}</p>
         {c.seasonNote && <p className="mt-3 max-w-2xl rounded-xs bg-ice-100 px-4 py-3 text-[15px] text-ice-900">{c.seasonNote}</p>}
