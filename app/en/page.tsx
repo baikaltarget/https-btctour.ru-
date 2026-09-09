@@ -16,9 +16,8 @@ export default function Page() {
       <JsonLd data={orgJsonLd()} />
       <section className="relative isolate min-h-[80svh] overflow-hidden bg-ice-800 text-white">
         <Image src={HERO.image} alt="Transparent ice of Lake Baikal at sunrise" fill priority sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ice-900/90 via-ice-900/55 to-ice-900/35" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ice-900/70 via-ice-900/25 to-transparent" aria-hidden="true" />
-        <div className="absolute inset-0 bg-ice-900/15" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ice-900/78 via-ice-900/40 to-ice-900/20" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ice-900/55 via-ice-900/15 to-transparent" aria-hidden="true" />
         <div className="wrap relative flex min-h-[80svh] flex-col justify-end pb-12 pt-24">
           <p className="mb-4 text-sm text-ice-100/85">{EN.hero.eyebrow}</p><h1 className="max-w-3xl text-white">{EN.hero.title}</h1><p className="mt-5 max-w-xl text-lg text-ice-100/90">{EN.hero.subtitle}</p>
           <p className="mt-7"><Link href="/en/baikal/" className="btn-dawn">{EN.hero.cta}</Link></p>
