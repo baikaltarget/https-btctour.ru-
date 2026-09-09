@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ice-50: #F3F8FA;
+  --ice-600: #1F6C7D;
+  --ice-800: #0F3A4A;
+  --dawn: #E9B86C;
+  --ink: #16232A;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-ice-50 text-ink font-sans antialiased; }
+  h1, h2, h3 { @apply font-display text-ice-800; text-wrap: balance; }
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl leading-[1.05] font-semibold; }
+  h2 { @apply text-2xl md:text-4xl leading-tight font-semibold; }
+  h3 { @apply text-xl md:text-2xl leading-snug font-medium; }
+  a { @apply text-ice-600 underline-offset-4; }
+  a:hover { @apply text-ice-800; }
+  :focus-visible { outline: 2px solid var(--dawn); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-wrap px-5 md:px-8; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xs px-5 py-3 text-base font-semibold no-underline transition-colors; }
+  .btn-primary { @apply btn bg-ice-600 text-white hover:bg-ice-800 hover:text-white; }
+  .btn-dawn { @apply btn bg-dawn-400 text-ice-900 hover:bg-dawn-500 hover:text-ice-900; }
+  .btn-ghost { @apply btn border border-ice-200 text-ice-800 hover:border-ice-600; }
+  .prose-site { @apply max-w-prose text-[17px] leading-relaxed; }
+  .prose-site p { @apply mb-4; }
+  .prose-site h2 { @apply mt-10 mb-4; }
+  .prose-site h3 { @apply mt-8 mb-3; }
+  .prose-site ul { @apply mb-4 list-disc pl-6; }
+  .prose-site li { @apply mb-1; }
+  .prose-site a { @apply underline; }
+  /* Блоки, которые заказчик должен заполнить/проверить (dev.showTodos в site.json) */
+  .todo-frame { outline: 2px dashed #D93025; outline-offset: 4px; position: relative; }
+  .todo-frame::before { content: attr(data-todo); position: absolute; top: -12px; left: 8px; background: #D93025; color: #fff; font-size: 11px; line-height: 1; padding: 4px 6px; border-radius: 3px; font-family: 'Manrope Variable', sans-serif; z-index: 5; }
+}
+
+/* Фирменный элемент — линия ледяной трещины (см. components/IceLine.tsx) */
+.ice-line { color: var(--ice-600); opacity: .35; }

@@ -1,0 +1,458 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/winterbaikaltour",
+      "destination": "/baikal/tury/chudesa-baykala/",
+      "permanent": true
+    },
+    {
+      "source": "/icebaikal",
+      "destination": "/baikal/tury/baykalskie-priklyucheniya/",
+      "permanent": true
+    },
+    {
+      "source": "/twoshoresofbaikal",
+      "destination": "/baikal/tury/dva-berega-baykala/",
+      "permanent": true
+    },
+    {
+      "source": "/expresstourwinter",
+      "destination": "/baikal/tury/baykalskiy-led-ekspress/",
+      "permanent": true
+    },
+    {
+      "source": "/wintertourbaikal",
+      "destination": "/baikal/tury/zima-ty-i-baykal/",
+      "permanent": true
+    },
+    {
+      "source": "/wintersauna",
+      "destination": "/baikal/tury/filosofiya-bani-zima/",
+      "permanent": true
+    },
+    {
+      "source": "/helicoptertour",
+      "destination": "/baikal/tury/vertoletnye-ekskursii/",
+      "permanent": true
+    },
+    {
+      "source": "/baikalweekendsummer",
+      "destination": "/baikal/tury/baykalskiy-uikend/",
+      "permanent": true
+    },
+    {
+      "source": "/baikalexpress",
+      "destination": "/baikal/tury/baykalskiy-ekspress/",
+      "permanent": true
+    },
+    {
+      "source": "/summerbaikal2",
+      "destination": "/baikal/tury/letnyaya-klassika/",
+      "permanent": true
+    },
+    {
+      "source": "/summerbaikal1",
+      "destination": "/baikal/tury/letnyaya-perezagruzka/",
+      "permanent": true
+    },
+    {
+      "source": "/summertour3",
+      "destination": "/baikal/tury/vse-o-baykale/",
+      "permanent": true
+    },
+    {
+      "source": "/easternshorebaikal",
+      "destination": "/baikal/tury/vostochnyy-bereg/",
+      "permanent": true
+    },
+    {
+      "source": "/baikalcruise",
+      "destination": "/baikal/tury/kruiz-po-baykalu/",
+      "permanent": true
+    },
+    {
+      "source": "/gastrotour",
+      "destination": "/baikal/tury/vkusovaya-palitra/",
+      "permanent": true
+    },
+    {
+      "source": "/philosophybath",
+      "destination": "/baikal/tury/filosofiya-bani/",
+      "permanent": true
+    },
+    {
+      "source": "/baikwinds",
+      "destination": "/baikal/tury/tropa-baykalskih-vetrov/",
+      "permanent": true
+    },
+    {
+      "source": "/irkutsk",
+      "destination": "/baikal/tury/irkutsk/",
+      "permanent": true
+    },
+    {
+      "source": "/listvyanka",
+      "destination": "/baikal/tury/listvyanka/",
+      "permanent": true
+    },
+    {
+      "source": "/oneday",
+      "destination": "/baikal/tury/teplokhod/",
+      "permanent": true
+    },
+    {
+      "source": "/baikalsk",
+      "destination": "/baikal/tury/baykalsk/",
+      "permanent": true
+    },
+    {
+      "source": "/arshan",
+      "destination": "/baikal/tury/arshan/",
+      "permanent": true
+    },
+    {
+      "source": "/page46680759.html",
+      "destination": "/kamchatka/",
+      "permanent": true
+    },
+    {
+      "source": "/page47312155.html",
+      "destination": "/kamchatka/tury/hity-kamchatki/",
+      "permanent": true
+    },
+    {
+      "source": "/page47312945.html",
+      "destination": "/kamchatka/tury/unikalnoe-na-planete/",
+      "permanent": true
+    },
+    {
+      "source": "/page47323741.html",
+      "destination": "/kamchatka/tury/tvoya-kamchatka/",
+      "permanent": true
+    },
+    {
+      "source": "/page47325453.html",
+      "destination": "/kamchatka/tury/otkroy-dlya-sebya-kamchatku/",
+      "permanent": true
+    },
+    {
+      "source": "/page47385065.html",
+      "destination": "/kamchatka/tury/kray-zemli-kamchatka/",
+      "permanent": true
+    },
+    {
+      "source": "/page47386693.html",
+      "destination": "/kamchatka/tury/vse-samoe-samoe/",
+      "permanent": true
+    },
+    {
+      "source": "/page47674377.html",
+      "destination": "/altay/",
+      "permanent": true
+    },
+    {
+      "source": "/page47632197.html",
+      "destination": "/altay/",
+      "permanent": true
+    },
+    {
+      "source": "/page47653201.html",
+      "destination": "/altay/",
+      "permanent": true
+    },
+    {
+      "source": "/page47654687.html",
+      "destination": "/altay/",
+      "permanent": true
+    },
+    {
+      "source": "/page47400555.html",
+      "destination": "/altay/",
+      "permanent": true
+    },
+    {
+      "source": "/page47749083.html",
+      "destination": "/altay/",
+      "permanent": true
+    },
+    {
+      "source": "/page47750021.html",
+      "destination": "/altay/",
+      "permanent": true
+    },
+    {
+      "source": "/page47752825.html",
+      "destination": "/altay/",
+      "permanent": true
+    },
+    {
+      "source": "/page47748143.html",
+      "destination": "/altay/",
+      "permanent": true
+    },
+    {
+      "source": "/page47750789.html",
+      "destination": "/altay/",
+      "permanent": true
+    },
+    {
+      "source": "/page46679719.html",
+      "destination": "/vladivostok/",
+      "permanent": true
+    },
+    {
+      "source": "/page46683487.html",
+      "destination": "/vladivostok/tury/vkusnyy-vladivostok/",
+      "permanent": true
+    },
+    {
+      "source": "/page46881429.html",
+      "destination": "/vladivostok/tury/sikhote-alinskiy-zapovednik/",
+      "permanent": true
+    },
+    {
+      "source": "/page46900143.html",
+      "destination": "/vladivostok/tury/zapovednoe-primorye/",
+      "permanent": true
+    },
+    {
+      "source": "/page47059767.html",
+      "destination": "/vladivostok/tury/more-hit/",
+      "permanent": true
+    },
+    {
+      "source": "/page47061761.html",
+      "destination": "/vladivostok/tury/znakomstvo-s-vladivostokom/",
+      "permanent": true
+    },
+    {
+      "source": "/page47088327.html",
+      "destination": "/vladivostok/tury/vladivostok-yaponskoe-more/",
+      "permanent": true
+    },
+    {
+      "source": "/page47098945.html",
+      "destination": "/vladivostok/tury/semeynoe-puteshestvie/",
+      "permanent": true
+    },
+    {
+      "source": "/page47198709.html",
+      "destination": "/vladivostok/tury/privet-vladivostok/",
+      "permanent": true
+    },
+    {
+      "source": "/page47199525.html",
+      "destination": "/vladivostok/tury/otpusk-v-telnyashke/",
+      "permanent": true
+    },
+    {
+      "source": "/page47200619.html",
+      "destination": "/vladivostok/tury/otkroy-vladivostok/",
+      "permanent": true
+    },
+    {
+      "source": "/page47206211.html",
+      "destination": "/vladivostok/tury/morskoy-zapovednik/",
+      "permanent": true
+    },
+    {
+      "source": "/page46680405.html",
+      "destination": "/krasnodarskiy-kray/",
+      "permanent": true
+    },
+    {
+      "source": "/page47826385.html",
+      "destination": "/krasnodarskiy-kray/tury/lavandovyy-uikend/",
+      "permanent": true
+    },
+    {
+      "source": "/page47829031.html",
+      "destination": "/krasnodarskiy-kray/tury/vino-i-lotosy/",
+      "permanent": true
+    },
+    {
+      "source": "/page47830579.html",
+      "destination": "/krasnodarskiy-kray/tury/prazdnik-sbora-urozhaya/",
+      "permanent": true
+    },
+    {
+      "source": "/page47833119.html",
+      "destination": "/krasnodarskiy-kray/tury/po-sochi-s-aborigenom/",
+      "permanent": true
+    },
+    {
+      "source": "/tourstobaikal",
+      "destination": "/baikal/",
+      "permanent": true
+    },
+    {
+      "source": "/page46682463.html",
+      "destination": "/baikal/",
+      "permanent": true
+    },
+    {
+      "source": "/excursions",
+      "destination": "/baikal/ekskursii/",
+      "permanent": true
+    },
+    {
+      "source": "/aboutus",
+      "destination": "/o-kompanii/",
+      "permanent": true
+    },
+    {
+      "source": "/page52994587.html",
+      "destination": "/o-kompanii/",
+      "permanent": true
+    },
+    {
+      "source": "/agents",
+      "destination": "/agentam/",
+      "permanent": true
+    },
+    {
+      "source": "/persdata",
+      "destination": "/politika/",
+      "permanent": true
+    },
+    {
+      "source": "/yandexpay",
+      "destination": "/oplata/",
+      "permanent": true
+    },
+    {
+      "source": "/yandexsplit",
+      "destination": "/oplata/",
+      "permanent": true
+    },
+    {
+      "source": "/travelingtheworld",
+      "destination": "/world/",
+      "permanent": true
+    },
+    {
+      "source": "/whattoseeonbaikal",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/page53033401.html",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/onbaikal",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/inirkutsk",
+      "destination": "/blog/chto-posmotret-v-irkutske/",
+      "permanent": true
+    },
+    {
+      "source": "/inlistvyanka",
+      "destination": "/baikal/listvyanka/",
+      "permanent": true
+    },
+    {
+      "source": "/inbuguldeika",
+      "destination": "/baikal/olkhon/",
+      "permanent": true
+    },
+    {
+      "source": "/inthebigbare",
+      "destination": "/baikal/",
+      "permanent": true
+    },
+    {
+      "source": "/onsmallsea",
+      "destination": "/baikal/olkhon/",
+      "permanent": true
+    },
+    {
+      "source": "/letoffsteam",
+      "destination": "/baikal/tury/filosofiya-bani/",
+      "permanent": true
+    },
+    {
+      "source": "/wintertourtobaikal",
+      "destination": "/baikal/zimnie/",
+      "permanent": true
+    },
+    {
+      "source": "/activewintertour",
+      "destination": "/baikal/tury/zima-ty-i-baykal/",
+      "permanent": true
+    },
+    {
+      "source": "/whitebird",
+      "destination": "/baikal/",
+      "permanent": true
+    },
+    {
+      "source": "/info",
+      "destination": "/kontakty/",
+      "permanent": true
+    },
+    {
+      "source": "/registr",
+      "destination": "/kontakty/",
+      "permanent": true
+    },
+    {
+      "source": "/registr2",
+      "destination": "/kontakty/",
+      "permanent": true
+    },
+    {
+      "source": "/page46618897.html",
+      "destination": "/altay/",
+      "permanent": true
+    },
+    {
+      "source": "/page46681135.html",
+      "destination": "/napravleniya/",
+      "permanent": true
+    },
+    {
+      "source": "/volcano",
+      "destination": "/kamchatka/",
+      "permanent": true
+    },
+    {
+      "source": "/page47887863.html",
+      "destination": "/krasnodarskiy-kray/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}
