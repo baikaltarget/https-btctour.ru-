@@ -11,16 +11,40 @@
     "h2winter": "Winter tours on Lake Baikal, 2027",
     "h2summer": "Summer on Baikal",
     "trust": [
-      { "title": "Tour operator, not an agency", "text": "Listed in the Russian federal tour operator registry. We design every itinerary and run every day of it ourselves." },
-      { "title": "Based in Irkutsk", "text": "We know where the ice is clearest and the road shortest. We meet you personally at the airport." },
-      { "title": "Groups of up to 8", "text": "One guide, one minibus, one hovercraft. No 50-seat coaches." },
-      { "title": "English-speaking guides", "text": "Guides and drivers who speak English are booked for international groups on request." }
+      {
+        "title": "Tour operator, not an agency",
+        "text": "Listed in the Russian federal tour operator registry. We design every itinerary and run every day of it ourselves."
+      },
+      {
+        "title": "Based in Irkutsk",
+        "text": "We know where the ice is clearest and the road shortest. We meet you personally at the airport."
+      },
+      {
+        "title": "Groups of up to 8",
+        "text": "One guide, one minibus, one hovercraft. No 50-seat coaches."
+      },
+      {
+        "title": "English-speaking guides",
+        "text": "Guides and drivers who speak English are booked for international groups on request."
+      }
     ],
     "faq": [
-      { "q": "When is the best time to see the ice?", "a": "From mid-February to mid-March. The ice is 60–100 cm thick, wind clears the snow and you can see the bottom in shallow bays." },
-      { "q": "How do I get to Irkutsk?", "a": "Direct flights from Moscow (6 h) and St Petersburg (6.5 h); connections via Moscow from most international hubs. Tours start with a pick-up at Irkutsk airport." },
-      { "q": "Is the ice safe?", "a": "We only travel on checked ice roads using hovercraft and 4x4 vehicles with licensed drivers. If a section is unreliable, the route changes — this is written into every itinerary." },
-      { "q": "Do you need a visa?", "a": "Most visitors need a Russian visa or an e-visa (available for 60+ countries). We provide the tour confirmation needed for the application." }
+      {
+        "q": "When is the best time to see the ice?",
+        "a": "From mid-February to mid-March. The ice is 60–100 cm thick, wind clears the snow and you can see the bottom in shallow bays."
+      },
+      {
+        "q": "How do I get to Irkutsk?",
+        "a": "Direct flights from Moscow (6 h) and St Petersburg (6.5 h); connections via Moscow from most international hubs. Tours start with a pick-up at Irkutsk airport."
+      },
+      {
+        "q": "Is the ice safe?",
+        "a": "We only travel on checked ice roads using hovercraft and 4x4 vehicles with licensed drivers. If a section is unreliable, the route changes — this is written into every itinerary."
+      },
+      {
+        "q": "Do you need a visa?",
+        "a": "Most visitors need a Russian visa or an e-visa (available for 60+ countries). We provide the tour confirmation needed for the application."
+      }
     ]
   },
   "baikal": {
@@ -34,24 +58,828 @@
     "h1": "Contacts",
     "lead": "We reply in English on Telegram and by email within a few hours (Irkutsk is UTC+8)."
   },
-  "labels": { "from": "from", "perPerson": "per person", "perGroup": "per group", "perDay": "per day", "days": "days", "nights": "nights", "next": "Next departure", "seats": "seats left", "book": "Book this tour", "ask": "Ask on Telegram", "programme": "Day by day", "dates": "Departure dates", "included": "Included", "excluded": "Not included", "onRequest": "Dates on request", "related": "Similar tours", "highlights": "Highlights", "allWinter": "All winter tours" },
+  "labels": {
+    "from": "from",
+    "perPerson": "per person",
+    "perGroup": "per group",
+    "perDay": "per day",
+    "days": "days",
+    "nights": "nights",
+    "next": "Next departure",
+    "seats": "seats left",
+    "book": "Book this tour",
+    "ask": "Ask on Telegram",
+    "programme": "Day by day",
+    "dates": "Departure dates",
+    "included": "Included",
+    "excluded": "Not included",
+    "onRequest": "Dates on request",
+    "related": "Similar tours",
+    "highlights": "Highlights",
+    "allWinter": "All winter tours",
+    "seatsOpen": "Booking open",
+    "seatsFew": "Few seats left",
+    "seatsFull": "Group is full"
+  },
   "tours": {
-    "chudesa-baykala": { "title": "Wonders of Baikal", "tagline": "Winter tour into the land of crystal ice", "summary": "Five days for those who want action and ice sculptures up close: Listvyanka with dog sledding, an ice safari by hovercraft to Olkhon, Cape Khoboy by 4x4, Ogoy Island and a Buryat yurt lunch.", "highlights": ["Hovercraft from Listvyanka to Olkhon via Peschanaya Bay and a natural ice rink", "Cape Khoboy with fish soup cooked over a fire", "Ogoy Island and ice splashes", "Banya with a plunge pool on Olkhon"], "program": [["Irkutsk — Listvyanka", "Airport pick-up. Taltsy open-air museum, dog sledding, cable car to Chersky Stone, Baikal Museum, fish market. Night in Listvyanka."], ["Ice safari to Olkhon", "A full day on the ice by hovercraft: Peschanaya Bay, natural rink, methane bubbles. Evening arrival in Khuzhir."], ["Cape Khoboy", "4x4 to the island's northern tip through sacred sites. Fish soup by the fire. Banya in the evening."], ["Ogoy Island — Irkutsk", "Hovercraft across mirror ice to Ogoy, ice grottoes. Lunch in a Buryat yurt. Hotel in Irkutsk."], ["Departure", "Breakfast and airport transfer."]], "included": ["Guide throughout", "4 breakfasts", "3–4* hotels", "All transfers, hovercraft and 4x4", "Entrance tickets and national park fees"], "excluded": ["Flights to Irkutsk", "Lunches and dinners", "Personal expenses"] },
-    "baykalskie-priklyucheniya": { "title": "Baikal Adventures", "tagline": "New Year holidays and January ice on Olkhon", "summary": "Comfort and culture: Golden Horde ethno-park with a Buryat lunch, eco-hotel on Olkhon, Ogoy by hovercraft, Khoboy by 4x4 and an Irkutsk city tour to finish. First departures fall on the New Year holidays.", "highlights": ["Departures from 4 January — the earliest on the ice", "Fire purification ritual at the Golden Horde", "BaikalWood eco-hotel or similar", "Russian banya with oak brooms"], "program": [["Irkutsk — Listvyanka", "Pick-up, Taltsy, dog sledding, cable car, Baikal Museum. Night in Irkutsk."], ["Olkhon", "Golden Horde ethno-park, ice road to the island, eco-hotel, banya."], ["Ogoy Island", "Three hours by hovercraft: splashes, ice grottoes. Walk around Khuzhir."], ["Cape Khoboy — Irkutsk", "4x4 to the north, fish soup, return to Irkutsk."], ["Irkutsk and departure", "City walk: wooden architecture, churches. Transfer."]], "included": ["Guide", "Breakfasts", "3–4* hotels", "Transfers, hovercraft, 4x4", "Tickets and park fees"], "excluded": ["Flights to Irkutsk", "Lunches and dinners", "Personal expenses"] },
-    "dva-berega-baykala": { "title": "Two Shores of Baikal", "tagline": "Irkutsk ice and Buryat hot springs in one trip", "summary": "Seven days and both shores: Olkhon's ice hummocks in the west, Svyatoy Nos, Chivyrkuy Bay and hot springs in the east, ending at Ivolginsky Datsan near Ulan-Ude. We cross the lake on ice by hovercraft.", "highlights": ["Crossing Baikal on ice from Olkhon to Barguzin Bay", "Ice cave on Goly Island", "Thermal springs at Zmeinaya Bay and Goryachinsk", "Dog and reindeer sledding, snowmobiles"], "program": [["Irkutsk — Listvyanka", "Taltsy, cable car, snowmobiles, Baikal Museum."], ["Hovercraft to Olkhon", "Hummocks, stilt trees of Peschanaya Bay, bubbles of Aya Bay, grottoes of Kobylya Golova."], ["Cape Khoboy", "4x4 to the north, fish soup by the fire."], ["Ogoy Island", "Hovercraft to the Enlightenment Stupa."], ["Across the lake to Ust-Barguzin", "Svyatoy Nos, Chivyrkuy Bay, ice cave, hot springs of Zmeinaya Bay."], ["Ulan-Ude", "Dog and reindeer sledding, Goryachinsk springs, Ivolginsky Datsan. Night in Ulan-Ude."], ["Departure", "Transfer to Ulan-Ude airport."]], "included": ["Guide", "Daily breakfasts", "3–4* hotels", "All transfers and hovercraft", "Park fees and tickets", "Snowmobiles and sledding"], "excluded": ["Flights to Irkutsk / from Ulan-Ude", "Lunches and dinners", "Personal expenses"] },
-    "baykalskiy-led-ekspress": { "title": "Baikal Ice Express", "tagline": "Three days: ice, bubbles and the wind of freedom", "summary": "The main wonder of winter Baikal without the long road to Olkhon: a night in Listvyanka and a hovercraft ice safari to the Olkhon Gates — bubbles, hummocks, grottoes. Perfect for a long weekend.", "highlights": ["Only 3 days", "Ice safari to the Olkhon Gates", "Taltsy, Chersky Stone, Limnological Museum", "Evening in Irkutsk's 130th Quarter"], "program": [["Listvyanka", "Airport pick-up, Taltsy, cable car, museum, lakeside walk. Night in Listvyanka."], ["Ice safari", "Hovercraft to the Olkhon Gates and back: bubbles, hummocks, grottoes. Hot snack on the ice. Evening in Irkutsk."], ["Departure", "Breakfast, transfer."]], "included": ["Airport pick-up", "All transfers", "3–4* hotels in Listvyanka and Irkutsk", "2 breakfasts", "Guide", "Tickets", "Ice safari with snack"], "excluded": ["Flights to Irkutsk", "Lunches and dinners", "Personal expenses"] },
-    "zima-ty-i-baykal": { "title": "Winter, You and Baikal", "tagline": "Nine days, 4* hotels, ice fishing and snowmobiles — all inclusive", "summary": "Our longest and richest winter tour: hovercraft along the Circum-Baikal Railway, snowmobiles by the Snezhnaya River, Mount Mamay, the Seredina ice station, Olkhon with ice fishing. 4* hotels, lunches and dinners included.", "highlights": ["6 lunches and 8 dinners included", "Ice fishing for omul with fish soup and sagudai", "Seredina ice station with historical re-enactment", "Skating on the world's largest rink"], "program": [["Irkutsk", "City tour, 4* hotel, dinner."], ["Hovercraft along the Circum-Baikal Railway", "Tunnels and viaducts from the ice, picnic. Night in Vydrino."], ["Snowmobiles and Mamay", "Taiga ride, Mount Mamay, yurt lunch, banya."], ["Seredina station", "Hovercraft to the ice station, re-enactment, lunch. 4* hotel in Listvyanka."], ["To Olkhon on ice", "Stilt trees, skating, 5–6 h by hovercraft."], ["South Olkhon", "4x4: bubbles, grottoes, icicles. Herbal tea and fish soup."], ["Ice fishing", "Omul fishing with locals, cook your catch."], ["Olkhon — Irkutsk", "Golden Horde lunch with folk show, 4* hotel."], ["Departure", "Transfer."]], "included": ["3–4* hotels every night", "8 breakfasts, 8 lunches, 8 dinners", "All transfers, hovercraft, snowmobiles, 4x4", "All tickets", "Guide"], "excluded": ["Flights to Irkutsk", "Medical insurance", "Personal expenses"] },
-    "filosofiya-bani-zima": { "title": "Philosophy of Banya: Winter", "tagline": "Steam, ice and Olkhon — six days of reset", "summary": "Winter banya tour: VIP steaming in Irkutsk, lakeside banya in Listvyanka, hovercraft to Olkhon, taiga steaming with pine scrub after Cape Khoboy, barbecue and a wine evening.", "highlights": ["Three different banyas", "Pine scrub and cedar balm massage", "Lunches and some dinners included", "Group of up to 6"], "program": [["Irkutsk", "City tour, riverside hotel, VIP banya with a banya master."], ["Listvyanka", "Taltsy, cable car, museum. Lakeside banya Tyulenitsa."], ["Olkhon", "Hovercraft on ice, BaikalWood hotel, barbecue."], ["Khoboy and taiga banya", "4x4 to Khoboy, fish soup. Evening steaming with juniper and fir oils."], ["South Olkhon and wine", "Shamanka, Heart Lake, Kobylya Golova. Russian wine tasting."], ["Departure", "Return to Irkutsk, transfer."]], "included": ["Hotels: 3 nights Irkutsk/Listvyanka, 3 nights Olkhon", "5 breakfasts, 6 lunches, 3 dinners", "All banya and spa", "Transfers, hovercraft, 4x4", "Guide, tickets"], "excluded": ["Flights to Irkutsk", "Personal expenses"] },
-    "vertoletnye-ekskursii": { "title": "Helicopter Flights over Baikal", "tagline": "Eight routes from Irkutsk, private helicopter for up to 5", "summary": "Flights over the Angara source and Shaman Rock, along the Circum-Baikal tunnels, to Peschanaya Bay, Chersky Peak, Mount Mamay, Sobolinoye Lake and Olkhon Island. Landings for picnics, fishing and swimming. Prices per helicopter.", "highlights": ["Robinson R-44, Bell 206 B, Bell 206 Long", "Low pass over Shaman Rock", "Landing at Polovinnaya station on the Circum-Baikal Railway", "Three hours to Cape Khoboy"], "program": [], "included": ["Helicopter charter with pilot"], "excluded": ["Picnics on landings (on request)", "Personal expenses"] },
-    "baykalskiy-uikend": { "title": "Baikal Weekend", "tagline": "Irkutsk, Listvyanka and the Circum-Baikal Railway from the water in three days", "summary": "Our shortest summer tour: Irkutsk city walk, Taltsy, cable car and a three-hour boat trip along the Circum-Baikal Railway tunnels and viaducts.", "highlights": ["Boat along the Circum-Baikal Railway", "Central Irkutsk hotel", "Early check-in on arrival day", "Most affordable tour of the season"], "program": [["Irkutsk", "Pick-up, early check-in, 3–4 h city walk."], ["Listvyanka and the railway", "Taltsy, cable car, lakeside lunch, boat along the tunnels."], ["Departure", "Breakfast, transfer."]], "included": ["Pick-up and transfers", "3*+ hotel, 2 nights", "2 breakfasts", "Guide", "Tickets", "Boat"], "excluded": ["Flights to Irkutsk", "Lunches and dinners", "Personal expenses"] },
-    "baykalskiy-ekspress": { "title": "Baikal Express", "tagline": "Olkhon only: Khoboy, Ogoy and sunset at Shamanka in 4 days", "summary": "Straight to Olkhon with no long detours: two nights in Khuzhir, Cape Khoboy by 4x4 with fish soup, Ogoy Island by boat with lunch. Postcard Baikal in four days.", "highlights": ["Sunset at Cape Burkhan on day one", "Khoboy: the widest point of Baikal, 79.5 km", "Two lunches included", "Children from 6"], "program": [["To Olkhon", "Pick-up, 4–5 h with ferry, Khuzhir, sunset at Shaman Rock."], ["Cape Khoboy", "4x4 to the north, 360° views, fish soup."], ["Ogoy Island — Irkutsk", "Boat to the stupa, lunch, transfer to Irkutsk."], ["Departure", "Transfer."]], "included": ["Airport pick-up", "Transfers", "2 nights on Olkhon, 1 in Irkutsk", "3 breakfasts, 2 lunches", "4x4 and boat", "Guide, park fees"], "excluded": ["Flights to Irkutsk", "1 lunch and dinners", "Personal expenses"] },
-    "letnyaya-klassika": { "title": "Summer Classic of Baikal", "tagline": "Irkutsk, Listvyanka, Baikalsk and Olkhon in six days", "summary": "The full first introduction: Irkutsk city tour, Listvyanka with a boat along the railway, Baikalsk with the Vysota 900 chairlift and warm lakes, Golden Horde and Buguldeyka marble quarry on the way to Olkhon, Cape Khoboy with a swim.", "highlights": ["10 guaranteed departures May–September", "Warm lakes near Baikalsk", "Buguldeyka marble quarry", "Swim in Peschanaya Bay"], "program": [["Irkutsk", "Pick-up, city tour."], ["Listvyanka", "Taltsy, museum, cable car, Great Baikal Trail, boat."], ["Baikalsk", "Mineral museum, chairlift lunch with a view, warm lakes."], ["Olkhon", "Golden Horde, marble quarry, ferry, Khuzhir."], ["Cape Khoboy", "4x4 north, swim, fish soup."], ["Departure", "Transfer to Irkutsk, flights after 15:00."]], "included": ["All transfers", "3–4* hotels", "Breakfasts", "All tickets and park fees", "Guide"], "excluded": ["Flights to Irkutsk", "Lunches and dinners", "Personal expenses"] },
-    "letnyaya-perezagruzka": { "title": "Summer Reset on Baikal", "tagline": "Circum-Baikal Railway by train, Irkutsk, Olkhon and Ogoy in seven days", "summary": "A week without rush: a full day on the excursion train along the Circum-Baikal Railway, a day for Irkutsk, three days on Olkhon with Khoboy and Ogoy, a datsan on the way back.", "highlights": ["Train Slyudyanka — Port Baikal with lunch", "Marble station of Slyudyanka", "Ust-Orda datsan ritual", "9 departures June–September"], "program": [["Arrival", "Pick-up, hotel."], ["Railway by train", "Viaducts, tunnels, lunch on board, ferry to Listvyanka."], ["Irkutsk", "City tour."], ["Olkhon", "Golden Horde, ferry, Khuzhir."], ["Cape Khoboy", "4x4, fish soup."], ["Ogoy — Irkutsk", "Boat to the stupa, yurt lunch, datsan."], ["Departure", "Transfer."]], "included": ["Transfers and train", "3–4* hotels", "Breakfasts", "Tickets and park fees", "Guide"], "excluded": ["Flights to Irkutsk", "Lunches and dinners", "Personal expenses"] },
-    "vse-o-baykale": { "title": "All About Baikal", "tagline": "Listvyanka, boat to Olkhon, Ogoy and Khoboy in five days", "summary": "Five days through the highlights: Irkutsk, Listvyanka with Taltsy and the museum, a boat crossing from Listvyanka to Olkhon, Ogoy Island, Cape Khorgoy, Khoboy and the Sagan-Khushun cliffs.", "highlights": ["Boat Listvyanka — Olkhon", "Three Brothers cliffs", "Cape Khorgoy with an ancient wall", "Yurt lunch on the way back"], "program": [["Irkutsk", "City tour."], ["Listvyanka", "Taltsy, cable car, museum."], ["Boat to Olkhon", "Crossing, Ogoy, Khorgoy."], ["Cape Khoboy", "Northern tip, Sagan-Khushun."], ["Departure", "Yurt lunch, transfer."]], "included": ["Transfers and boat", "Breakfasts", "Tickets", "Guide"], "excluded": ["Flights to Irkutsk", "Lunches and dinners", "Personal expenses"] },
-    "vostochnyy-bereg": { "title": "Eastern Shore of Baikal", "tagline": "Buryatia: Svyatoy Nos, hot springs and Ivolginsky Datsan", "summary": "The lesser-known side of Baikal: park hotel in Goryachinsk, sacred Barguzin Valley, speedboat across Chivyrkuy Bay to Zmeinaya hot springs, seal aquarium, lakeside banya, datsan and Ulan-Ude. Starts in Ulan-Ude.", "highlights": ["Starts and ends in Ulan-Ude", "Boat to Svyatoy Nos", "Thermal springs", "Ivolginsky Datsan"], "program": [["Goryachinsk", "Pick-up in Ulan-Ude, park hotel."], ["Barguzin Valley", "Sacred sites."], ["Chivyrkuy Bay", "Boat, springs, seals, banya."], ["Ulan-Ude", "Datsan, city tour."], ["Departure", "Transfer."]], "included": ["Guide", "4 breakfasts", "Transfers and boat", "Hotels", "Park fees"], "excluded": ["Flights to Ulan-Ude", "Lunches and dinners", "Insurance", "Personal expenses"] },
-    "kruiz-po-baykalu": { "title": "Baikal Cruise: 8 Days", "tagline": "Private boat, crew, full board — from Listvyanka to Severobaikalsk", "summary": "Circum-Baikal Railway, Ushkany Islands with seals, Zmeinaya hot springs, Sosnovka Bay, Frolikha Lake hike, Khakusy, Severobaikalsk lodge, Kotelnikovsky thermal pool and Peschanaya Bay. Stops adapt to your group. Price per day for the whole boat.", "highlights": ["Baikal seals on the Ushkany Islands", "Thermal springs", "8 km hike to Frolikha Lake", "Lodge hotel with spa"], "program": [["Cape Polovinny", "Tunnels of the railway."], ["Ushkany Islands", "Seal rookeries."], ["Zmeinaya Bay", "Hot springs."], ["Sosnovka Bay", "Nature reserve, dunes."], ["Ayaya Bay and Frolikha", "Hike, fishing."], ["Severobaikalsk", "Lodge, spa."], ["Cape Kotelnikovsky", "Thermal pool, waterfalls."], ["Peschanaya Bay", "White sand, return to Listvyanka."]], "included": ["Boat with crew", "Guide", "Full board", "Lodge night", "First aid"], "excluded": ["Flights to Irkutsk", "Insurance", "Personal expenses"] },
-    "vkusovaya-palitra": { "title": "Gastro Tour: Palette of Taste", "tagline": "Irkutsk restaurants, wine dinners and hand-made buuzy on Olkhon", "summary": "All meals included: sparkling breakfast in a panoramic restaurant, venison lunch in a noble mansion, Siberian cuisine in Listvyanka, boat to Olkhon with cedar liqueurs, wine dinner, buuzy masterclass, fireside barbecue and a Golden Horde tasting.", "highlights": ["All meals included", "Boutique hotels", "Hydrofoil to Olkhon", "Wood-fired banya"], "program": [["Irkutsk", "Sparkling breakfast, mansion lunch."], ["Listvyanka", "Icebreaker Angara, lunch with a view."], ["Boat to Olkhon", "Liqueur tasting, wine dinner with a sommelier."], ["Khoboy and buuzy", "4x4, campfire lunch, masterclass, banya."], ["Ogoy and barbecue", "Boat, fireside barbecue."], ["Golden Horde — Irkutsk", "Tasting of Buryat cuisine."], ["Departure", "Transfer."]], "included": ["Boutique hotels", "All meals", "Boat, 4x4, transfers", "Masterclasses and tastings", "Guide, tickets", "Banya"], "excluded": ["Flights to Irkutsk", "Personal expenses"] },
-    "filosofiya-bani": { "title": "Philosophy of Banya: Summer", "tagline": "Steam, swim and Olkhon", "summary": "Summer banya tour: VIP steaming in Irkutsk, lakeside banya with a swim in Baikal, boat to Olkhon, taiga steaming after Khoboy, the south of the island and a wine evening.", "highlights": ["Swim in Baikal after the steam", "Three different banyas", "Lunches and some dinners included", "Group of up to 6"], "program": [["Irkutsk", "City tour, VIP banya."], ["Listvyanka", "Taltsy, museum, lakeside banya."], ["Olkhon", "Boat, BaikalWood, barbecue."], ["Khoboy and taiga banya", "4x4, fish soup, pine steaming."], ["South Olkhon", "Shamanka, Heart Lake, beach, wine evening."], ["Departure", "Transfer."]], "included": ["Hotels 6 nights", "5 breakfasts, 6 lunches, 3 dinners", "All banya and spa", "Transfers, boat, 4x4", "Guide, tickets"], "excluded": ["Flights to Irkutsk", "Personal expenses"] },
-    "tropa-baykalskih-vetrov": { "title": "Trail of Baikal Winds", "tagline": "Active summer: Great Baikal Trail, quad bikes, SUPs and Olkhon", "summary": "Eight days of movement: 25 km on the Great Baikal Trail, quad bikes through the taiga, boat to Olkhon, stargazing with an astronomer, kayaks or SUPs on the Small Sea, Khoboy and a herbal banya.", "highlights": ["Great Baikal Trail Listvyanka — Bolshie Koty", "Quad bikes with a forest picnic", "SUPs and kayaks on Olkhon", "Stargazing with a guide"], "program": [["Irkutsk and Listvyanka", "City tour, Taltsy, cable car."], ["Great Baikal Trail", "25 km hike, boat back."], ["Quad bikes", "Forest roads, picnic."], ["Olkhon and stars", "Boat, astronomy tour."], ["SUPs and kayaks", "Small Sea."], ["Khoboy and banya", "4x4, fish soup, herbal banya."], ["Golden Horde — Irkutsk", "Folk show, Buryat lunch."], ["Departure", "Transfer."]], "included": ["Guide", "Breakfasts and some lunches", "Transfers, boat, quads, SUPs", "3–4* hotels", "Park fees"], "excluded": ["Flights to Irkutsk", "3 lunches and dinners", "Insurance", "Personal expenses"] }
+    "chudesa-baykala": {
+      "title": "Wonders of Baikal",
+      "tagline": "Winter tour into the land of crystal ice",
+      "summary": "Five days for those who want action and ice sculptures up close: Listvyanka with dog sledding, an ice safari by hovercraft to Olkhon, Cape Khoboy by 4x4, Ogoy Island and a Buryat yurt lunch.",
+      "highlights": [
+        "Hovercraft from Listvyanka to Olkhon via Peschanaya Bay and a natural ice rink",
+        "Cape Khoboy with fish soup cooked over a fire",
+        "Ogoy Island and ice splashes",
+        "Banya with a plunge pool on Olkhon"
+      ],
+      "program": [
+        [
+          "Irkutsk — Listvyanka",
+          "Airport pick-up. Taltsy open-air museum, dog sledding, cable car to Chersky Stone, Baikal Museum, fish market. Night in Listvyanka."
+        ],
+        [
+          "Ice safari to Olkhon",
+          "A full day on the ice by hovercraft: Peschanaya Bay, natural rink, methane bubbles. Evening arrival in Khuzhir."
+        ],
+        [
+          "Cape Khoboy",
+          "4x4 to the island's northern tip through sacred sites. Fish soup by the fire. Banya in the evening."
+        ],
+        [
+          "Ogoy Island — Irkutsk",
+          "Hovercraft across mirror ice to Ogoy, ice grottoes. Lunch in a Buryat yurt. Hotel in Irkutsk."
+        ],
+        [
+          "Departure",
+          "Breakfast and airport transfer."
+        ]
+      ],
+      "included": [
+        "Guide throughout",
+        "4 breakfasts",
+        "3–4* hotels",
+        "All transfers, hovercraft and 4x4",
+        "Entrance tickets and national park fees"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Lunches and dinners",
+        "Personal expenses"
+      ]
+    },
+    "baykalskie-priklyucheniya": {
+      "title": "Baikal Adventures",
+      "tagline": "New Year holidays and January ice on Olkhon",
+      "summary": "Comfort and culture: Golden Horde ethno-park with a Buryat lunch, eco-hotel on Olkhon, Ogoy by hovercraft, Khoboy by 4x4 and an Irkutsk city tour to finish. First departures fall on the New Year holidays.",
+      "highlights": [
+        "Departures from 4 January — the earliest on the ice",
+        "Fire purification ritual at the Golden Horde",
+        "BaikalWood eco-hotel or similar",
+        "Russian banya with oak brooms"
+      ],
+      "program": [
+        [
+          "Irkutsk — Listvyanka",
+          "Pick-up, Taltsy, dog sledding, cable car, Baikal Museum. Night in Irkutsk."
+        ],
+        [
+          "Olkhon",
+          "Golden Horde ethno-park, ice road to the island, eco-hotel, banya."
+        ],
+        [
+          "Ogoy Island",
+          "Three hours by hovercraft: splashes, ice grottoes. Walk around Khuzhir."
+        ],
+        [
+          "Cape Khoboy — Irkutsk",
+          "4x4 to the north, fish soup, return to Irkutsk."
+        ],
+        [
+          "Irkutsk and departure",
+          "City walk: wooden architecture, churches. Transfer."
+        ]
+      ],
+      "included": [
+        "Guide",
+        "Breakfasts",
+        "3–4* hotels",
+        "Transfers, hovercraft, 4x4",
+        "Tickets and park fees"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Lunches and dinners",
+        "Personal expenses"
+      ]
+    },
+    "dva-berega-baykala": {
+      "title": "Two Shores of Baikal",
+      "tagline": "Irkutsk ice and Buryat hot springs in one trip",
+      "summary": "Seven days and both shores: Olkhon's ice hummocks in the west, Svyatoy Nos, Chivyrkuy Bay and hot springs in the east, ending at Ivolginsky Datsan near Ulan-Ude. We cross the lake on ice by hovercraft.",
+      "highlights": [
+        "Crossing Baikal on ice from Olkhon to Barguzin Bay",
+        "Ice cave on Goly Island",
+        "Thermal springs at Zmeinaya Bay and Goryachinsk",
+        "Dog and reindeer sledding, snowmobiles"
+      ],
+      "program": [
+        [
+          "Irkutsk — Listvyanka",
+          "Taltsy, cable car, snowmobiles, Baikal Museum."
+        ],
+        [
+          "Hovercraft to Olkhon",
+          "Hummocks, stilt trees of Peschanaya Bay, bubbles of Aya Bay, grottoes of Kobylya Golova."
+        ],
+        [
+          "Cape Khoboy",
+          "4x4 to the north, fish soup by the fire."
+        ],
+        [
+          "Ogoy Island",
+          "Hovercraft to the Enlightenment Stupa."
+        ],
+        [
+          "Across the lake to Ust-Barguzin",
+          "Svyatoy Nos, Chivyrkuy Bay, ice cave, hot springs of Zmeinaya Bay."
+        ],
+        [
+          "Ulan-Ude",
+          "Dog and reindeer sledding, Goryachinsk springs, Ivolginsky Datsan. Night in Ulan-Ude."
+        ],
+        [
+          "Departure",
+          "Transfer to Ulan-Ude airport."
+        ]
+      ],
+      "included": [
+        "Guide",
+        "Daily breakfasts",
+        "3–4* hotels",
+        "All transfers and hovercraft",
+        "Park fees and tickets",
+        "Snowmobiles and sledding"
+      ],
+      "excluded": [
+        "Flights to Irkutsk / from Ulan-Ude",
+        "Lunches and dinners",
+        "Personal expenses"
+      ]
+    },
+    "baykalskiy-led-ekspress": {
+      "title": "Baikal Ice Express",
+      "tagline": "Three days: ice, bubbles and the wind of freedom",
+      "summary": "The main wonder of winter Baikal without the long road to Olkhon: a night in Listvyanka and a hovercraft ice safari to the Olkhon Gates — bubbles, hummocks, grottoes. Perfect for a long weekend.",
+      "highlights": [
+        "Only 3 days",
+        "Ice safari to the Olkhon Gates",
+        "Taltsy, Chersky Stone, Limnological Museum",
+        "Evening in Irkutsk's 130th Quarter"
+      ],
+      "program": [
+        [
+          "Listvyanka",
+          "Airport pick-up, Taltsy, cable car, museum, lakeside walk. Night in Listvyanka."
+        ],
+        [
+          "Ice safari",
+          "Hovercraft to the Olkhon Gates and back: bubbles, hummocks, grottoes. Hot snack on the ice. Evening in Irkutsk."
+        ],
+        [
+          "Departure",
+          "Breakfast, transfer."
+        ]
+      ],
+      "included": [
+        "Airport pick-up",
+        "All transfers",
+        "3–4* hotels in Listvyanka and Irkutsk",
+        "2 breakfasts",
+        "Guide",
+        "Tickets",
+        "Ice safari with snack"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Lunches and dinners",
+        "Personal expenses"
+      ]
+    },
+    "zima-ty-i-baykal": {
+      "title": "Winter, You and Baikal",
+      "tagline": "Nine days, 4* hotels, ice fishing and snowmobiles — all inclusive",
+      "summary": "Our longest and richest winter tour: hovercraft along the Circum-Baikal Railway, snowmobiles by the Snezhnaya River, Mount Mamay, the Seredina ice station, Olkhon with ice fishing. 4* hotels, lunches and dinners included.",
+      "highlights": [
+        "6 lunches and 8 dinners included",
+        "Ice fishing for omul with fish soup and sagudai",
+        "Seredina ice station with historical re-enactment",
+        "Skating on the world's largest rink"
+      ],
+      "program": [
+        [
+          "Irkutsk",
+          "City tour, 4* hotel, dinner."
+        ],
+        [
+          "Hovercraft along the Circum-Baikal Railway",
+          "Tunnels and viaducts from the ice, picnic. Night in Vydrino."
+        ],
+        [
+          "Snowmobiles and Mamay",
+          "Taiga ride, Mount Mamay, yurt lunch, banya."
+        ],
+        [
+          "Seredina station",
+          "Hovercraft to the ice station, re-enactment, lunch. 4* hotel in Listvyanka."
+        ],
+        [
+          "To Olkhon on ice",
+          "Stilt trees, skating, 5–6 h by hovercraft."
+        ],
+        [
+          "South Olkhon",
+          "4x4: bubbles, grottoes, icicles. Herbal tea and fish soup."
+        ],
+        [
+          "Ice fishing",
+          "Omul fishing with locals, cook your catch."
+        ],
+        [
+          "Olkhon — Irkutsk",
+          "Golden Horde lunch with folk show, 4* hotel."
+        ],
+        [
+          "Departure",
+          "Transfer."
+        ]
+      ],
+      "included": [
+        "3–4* hotels every night",
+        "8 breakfasts, 8 lunches, 8 dinners",
+        "All transfers, hovercraft, snowmobiles, 4x4",
+        "All tickets",
+        "Guide"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Medical insurance",
+        "Personal expenses"
+      ]
+    },
+    "filosofiya-bani-zima": {
+      "title": "Philosophy of Banya: Winter",
+      "tagline": "Steam, ice and Olkhon — six days of reset",
+      "summary": "Winter banya tour: VIP steaming in Irkutsk, lakeside banya in Listvyanka, hovercraft to Olkhon, taiga steaming with pine scrub after Cape Khoboy, barbecue and a wine evening.",
+      "highlights": [
+        "Three different banyas",
+        "Pine scrub and cedar balm massage",
+        "Lunches and some dinners included",
+        "Group of up to 6"
+      ],
+      "program": [
+        [
+          "Irkutsk",
+          "City tour, riverside hotel, VIP banya with a banya master."
+        ],
+        [
+          "Listvyanka",
+          "Taltsy, cable car, museum. Lakeside banya Tyulenitsa."
+        ],
+        [
+          "Olkhon",
+          "Hovercraft on ice, BaikalWood hotel, barbecue."
+        ],
+        [
+          "Khoboy and taiga banya",
+          "4x4 to Khoboy, fish soup. Evening steaming with juniper and fir oils."
+        ],
+        [
+          "South Olkhon and wine",
+          "Shamanka, Heart Lake, Kobylya Golova. Russian wine tasting."
+        ],
+        [
+          "Departure",
+          "Return to Irkutsk, transfer."
+        ]
+      ],
+      "included": [
+        "Hotels: 3 nights Irkutsk/Listvyanka, 3 nights Olkhon",
+        "5 breakfasts, 6 lunches, 3 dinners",
+        "All banya and spa",
+        "Transfers, hovercraft, 4x4",
+        "Guide, tickets"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Personal expenses"
+      ]
+    },
+    "vertoletnye-ekskursii": {
+      "title": "Helicopter Flights over Baikal",
+      "tagline": "Eight routes from Irkutsk, private helicopter for up to 5",
+      "summary": "Flights over the Angara source and Shaman Rock, along the Circum-Baikal tunnels, to Peschanaya Bay, Chersky Peak, Mount Mamay, Sobolinoye Lake and Olkhon Island. Landings for picnics, fishing and swimming. Prices per helicopter.",
+      "highlights": [
+        "Robinson R-44, Bell 206 B, Bell 206 Long",
+        "Low pass over Shaman Rock",
+        "Landing at Polovinnaya station on the Circum-Baikal Railway",
+        "Three hours to Cape Khoboy"
+      ],
+      "program": [],
+      "included": [
+        "Helicopter charter with pilot"
+      ],
+      "excluded": [
+        "Picnics on landings (on request)",
+        "Personal expenses"
+      ]
+    },
+    "baykalskiy-uikend": {
+      "title": "Baikal Weekend",
+      "tagline": "Irkutsk, Listvyanka and the Circum-Baikal Railway from the water in three days",
+      "summary": "Our shortest summer tour: Irkutsk city walk, Taltsy, cable car and a three-hour boat trip along the Circum-Baikal Railway tunnels and viaducts.",
+      "highlights": [
+        "Boat along the Circum-Baikal Railway",
+        "Central Irkutsk hotel",
+        "Early check-in on arrival day",
+        "Most affordable tour of the season"
+      ],
+      "program": [
+        [
+          "Irkutsk",
+          "Pick-up, early check-in, 3–4 h city walk."
+        ],
+        [
+          "Listvyanka and the railway",
+          "Taltsy, cable car, lakeside lunch, boat along the tunnels."
+        ],
+        [
+          "Departure",
+          "Breakfast, transfer."
+        ]
+      ],
+      "included": [
+        "Pick-up and transfers",
+        "3*+ hotel, 2 nights",
+        "2 breakfasts",
+        "Guide",
+        "Tickets",
+        "Boat"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Lunches and dinners",
+        "Personal expenses"
+      ]
+    },
+    "baykalskiy-ekspress": {
+      "title": "Baikal Express",
+      "tagline": "Olkhon only: Khoboy, Ogoy and sunset at Shamanka in 4 days",
+      "summary": "Straight to Olkhon with no long detours: two nights in Khuzhir, Cape Khoboy by 4x4 with fish soup, Ogoy Island by boat with lunch. Postcard Baikal in four days.",
+      "highlights": [
+        "Sunset at Cape Burkhan on day one",
+        "Khoboy: the widest point of Baikal, 79.5 km",
+        "Two lunches included",
+        "Children from 6"
+      ],
+      "program": [
+        [
+          "To Olkhon",
+          "Pick-up, 4–5 h with ferry, Khuzhir, sunset at Shaman Rock."
+        ],
+        [
+          "Cape Khoboy",
+          "4x4 to the north, 360° views, fish soup."
+        ],
+        [
+          "Ogoy Island — Irkutsk",
+          "Boat to the stupa, lunch, transfer to Irkutsk."
+        ],
+        [
+          "Departure",
+          "Transfer."
+        ]
+      ],
+      "included": [
+        "Airport pick-up",
+        "Transfers",
+        "2 nights on Olkhon, 1 in Irkutsk",
+        "3 breakfasts, 2 lunches",
+        "4x4 and boat",
+        "Guide, park fees"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "1 lunch and dinners",
+        "Personal expenses"
+      ]
+    },
+    "letnyaya-klassika": {
+      "title": "Summer Classic of Baikal",
+      "tagline": "Irkutsk, Listvyanka, Baikalsk and Olkhon in six days",
+      "summary": "The full first introduction: Irkutsk city tour, Listvyanka with a boat along the railway, Baikalsk with the Vysota 900 chairlift and warm lakes, Golden Horde and Buguldeyka marble quarry on the way to Olkhon, Cape Khoboy with a swim.",
+      "highlights": [
+        "10 guaranteed departures May–September",
+        "Warm lakes near Baikalsk",
+        "Buguldeyka marble quarry",
+        "Swim in Peschanaya Bay"
+      ],
+      "program": [
+        [
+          "Irkutsk",
+          "Pick-up, city tour."
+        ],
+        [
+          "Listvyanka",
+          "Taltsy, museum, cable car, Great Baikal Trail, boat."
+        ],
+        [
+          "Baikalsk",
+          "Mineral museum, chairlift lunch with a view, warm lakes."
+        ],
+        [
+          "Olkhon",
+          "Golden Horde, marble quarry, ferry, Khuzhir."
+        ],
+        [
+          "Cape Khoboy",
+          "4x4 north, swim, fish soup."
+        ],
+        [
+          "Departure",
+          "Transfer to Irkutsk, flights after 15:00."
+        ]
+      ],
+      "included": [
+        "All transfers",
+        "3–4* hotels",
+        "Breakfasts",
+        "All tickets and park fees",
+        "Guide"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Lunches and dinners",
+        "Personal expenses"
+      ]
+    },
+    "letnyaya-perezagruzka": {
+      "title": "Summer Reset on Baikal",
+      "tagline": "Circum-Baikal Railway by train, Irkutsk, Olkhon and Ogoy in seven days",
+      "summary": "A week without rush: a full day on the excursion train along the Circum-Baikal Railway, a day for Irkutsk, three days on Olkhon with Khoboy and Ogoy, a datsan on the way back.",
+      "highlights": [
+        "Train Slyudyanka — Port Baikal with lunch",
+        "Marble station of Slyudyanka",
+        "Ust-Orda datsan ritual",
+        "9 departures June–September"
+      ],
+      "program": [
+        [
+          "Arrival",
+          "Pick-up, hotel."
+        ],
+        [
+          "Railway by train",
+          "Viaducts, tunnels, lunch on board, ferry to Listvyanka."
+        ],
+        [
+          "Irkutsk",
+          "City tour."
+        ],
+        [
+          "Olkhon",
+          "Golden Horde, ferry, Khuzhir."
+        ],
+        [
+          "Cape Khoboy",
+          "4x4, fish soup."
+        ],
+        [
+          "Ogoy — Irkutsk",
+          "Boat to the stupa, yurt lunch, datsan."
+        ],
+        [
+          "Departure",
+          "Transfer."
+        ]
+      ],
+      "included": [
+        "Transfers and train",
+        "3–4* hotels",
+        "Breakfasts",
+        "Tickets and park fees",
+        "Guide"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Lunches and dinners",
+        "Personal expenses"
+      ]
+    },
+    "vse-o-baykale": {
+      "title": "All About Baikal",
+      "tagline": "Listvyanka, boat to Olkhon, Ogoy and Khoboy in five days",
+      "summary": "Five days through the highlights: Irkutsk, Listvyanka with Taltsy and the museum, a boat crossing from Listvyanka to Olkhon, Ogoy Island, Cape Khorgoy, Khoboy and the Sagan-Khushun cliffs.",
+      "highlights": [
+        "Boat Listvyanka — Olkhon",
+        "Three Brothers cliffs",
+        "Cape Khorgoy with an ancient wall",
+        "Yurt lunch on the way back"
+      ],
+      "program": [
+        [
+          "Irkutsk",
+          "City tour."
+        ],
+        [
+          "Listvyanka",
+          "Taltsy, cable car, museum."
+        ],
+        [
+          "Boat to Olkhon",
+          "Crossing, Ogoy, Khorgoy."
+        ],
+        [
+          "Cape Khoboy",
+          "Northern tip, Sagan-Khushun."
+        ],
+        [
+          "Departure",
+          "Yurt lunch, transfer."
+        ]
+      ],
+      "included": [
+        "Transfers and boat",
+        "Breakfasts",
+        "Tickets",
+        "Guide"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Lunches and dinners",
+        "Personal expenses"
+      ]
+    },
+    "vostochnyy-bereg": {
+      "title": "Eastern Shore of Baikal",
+      "tagline": "Buryatia: Svyatoy Nos, hot springs and Ivolginsky Datsan",
+      "summary": "The lesser-known side of Baikal: park hotel in Goryachinsk, sacred Barguzin Valley, speedboat across Chivyrkuy Bay to Zmeinaya hot springs, seal aquarium, lakeside banya, datsan and Ulan-Ude. Starts in Ulan-Ude.",
+      "highlights": [
+        "Starts and ends in Ulan-Ude",
+        "Boat to Svyatoy Nos",
+        "Thermal springs",
+        "Ivolginsky Datsan"
+      ],
+      "program": [
+        [
+          "Goryachinsk",
+          "Pick-up in Ulan-Ude, park hotel."
+        ],
+        [
+          "Barguzin Valley",
+          "Sacred sites."
+        ],
+        [
+          "Chivyrkuy Bay",
+          "Boat, springs, seals, banya."
+        ],
+        [
+          "Ulan-Ude",
+          "Datsan, city tour."
+        ],
+        [
+          "Departure",
+          "Transfer."
+        ]
+      ],
+      "included": [
+        "Guide",
+        "4 breakfasts",
+        "Transfers and boat",
+        "Hotels",
+        "Park fees"
+      ],
+      "excluded": [
+        "Flights to Ulan-Ude",
+        "Lunches and dinners",
+        "Insurance",
+        "Personal expenses"
+      ]
+    },
+    "kruiz-po-baykalu": {
+      "title": "Baikal Cruise: 8 Days",
+      "tagline": "Private boat, crew, full board — from Listvyanka to Severobaikalsk",
+      "summary": "Circum-Baikal Railway, Ushkany Islands with seals, Zmeinaya hot springs, Sosnovka Bay, Frolikha Lake hike, Khakusy, Severobaikalsk lodge, Kotelnikovsky thermal pool and Peschanaya Bay. Stops adapt to your group. Price per day for the whole boat.",
+      "highlights": [
+        "Baikal seals on the Ushkany Islands",
+        "Thermal springs",
+        "8 km hike to Frolikha Lake",
+        "Lodge hotel with spa"
+      ],
+      "program": [
+        [
+          "Cape Polovinny",
+          "Tunnels of the railway."
+        ],
+        [
+          "Ushkany Islands",
+          "Seal rookeries."
+        ],
+        [
+          "Zmeinaya Bay",
+          "Hot springs."
+        ],
+        [
+          "Sosnovka Bay",
+          "Nature reserve, dunes."
+        ],
+        [
+          "Ayaya Bay and Frolikha",
+          "Hike, fishing."
+        ],
+        [
+          "Severobaikalsk",
+          "Lodge, spa."
+        ],
+        [
+          "Cape Kotelnikovsky",
+          "Thermal pool, waterfalls."
+        ],
+        [
+          "Peschanaya Bay",
+          "White sand, return to Listvyanka."
+        ]
+      ],
+      "included": [
+        "Boat with crew",
+        "Guide",
+        "Full board",
+        "Lodge night",
+        "First aid"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Insurance",
+        "Personal expenses"
+      ]
+    },
+    "vkusovaya-palitra": {
+      "title": "Gastro Tour: Palette of Taste",
+      "tagline": "Irkutsk restaurants, wine dinners and hand-made buuzy on Olkhon",
+      "summary": "All meals included: sparkling breakfast in a panoramic restaurant, venison lunch in a noble mansion, Siberian cuisine in Listvyanka, boat to Olkhon with cedar liqueurs, wine dinner, buuzy masterclass, fireside barbecue and a Golden Horde tasting.",
+      "highlights": [
+        "All meals included",
+        "Boutique hotels",
+        "Hydrofoil to Olkhon",
+        "Wood-fired banya"
+      ],
+      "program": [
+        [
+          "Irkutsk",
+          "Sparkling breakfast, mansion lunch."
+        ],
+        [
+          "Listvyanka",
+          "Icebreaker Angara, lunch with a view."
+        ],
+        [
+          "Boat to Olkhon",
+          "Liqueur tasting, wine dinner with a sommelier."
+        ],
+        [
+          "Khoboy and buuzy",
+          "4x4, campfire lunch, masterclass, banya."
+        ],
+        [
+          "Ogoy and barbecue",
+          "Boat, fireside barbecue."
+        ],
+        [
+          "Golden Horde — Irkutsk",
+          "Tasting of Buryat cuisine."
+        ],
+        [
+          "Departure",
+          "Transfer."
+        ]
+      ],
+      "included": [
+        "Boutique hotels",
+        "All meals",
+        "Boat, 4x4, transfers",
+        "Masterclasses and tastings",
+        "Guide, tickets",
+        "Banya"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Personal expenses"
+      ]
+    },
+    "filosofiya-bani": {
+      "title": "Philosophy of Banya: Summer",
+      "tagline": "Steam, swim and Olkhon",
+      "summary": "Summer banya tour: VIP steaming in Irkutsk, lakeside banya with a swim in Baikal, boat to Olkhon, taiga steaming after Khoboy, the south of the island and a wine evening.",
+      "highlights": [
+        "Swim in Baikal after the steam",
+        "Three different banyas",
+        "Lunches and some dinners included",
+        "Group of up to 6"
+      ],
+      "program": [
+        [
+          "Irkutsk",
+          "City tour, VIP banya."
+        ],
+        [
+          "Listvyanka",
+          "Taltsy, museum, lakeside banya."
+        ],
+        [
+          "Olkhon",
+          "Boat, BaikalWood, barbecue."
+        ],
+        [
+          "Khoboy and taiga banya",
+          "4x4, fish soup, pine steaming."
+        ],
+        [
+          "South Olkhon",
+          "Shamanka, Heart Lake, beach, wine evening."
+        ],
+        [
+          "Departure",
+          "Transfer."
+        ]
+      ],
+      "included": [
+        "Hotels 6 nights",
+        "5 breakfasts, 6 lunches, 3 dinners",
+        "All banya and spa",
+        "Transfers, boat, 4x4",
+        "Guide, tickets"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "Personal expenses"
+      ]
+    },
+    "tropa-baykalskih-vetrov": {
+      "title": "Trail of Baikal Winds",
+      "tagline": "Active summer: Great Baikal Trail, quad bikes, SUPs and Olkhon",
+      "summary": "Eight days of movement: 25 km on the Great Baikal Trail, quad bikes through the taiga, boat to Olkhon, stargazing with an astronomer, kayaks or SUPs on the Small Sea, Khoboy and a herbal banya.",
+      "highlights": [
+        "Great Baikal Trail Listvyanka — Bolshie Koty",
+        "Quad bikes with a forest picnic",
+        "SUPs and kayaks on Olkhon",
+        "Stargazing with a guide"
+      ],
+      "program": [
+        [
+          "Irkutsk and Listvyanka",
+          "City tour, Taltsy, cable car."
+        ],
+        [
+          "Great Baikal Trail",
+          "25 km hike, boat back."
+        ],
+        [
+          "Quad bikes",
+          "Forest roads, picnic."
+        ],
+        [
+          "Olkhon and stars",
+          "Boat, astronomy tour."
+        ],
+        [
+          "SUPs and kayaks",
+          "Small Sea."
+        ],
+        [
+          "Khoboy and banya",
+          "4x4, fish soup, herbal banya."
+        ],
+        [
+          "Golden Horde — Irkutsk",
+          "Folk show, Buryat lunch."
+        ],
+        [
+          "Departure",
+          "Transfer."
+        ]
+      ],
+      "included": [
+        "Guide",
+        "Breakfasts and some lunches",
+        "Transfers, boat, quads, SUPs",
+        "3–4* hotels",
+        "Park fees"
+      ],
+      "excluded": [
+        "Flights to Irkutsk",
+        "3 lunches and dinners",
+        "Insurance",
+        "Personal expenses"
+      ]
+    }
   }
 }

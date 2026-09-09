@@ -108,6 +108,20 @@ export function nextDeparture(t: Tour, from: Date = new Date()) {
   return (t.departures as Departure[]).filter((d) => d.from >= today).sort((a, b) => a.from.localeCompare(b.from))[0];
 }
 
+/**
+ * Как показывать наличие мест.
+ * Считаем места в ОДНОЙ группе (до 8 человек). Если группа набирается — открываем параллельную,
+ * поэтому «свободно 8 из 8» писать нельзя: выглядит так, будто заезд пустой.
+ * Правило: числа показываем только когда мест реально мало — это работает на решение.
+ * seats в site.json правит заказчик: 8 = группа ещё открыта, 2 = осталось два места, 0 = группа закрыта.
+ */
+export function seatsLabel(d: Departure): { text: string; tone: "urgent" | "muted" | "calm" } {
+  if (d.seats === 0) return { text: "Группа набрана", tone: "muted" };
+  if (d.seats <= 3) return { text: `Осталось ${d.seats} ${d.seats === 1 ? "место" : "места"}`, tone: "urgent" };
+  if (d.seats <= 5) return { text: "Мест немного", tone: "urgent" };
+  return { text: "Идёт набор", tone: "calm" };
+}
+
 const MONTHS = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
 export function fmtDate(iso: string, withYear = false) {
   const [y, m, d] = iso.split("-").map(Number);

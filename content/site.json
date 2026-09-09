@@ -24,7 +24,8 @@
       "lng": 104.2811
     },
     "metrikaId": "97885909",
-    "defaultOg": "/img/og-default.jpg"
+    "defaultOg": "/img/og-default.jpg",
+    "groupsNote": "Если группа набрана, открываем параллельную — одновременно ведём до 5 групп по 8 человек."
   },
   "dev": {
     "showTodos": true,

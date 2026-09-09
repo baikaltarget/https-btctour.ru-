@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { upcomingDepartures, tourUrl, fmtRange, fmtPrice, type Tour } from "@/lib/content";
+import { upcomingDepartures, tourUrl, fmtRange, fmtPrice, seatsLabel, type Tour } from "@/lib/content";
 
 /** Небольшая иконка-маркер под тип тура: лёд / хивус-лодка / общий снежинка по умолчанию. */
 function RowIcon({ tour }: { tour: Tour }) {
@@ -36,7 +36,7 @@ export default function DepartureStrip({ limit = 4 }: { limit?: number }) {
                 <RowIcon tour={d.tour} />
                 <span className="min-w-0">
                   <span className="block truncate text-[15px] font-bold text-dawn-500 group-hover:text-dawn-600 group-hover:underline">{d.tour.title}</span>
-                  <span className="block text-sm text-ice-600">{fmtRange(d)} · {d.seats} мест</span>
+                  <span className="block text-sm text-ice-600">{fmtRange(d)} · <span className={seatsLabel(d).tone === "urgent" ? "text-dawn-600 font-semibold" : ""}>{seatsLabel(d).text}</span></span>
                 </span>
               </span>
               <span className="shrink-0 text-right">
