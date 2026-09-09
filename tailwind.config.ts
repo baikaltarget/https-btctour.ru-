@@ -24,7 +24,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["'Manrope Variable'", "system-ui", "sans-serif"],
-        display: ["'Playfair Display'", "Georgia", "serif"],
+        display: ["'Montserrat Variable'", "system-ui", "sans-serif"],
       },
       maxWidth: { wrap: "1200px", prose: "68ch" },
       borderRadius: { xs: "4px" },

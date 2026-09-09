@@ -1,9 +1,9 @@
-export default function Logo({ light = false }: { light?: boolean }) {
-  const c = light ? "text-white" : "text-ice-800";
+import Image from "next/image";
+export default function Logo() {
   return (
-    <span className={`inline-flex items-baseline gap-2 no-underline ${c}`}>
-      <span className="font-display text-2xl font-semibold tracking-tight leading-none">BTC<span className="text-dawn-400">.</span>tour</span>
-      <span className={`hidden sm:inline text-[11px] leading-tight ${light ? "text-ice-100/80" : "text-ice-600"}`}>Байкал Трэвэл<br />Компани</span>
+    <span className="inline-flex items-center no-underline">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <Image src="/img/logo.png" alt="БиТиСи — туризм на Байкале" width={165} height={40} priority className="h-9 w-auto md:h-10" />
     </span>
   );
 }

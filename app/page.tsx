@@ -40,7 +40,8 @@ export default function Home() {
         {/* Первый экран: фото на весь экран, заголовок внизу слева, справа ближайшие заезды */}
         <section className="relative isolate min-h-[88svh] overflow-hidden bg-ice-800 text-white">
           <Image src={HERO.image} alt={HERO.imageAlt} fill priority sizes="100vw" className="object-cover" quality={80} />
-          <div className="absolute inset-0 bg-gradient-to-t from-ice-900/85 via-ice-900/20 to-ice-900/10" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ice-900/92 via-ice-900/55 to-ice-900/25" aria-hidden="true" />
+          <div className="absolute inset-0 bg-ice-900/10" aria-hidden="true" />
           <div className="wrap relative flex min-h-[88svh] flex-col justify-end pb-10 pt-24 md:pb-16">
             <div className="grid items-end gap-8 md:grid-cols-[1.4fr_1fr] md:gap-12">
               <div>

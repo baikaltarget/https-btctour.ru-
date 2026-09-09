@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/manrope";
-import "@fontsource/playfair-display/500.css";
-import "@fontsource/playfair-display/600.css";
+import "@fontsource-variable/montserrat";
 import "./globals.css";
 import { SITE } from "@/lib/content";
 import Metrika from "@/components/Metrika";

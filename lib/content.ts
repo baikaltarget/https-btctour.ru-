@@ -15,6 +15,7 @@ export type Tour = (typeof site.tours)[number] & {
   todo?: string;
   featured?: boolean;
   image?: string;
+  images?: string[];
   accommodation?: string;
   meals?: string;
 };
