@@ -14,8 +14,8 @@ export default function Header({ lang = "ru", altHref }: { lang?: "ru" | "en"; a
     <header className="sticky top-0 z-40 border-b border-ice-100 bg-ice-50/95 backdrop-blur">
       <div className="wrap flex h-16 items-center justify-between gap-6">
         <Link href={lang === "en" ? "/en/" : "/"} aria-label={s.brand} className="no-underline"><Logo /></Link>
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Основное меню">
-          {nav.map((n) => <Link key={n.href} href={n.href} className="text-[15px] font-medium text-ice-900 no-underline hover:text-ice-600">{n.label}</Link>)}
+        <nav className="hidden items-center gap-4 xl:flex" aria-label="Основное меню">
+          {nav.map((n) => <Link key={n.href} href={n.href} className="whitespace-nowrap text-[15px] font-medium text-ice-900 no-underline hover:text-ice-600">{n.label}</Link>)}
         </nav>
         <div className="flex items-center gap-3">
           <a href={s.telegram} target="_blank" rel="noopener" className="hidden items-center gap-1.5 text-sm font-medium text-ice-800 no-underline sm:inline-flex" aria-label="Telegram">
@@ -23,11 +23,11 @@ export default function Header({ lang = "ru", altHref }: { lang?: "ru" | "en"; a
           </a>
           <a href={`tel:${s.phoneRaw}`} className="hidden text-[15px] font-semibold text-ice-900 no-underline md:inline">{s.phone}</a>
           {altHref && <Link href={altHref} className="text-sm font-medium text-ice-600 no-underline" hrefLang={lang === "en" ? "ru" : "en"}>{lang === "en" ? "RU" : "EN"}</Link>}
-          <button className="lg:hidden rounded-xs border border-ice-200 px-3 py-1.5 text-sm" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>{open ? "Закрыть" : "Меню"}</button>
+          <button className="xl:hidden rounded-xs border border-ice-200 px-3 py-1.5 text-sm" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>{open ? "Закрыть" : "Меню"}</button>
         </div>
       </div>
       {open && (
-        <nav id="mobile-menu" className="wrap border-t border-ice-100 pb-4 lg:hidden" aria-label="Мобильное меню">
+        <nav id="mobile-menu" className="wrap border-t border-ice-100 pb-4 xl:hidden" aria-label="Мобильное меню">
           <ul className="flex flex-col divide-y divide-ice-100">
             {nav.map((n) => <li key={n.href}><Link href={n.href} onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-ice-900 no-underline">{n.label}</Link></li>)}
             {lang === "ru" && site.footerLinks.slice(0, 6).map((n) => <li key={n.href}><Link href={n.href} onClick={() => setOpen(false)} className="block py-2.5 text-sm text-ice-800 no-underline">{n.label}</Link></li>)}
