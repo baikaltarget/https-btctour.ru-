@@ -12,9 +12,17 @@ export const priceUnitEn = (t: Tour) => (t.priceUnit === "чел" ? en.labels.pe
 /** Статус мест на английской версии — та же логика, что и в русской: числа только когда мест мало. */
 export const seatsLabelEn = (d: { seats: number }) =>
   d.seats === 0
-    ? { text: en.labels.seatsFull, urgent: false }
+    ? { text: en.labels.seatsFull, urgent: false, tone: "muted" as const }
     : d.seats <= 3
-      ? { text: `${en.labels.seatsFew}: ${d.seats}`, urgent: true }
+      ? { text: `${en.labels.seatsFew}: ${d.seats}`, urgent: true, tone: "urgent" as const }
       : d.seats <= 5
-        ? { text: en.labels.seatsFew, urgent: true }
-        : { text: en.labels.seatsOpen, urgent: false };
+        ? { text: en.labels.seatsFew, urgent: true, tone: "urgent" as const }
+        : { text: en.labels.seatsOpen, urgent: false, tone: "calm" as const };
+
+/** Единый цвет статуса: «мало мест» и «идёт набор» — золотым, закрытая группа — приглушённо. */
+export const seatsClassEn = (d: { seats: number }) => {
+  const tone = seatsLabelEn(d).tone;
+  if (tone === "muted") return "text-ice-600";
+  if (tone === "urgent") return "text-dawn-600 font-semibold";
+  return "text-dawn-500 font-medium";
+};

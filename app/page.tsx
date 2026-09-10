@@ -65,12 +65,20 @@ export default function Home() {
           <p className="mt-6"><Link href={SEASON === "winter" ? "/baikal/zimnie/" : "/baikal/letnie/"} className="btn-primary">Все {SEASON === "winter" ? "зимние" : "летние"} туры и даты</Link></p>
         </section>
 
-        {/* Доверие — тихо, без иконок */}
+        {/* Доверие — с фирменными иконками там, где мотив по смыслу совпадает */}
         <section className="wrap py-14 md:py-20">
           <div className="grid gap-8 border-y border-ice-200 py-10 md:grid-cols-4">
-            {TRUST.map((t) => (
-              <div key={t.title}><p className="font-display text-xl font-semibold text-ice-800">{t.title}</p><p className="mt-2 text-[15px] leading-relaxed text-ink/75">{t.text}</p></div>
-            ))}
+            {TRUST.map((t, i) => {
+              const icon = ["/img/icons/icon-route.webp", "/img/icons/icon-nature.webp", "/img/icons/icon-water.webp", "/img/icons/icon-route.webp"][i];
+              return (
+                <div key={t.title}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={icon} alt="" aria-hidden="true" className="mb-3 h-10 w-10 opacity-80" />
+                  <p className="font-display text-xl font-semibold text-ice-800">{t.title}</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-ink/75">{t.text}</p>
+                </div>
+              );
+            })}
           </div>
         </section>
 

@@ -7,7 +7,8 @@ import Faq from "@/components/Faq";
 import LeadForm from "@/components/LeadForm";
 import DevFrame from "@/components/DevFrame";
 import JsonLd from "@/components/JsonLd";
-import { categories, getCategory, toursForCategory, tourUrl, SITE } from "@/lib/content";
+import TourImage from "@/components/TourImage";
+import { categories, getCategory, toursForCategory, tourUrl, fmtPrice, SITE } from "@/lib/content";
 import { meta } from "@/lib/seo";
 
 /** Иконки-бейджи для категорий, где мотив однозначно совпадает по смыслу (маршрут / вода / природа). Остальным ничего не навязываем. */
@@ -67,9 +68,22 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
             </div>
           )}
           {c.builder ? (
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-10 md:grid-cols-2">
               <div><h3 className="mb-3">Расскажите о поездке</h3><p className="mb-4 text-ink/80">Даты, состав, что важно. Черновик программы с ценой пришлём в течение суток.</p><LeadForm source="individual" /></div>
-              <div><h3 className="mb-3">Или возьмите за основу готовый тур</h3><TourList tours={list} /></div>
+              <div>
+                <h3 className="mb-3">Или возьмите за основу готовый тур</h3>
+                <div className="grid gap-4">
+                  {list.slice(0, 4).map((t) => (
+                    <Link key={t.slug} href={tourUrl(t)} className="group flex gap-4 rounded-xs border border-ice-200 bg-white p-3 no-underline hover:border-ice-600">
+                      <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-xs"><TourImage src={t.image} alt="" seed={t.title.length} sizes="112px" /></div>
+                      <div className="min-w-0">
+                        <p className="truncate font-semibold text-ice-900">{t.title}</p>
+                        <p className="text-sm text-ice-600">{t.priceFrom ? `от ${fmtPrice(t.priceFrom)}` : "цена по запросу"}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           ) : <TourList tours={list} />}
         </DevFrame>

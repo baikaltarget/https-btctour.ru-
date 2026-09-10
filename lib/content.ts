@@ -126,6 +126,14 @@ export function seatsLabel(d: Departure): { text: string; tone: "urgent" | "mute
   return { text: "Идёт набор", tone: "calm" };
 }
 
+/** Единый цвет статуса мест: и «мало мест», и «идёт набор» — золотым (это призыв к действию), закрытая группа — приглушённо серым. */
+export function seatsClass(d: Departure): string {
+  const tone = seatsLabel(d).tone;
+  if (tone === "muted") return "text-ink/50";
+  if (tone === "urgent") return "text-dawn-600 font-semibold";
+  return "text-dawn-500 font-medium";
+}
+
 const MONTHS = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
 export function fmtDate(iso: string, withYear = false) {
   const [y, m, d] = iso.split("-").map(Number);

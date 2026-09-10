@@ -44,7 +44,16 @@ export default function Footer({ lang = "ru" }: { lang?: "ru" | "en" }) {
         </div>
         <div className="wrap flex flex-col gap-2 border-t border-white/10 py-5 text-xs text-ice-100/60 md:flex-row md:justify-between">
           <p>© {new Date().getFullYear()} {s.legalName}. ИНН {s.inn}, ОГРН {s.ogrn}</p>
-          <p className="flex gap-4"><Link href="/politika/" className="text-ice-100/60 no-underline">Политика конфиденциальности</Link><Link href="/oplata/" className="text-ice-100/60 no-underline">Оплата</Link></p>
+          <p className="flex flex-wrap gap-x-4 gap-y-1">
+            <Link href="/politika/" className="text-ice-100/60 no-underline">Политика конфиденциальности</Link>
+            <Link href="/oplata/" className="text-ice-100/60 no-underline">Оплата</Link>
+            {s.developer && (
+              <span className="text-ice-100/60">
+                {s.developer.text}{" "}
+                <a href={s.developer.url} target="_blank" rel="noopener" className="text-ice-100/60 hover:underline">{s.developer.name}</a>
+              </span>
+            )}
+          </p>
         </div>
       </div>
     </footer>

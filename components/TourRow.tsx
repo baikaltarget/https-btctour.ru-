@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { type Tour, tourUrl, fmtPrice, daysWord, nightsWord, nextDeparture, fmtRange, seatsLabel, TAG_LABELS } from "@/lib/content";
+import { type Tour, tourUrl, fmtPrice, daysWord, nightsWord, nextDeparture, fmtRange, seatsLabel, seatsClass, TAG_LABELS } from "@/lib/content";
 import TourImage from "./TourImage";
 import DevFrame from "./DevFrame";
 
@@ -35,7 +35,7 @@ export default function TourRow({ t, index = 0 }: { t: Tour; index?: number }) {
           <p className="text-xs text-ice-600">{t.priceFrom ? (t.priceUnit === "чел" ? "за человека" : t.priceUnit === "группа" ? "за группу" : `за ${t.priceUnit}`) : "уточняйте"}</p>
         </div>
         {next ? (
-          <p className="text-sm text-ink/80"><span className="text-ice-600">Ближайший заезд</span><br />{fmtRange(next)}<br /><span className={seatsLabel(next).tone === "urgent" ? "text-dawn-600 font-semibold" : "text-ice-600"}>{seatsLabel(next).text}</span></p>
+          <p className="text-sm text-ink/80"><span className="text-ice-600">Ближайший заезд</span><br />{fmtRange(next)}<br /><span className={seatsClass(next)}>{seatsLabel(next).text}</span></p>
         ) : (
           <p className="text-sm text-ice-600">{t.datesNote || "Даты под запрос"}</p>
         )}

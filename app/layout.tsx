@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.domain),
   title: { default: `Туры на Байкал — ${SITE.brand}`, template: "%s" },
   applicationName: SITE.brand,
+  manifest: "/manifest.json",
   formatDetection: { telephone: true },
 };
 export const viewport: Viewport = { themeColor: "#0F3A4A", width: "device-width", initialScale: 1 };

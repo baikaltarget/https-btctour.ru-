@@ -9,7 +9,7 @@ import Faq from "@/components/Faq";
 import DevFrame from "@/components/DevFrame";
 import JsonLd from "@/components/JsonLd";
 import IceLine from "@/components/IceLine";
-import { tours, regions, getTour, getRegion, getRegionTour, tourUrl, fmtPrice, fmtRange, daysWord, nightsWord, nextDeparture, seatsLabel, activeTours, seasonSort, SITE, type Tour, type RegionTour, type Departure } from "@/lib/content";
+import { tours, regions, getTour, getRegion, getRegionTour, tourUrl, fmtPrice, fmtRange, daysWord, nightsWord, nextDeparture, seatsLabel, seatsClass, activeTours, seasonSort, SITE, type Tour, type RegionTour, type Departure } from "@/lib/content";
 import { meta, tourJsonLd } from "@/lib/seo";
 
 export const dynamicParams = false;
@@ -105,7 +105,7 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
                   {upcoming.map((d) => (
                     <li key={d.from} className="flex flex-wrap items-center justify-between gap-3 py-3">
                       <span className="font-semibold text-ice-900">{fmtRange(d)}</span>
-                      <span className={`text-sm ${seatsLabel(d).tone === "muted" ? "text-ink/50" : seatsLabel(d).tone === "urgent" ? "text-dawn-600 font-semibold" : "text-ice-600"}`}>{seatsLabel(d).text}</span>
+                      <span className={`text-sm ${seatsClass(d)}`}>{seatsLabel(d).text}</span>
                       <a href="#bron" className="text-sm font-semibold">Забронировать</a>
                     </li>
                   ))}
@@ -176,7 +176,7 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
               </DevFrame>
               <p className="text-sm text-ice-600">{t.priceFrom ? (t.priceUnit === "чел" ? "за человека" : t.priceUnit === "группа" ? "за группу" : `за ${t.priceUnit}`) : "подскажем по телефону"}{t.priceNote ? `, ${t.priceNote}` : ""}</p>
               {next ? (
-                <p className="mt-4 rounded-xs bg-ice-100 px-3 py-2 text-sm"><span className="text-ice-600">Ближайший заезд</span><br /><span className="font-semibold text-ice-900">{fmtRange(next)}</span><br /><span className={seatsLabel(next).tone === "urgent" ? "font-semibold text-dawn-600" : "text-ice-600"}>{seatsLabel(next).text}</span></p>
+                <p className="mt-4 rounded-xs bg-ice-100 px-3 py-2 text-sm"><span className="text-ice-600">Ближайший заезд</span><br /><span className="font-semibold text-ice-900">{fmtRange(next)}</span><br /><span className={seatsClass(next)}>{seatsLabel(next).text}</span></p>
               ) : t.datesNote ? <p className="mt-4 text-sm text-ice-600">{t.datesNote}</p> : null}
               <div className="mt-5 grid gap-2">
                 <a href="#bron" className="btn-dawn">Забронировать</a>
