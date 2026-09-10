@@ -14,6 +14,7 @@ export type Tour = (typeof site.tours)[number] & {
   priceTodo?: boolean;
   todo?: string;
   featured?: boolean;
+  hit?: boolean;
   image?: string;
   images?: string[];
   accommodation?: string;
@@ -75,6 +76,9 @@ export function toursForCategory(c: Category): Tour[] {
 }
 
 export function seasonSort(a: Tour, b: Tour) {
+  const ha = a.hit ? 0 : 1;
+  const hb = b.hit ? 0 : 1;
+  if (ha !== hb) return ha - hb;
   const sa = a.season.includes(SEASON) ? 0 : 1;
   const sb = b.season.includes(SEASON) ? 0 : 1;
   if (sa !== sb) return sa - sb;

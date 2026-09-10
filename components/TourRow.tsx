@@ -12,6 +12,7 @@ export default function TourRow({ t, index = 0 }: { t: Tour; index?: number }) {
     <article className="group grid gap-5 border-t border-ice-200 py-6 md:grid-cols-[320px_1fr_auto] md:gap-8 md:py-8">
       <Link href={href} className="relative block aspect-[4/3] overflow-hidden rounded-xs md:aspect-[16/11]" aria-hidden="true" tabIndex={-1}>
         <TourImage src={t.image} alt="" seed={index + 1} className="transition-transform duration-500 group-hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, 320px" />
+        {t.hit && <span className="absolute left-3 top-3 rounded-xs bg-dawn-400 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-ice-900 shadow-sm">Хит</span>}
       </Link>
       <div className="min-w-0">
         <p className="mb-1 text-sm text-ice-600">

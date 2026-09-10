@@ -81,7 +81,7 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
       <article>
         <header className="wrap pt-6 md:pt-10">
           <p className="mb-2 text-sm text-ice-600">{facts[0]?.[1]}{t.groupSize ? ` · ${t.groupSize}` : ""}</p>
-          <h1>{t.title}</h1>
+          <h1 className="flex flex-wrap items-center gap-3">{t.title}{t.hit && <span className="rounded-xs bg-dawn-400 px-2.5 py-1 align-middle text-sm font-bold uppercase tracking-wide text-ice-900">Хит</span>}</h1>
           <p className="mt-3 max-w-2xl text-xl leading-snug text-ice-800">{t.tagline}</p>
         </header>
 
