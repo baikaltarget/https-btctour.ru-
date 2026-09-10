@@ -1535,12 +1535,12 @@
       ],
       "status": "active",
       "images": [
+        "/img/tours/vertoletnye-ekskursii-4.webp",
         "/img/tours/vertoletnye-ekskursii-1.webp",
         "/img/tours/vertoletnye-ekskursii-2.webp",
-        "/img/tours/vertoletnye-ekskursii-3.webp",
-        "/img/tours/vertoletnye-ekskursii-4.webp"
+        "/img/tours/vertoletnye-ekskursii-3.webp"
       ],
-      "image": "/img/tours/vertoletnye-ekskursii-1.webp"
+      "image": "/img/tours/vertoletnye-ekskursii-4.webp"
     },
     {
       "slug": "baykalskiy-uikend",
@@ -1743,10 +1743,14 @@
       "status": "active",
       "featured": true,
       "images": [
+        "/img/tours/baykalskiy-ekspress-6.webp",
         "/img/tours/baykalskiy-ekspress-1.webp",
-        "/img/tours/baykalskiy-ekspress-2.webp"
+        "/img/tours/baykalskiy-ekspress-2.webp",
+        "/img/tours/baykalskiy-ekspress-3.webp",
+        "/img/tours/baykalskiy-ekspress-4.webp",
+        "/img/tours/baykalskiy-ekspress-5.webp"
       ],
-      "image": "/img/tours/baykalskiy-ekspress-1.webp"
+      "image": "/img/tours/baykalskiy-ekspress-6.webp"
     },
     {
       "slug": "letnyaya-klassika",
@@ -1905,10 +1909,14 @@
       "status": "active",
       "featured": true,
       "images": [
+        "/img/tours/letnyaya-klassika-5.webp",
         "/img/tours/letnyaya-klassika-1.webp",
-        "/img/tours/letnyaya-klassika-2.webp"
+        "/img/tours/letnyaya-klassika-2.webp",
+        "/img/tours/letnyaya-klassika-3.webp",
+        "/img/tours/letnyaya-klassika-4.webp",
+        "/img/tours/letnyaya-klassika-6.webp"
       ],
-      "image": "/img/tours/letnyaya-klassika-1.webp"
+      "image": "/img/tours/letnyaya-klassika-5.webp"
     },
     {
       "slug": "letnyaya-perezagruzka",
@@ -2052,10 +2060,16 @@
       "meals": "Завтраки, обед в поезде и уха на Хобое",
       "status": "active",
       "images": [
+        "/img/tours/letnyaya-perezagruzka-7.webp",
         "/img/tours/letnyaya-perezagruzka-1.webp",
-        "/img/tours/letnyaya-perezagruzka-2.webp"
+        "/img/tours/letnyaya-perezagruzka-2.webp",
+        "/img/tours/letnyaya-perezagruzka-3.webp",
+        "/img/tours/letnyaya-perezagruzka-4.webp",
+        "/img/tours/letnyaya-perezagruzka-5.webp",
+        "/img/tours/letnyaya-perezagruzka-6.webp",
+        "/img/tours/letnyaya-perezagruzka-8.webp"
       ],
-      "image": "/img/tours/letnyaya-perezagruzka-1.webp"
+      "image": "/img/tours/letnyaya-perezagruzka-7.webp"
     },
     {
       "slug": "vse-o-baykale",
@@ -2216,13 +2230,15 @@
       "meals": "Завтраки",
       "status": "active",
       "images": [
+        "/img/tours/vostochnyy-bereg-7.webp",
         "/img/tours/vostochnyy-bereg-1.webp",
         "/img/tours/vostochnyy-bereg-2.webp",
         "/img/tours/vostochnyy-bereg-3.webp",
         "/img/tours/vostochnyy-bereg-4.webp",
-        "/img/tours/vostochnyy-bereg-5.webp"
+        "/img/tours/vostochnyy-bereg-5.webp",
+        "/img/tours/vostochnyy-bereg-6.webp"
       ],
-      "image": "/img/tours/vostochnyy-bereg-1.webp"
+      "image": "/img/tours/vostochnyy-bereg-7.webp"
     },
     {
       "slug": "kruiz-po-baykalu",
@@ -2320,13 +2336,15 @@
       "status": "active",
       "featured": true,
       "images": [
-        "/img/tours/kruiz-po-baykalu-1.webp",
         "/img/tours/kruiz-po-baykalu-2.webp",
+        "/img/tours/kruiz-po-baykalu-1.webp",
         "/img/tours/kruiz-po-baykalu-3.webp",
         "/img/tours/kruiz-po-baykalu-4.webp",
-        "/img/tours/kruiz-po-baykalu-5.webp"
+        "/img/tours/kruiz-po-baykalu-5.webp",
+        "/img/tours/kruiz-po-baykalu-6.webp",
+        "/img/tours/kruiz-po-baykalu-7.webp"
       ],
-      "image": "/img/tours/kruiz-po-baykalu-1.webp"
+      "image": "/img/tours/kruiz-po-baykalu-2.webp"
     },
     {
       "slug": "vkusovaya-palitra",
@@ -2436,14 +2454,15 @@
       "meals": "Полный пансион с винным сопровождением",
       "status": "active",
       "images": [
+        "/img/tours/vkusovaya-palitra-3.webp",
         "/img/tours/vkusovaya-palitra-1.webp",
         "/img/tours/vkusovaya-palitra-2.webp",
-        "/img/tours/vkusovaya-palitra-3.webp",
         "/img/tours/vkusovaya-palitra-4.webp",
         "/img/tours/vkusovaya-palitra-5.webp",
-        "/img/tours/vkusovaya-palitra-6.webp"
+        "/img/tours/vkusovaya-palitra-6.webp",
+        "/img/tours/vkusovaya-palitra-7.webp"
       ],
-      "image": "/img/tours/vkusovaya-palitra-1.webp"
+      "image": "/img/tours/vkusovaya-palitra-3.webp"
     },
     {
       "slug": "filosofiya-bani",
@@ -2541,12 +2560,14 @@
       "meals": "Завтраки, обеды, 3 ужина",
       "status": "active",
       "images": [
+        "/img/tours/filosofiya-bani-4.webp",
         "/img/tours/filosofiya-bani-1.webp",
         "/img/tours/filosofiya-bani-2.webp",
         "/img/tours/filosofiya-bani-3.webp",
-        "/img/tours/filosofiya-bani-4.webp"
+        "/img/tours/filosofiya-bani-5.webp",
+        "/img/tours/filosofiya-bani-6.webp"
       ],
-      "image": "/img/tours/filosofiya-bani-1.webp"
+      "image": "/img/tours/filosofiya-bani-4.webp"
     },
     {
       "slug": "tropa-baykalskih-vetrov",
@@ -2641,12 +2662,15 @@
       "meals": "Завтраки и часть обедов",
       "status": "active",
       "images": [
-        "/img/tours/tropa-baykalskih-vetrov-1.webp",
         "/img/tours/tropa-baykalskih-vetrov-2.webp",
+        "/img/tours/tropa-baykalskih-vetrov-4.webp",
+        "/img/tours/tropa-baykalskih-vetrov-1.webp",
         "/img/tours/tropa-baykalskih-vetrov-3.webp",
-        "/img/tours/tropa-baykalskih-vetrov-4.webp"
+        "/img/tours/tropa-baykalskih-vetrov-5.webp",
+        "/img/tours/tropa-baykalskih-vetrov-6.webp",
+        "/img/tours/tropa-baykalskih-vetrov-7.webp"
       ],
-      "image": "/img/tours/tropa-baykalskih-vetrov-1.webp"
+      "image": "/img/tours/tropa-baykalskih-vetrov-2.webp"
     },
     {
       "slug": "irkutsk",
@@ -3054,13 +3078,13 @@
       "status": "active",
       "todo": null,
       "images": [
-        "/img/tours/arshan-1.webp",
         "/img/tours/arshan-2.webp",
+        "/img/tours/arshan-1.webp",
         "/img/tours/arshan-3.webp",
         "/img/tours/arshan-4.webp",
         "/img/tours/arshan-5.webp"
       ],
-      "image": "/img/tours/arshan-1.webp"
+      "image": "/img/tours/arshan-2.webp"
     }
   ],
   "locations": {
