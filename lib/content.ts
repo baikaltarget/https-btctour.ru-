@@ -165,7 +165,7 @@ export function nightsWord(n: number) {
 }
 
 /* ---------- Блог ---------- */
-export type Post = { slug: string; title: string; description: string; date: string; content: string; cover?: string };
+export type Post = { slug: string; title: string; description: string; date: string; content: string; cover?: string; image?: string; imageAlt?: string; faq?: Faq[] };
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 export function getPosts(): Post[] {
   if (!fs.existsSync(BLOG_DIR)) return [];
@@ -175,8 +175,32 @@ export function getPosts(): Post[] {
     .map((f) => {
       const raw = fs.readFileSync(path.join(BLOG_DIR, f), "utf8");
       const { data, content } = matter(raw);
-      return { slug: f.replace(/\.md$/, ""), title: data.title, description: data.description, date: data.date, cover: data.cover, content };
+      return { slug: f.replace(/\.md$/, ""), title: data.title, description: data.description, date: data.date, cover: data.cover, image: data.image, imageAlt: data.imageAlt, faq: data.faq, content };
     })
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 export const getPost = (slug: string) => getPosts().find((p) => p.slug === slug);
+
+/** Транслитерация для якорей оглавления: «Храмы и монастыри» → «hramy-i-monastyri» */
+const TRANS: Record<string, string> = { а: "a", б: "b", в: "v", г: "g", д: "d", е: "e", ё: "e", ж: "zh", з: "z", и: "i", й: "y", к: "k", л: "l", м: "m", н: "n", о: "o", п: "p", р: "r", с: "s", т: "t", у: "u", ф: "f", х: "h", ц: "c", ч: "ch", ш: "sh", щ: "sch", ъ: "", ы: "y", ь: "", э: "e", ю: "yu", я: "ya" };
+export function slugifyRu(text: string): string {
+  return text
+    .toLowerCase()
+    .split("")
+    .map((ch) => TRANS[ch] ?? ch)
+    .join("")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** Оглавление из заголовков второго уровня (## ...) в исходном markdown */
+export function extractToc(markdown: string): { text: string; id: string }[] {
+  const lines = markdown.split("\n").filter((l) => l.startsWith("## "));
+  return lines.map((l) => { const text = l.replace(/^##\s+/, "").trim(); return { text, id: slugifyRu(text) }; });
+}
+
+/** Время чтения: ~190 слов/мин для русского текста, минимум 1 минута */
+export function readingTime(markdown: string): number {
+  const words = markdown.replace(/[#*`_>[\]()!-]/g, " ").split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 190));
+}
