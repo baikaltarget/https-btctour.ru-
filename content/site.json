@@ -1537,7 +1537,8 @@
       "images": [
         "/img/tours/vertoletnye-ekskursii-1.webp",
         "/img/tours/vertoletnye-ekskursii-2.webp",
-        "/img/tours/vertoletnye-ekskursii-3.webp"
+        "/img/tours/vertoletnye-ekskursii-3.webp",
+        "/img/tours/vertoletnye-ekskursii-4.webp"
       ],
       "image": "/img/tours/vertoletnye-ekskursii-1.webp"
     },
@@ -1635,7 +1636,11 @@
       "accommodation": "Отель 3*+ в центре Иркутска",
       "meals": "Завтраки",
       "status": "active",
-      "featured": true
+      "featured": true,
+      "images": [
+        "/img/tours/baykalskiy-uikend-1.webp"
+      ],
+      "image": "/img/tours/baykalskiy-uikend-1.webp"
     },
     {
       "slug": "baykalskiy-ekspress",
@@ -1736,7 +1741,12 @@
       "accommodation": "Ольхон (2 ночи), Иркутск (1 ночь)",
       "meals": "Завтраки и два обеда на экскурсиях",
       "status": "active",
-      "featured": true
+      "featured": true,
+      "images": [
+        "/img/tours/baykalskiy-ekspress-1.webp",
+        "/img/tours/baykalskiy-ekspress-2.webp"
+      ],
+      "image": "/img/tours/baykalskiy-ekspress-1.webp"
     },
     {
       "slug": "letnyaya-klassika",
@@ -1893,7 +1903,12 @@
         }
       ],
       "status": "active",
-      "featured": true
+      "featured": true,
+      "images": [
+        "/img/tours/letnyaya-klassika-1.webp",
+        "/img/tours/letnyaya-klassika-2.webp"
+      ],
+      "image": "/img/tours/letnyaya-klassika-1.webp"
     },
     {
       "slug": "letnyaya-perezagruzka",
@@ -2035,7 +2050,12 @@
       ],
       "accommodation": "Иркутск (4 ночи), Ольхон (2 ночи)",
       "meals": "Завтраки, обед в поезде и уха на Хобое",
-      "status": "active"
+      "status": "active",
+      "images": [
+        "/img/tours/letnyaya-perezagruzka-1.webp",
+        "/img/tours/letnyaya-perezagruzka-2.webp"
+      ],
+      "image": "/img/tours/letnyaya-perezagruzka-1.webp"
     },
     {
       "slug": "vse-o-baykale",
@@ -2111,7 +2131,12 @@
       ],
       "accommodation": "Иркутск (1), Листвянка (1), Ольхон (2)",
       "meals": "Завтраки",
-      "status": "active"
+      "status": "active",
+      "images": [
+        "/img/tours/vse-o-baykale-1.webp",
+        "/img/tours/vse-o-baykale-2.webp"
+      ],
+      "image": "/img/tours/vse-o-baykale-1.webp"
     },
     {
       "slug": "vostochnyy-bereg",
@@ -2189,7 +2214,15 @@
       ],
       "accommodation": "Горячинск (3 ночи), Улан-Удэ (1 ночь)",
       "meals": "Завтраки",
-      "status": "active"
+      "status": "active",
+      "images": [
+        "/img/tours/vostochnyy-bereg-1.webp",
+        "/img/tours/vostochnyy-bereg-2.webp",
+        "/img/tours/vostochnyy-bereg-3.webp",
+        "/img/tours/vostochnyy-bereg-4.webp",
+        "/img/tours/vostochnyy-bereg-5.webp"
+      ],
+      "image": "/img/tours/vostochnyy-bereg-1.webp"
     },
     {
       "slug": "kruiz-po-baykalu",
@@ -2285,7 +2318,15 @@
       "accommodation": "Каюты на теплоходе, 1 ночь в лодж-отеле",
       "meals": "Полный пансион",
       "status": "active",
-      "featured": true
+      "featured": true,
+      "images": [
+        "/img/tours/kruiz-po-baykalu-1.webp",
+        "/img/tours/kruiz-po-baykalu-2.webp",
+        "/img/tours/kruiz-po-baykalu-3.webp",
+        "/img/tours/kruiz-po-baykalu-4.webp",
+        "/img/tours/kruiz-po-baykalu-5.webp"
+      ],
+      "image": "/img/tours/kruiz-po-baykalu-1.webp"
     },
     {
       "slug": "vkusovaya-palitra",
@@ -2393,7 +2434,16 @@
       ],
       "accommodation": "Irkutsk City Centre, «Вера», эко-отель на Ольхоне",
       "meals": "Полный пансион с винным сопровождением",
-      "status": "active"
+      "status": "active",
+      "images": [
+        "/img/tours/vkusovaya-palitra-1.webp",
+        "/img/tours/vkusovaya-palitra-2.webp",
+        "/img/tours/vkusovaya-palitra-3.webp",
+        "/img/tours/vkusovaya-palitra-4.webp",
+        "/img/tours/vkusovaya-palitra-5.webp",
+        "/img/tours/vkusovaya-palitra-6.webp"
+      ],
+      "image": "/img/tours/vkusovaya-palitra-1.webp"
     },
     {
       "slug": "filosofiya-bani",
@@ -2491,13 +2541,12 @@
       "meals": "Завтраки, обеды, 3 ужина",
       "status": "active",
       "images": [
-        "/img/tours/filosofiya-bani-zima-1.webp",
-        "/img/tours/filosofiya-bani-zima-2.webp",
-        "/img/tours/filosofiya-bani-zima-3.webp",
-        "/img/tours/filosofiya-bani-zima-4.webp",
-        "/img/tours/filosofiya-bani-zima-5.webp"
+        "/img/tours/filosofiya-bani-1.webp",
+        "/img/tours/filosofiya-bani-2.webp",
+        "/img/tours/filosofiya-bani-3.webp",
+        "/img/tours/filosofiya-bani-4.webp"
       ],
-      "image": "/img/tours/filosofiya-bani-zima-1.webp"
+      "image": "/img/tours/filosofiya-bani-1.webp"
     },
     {
       "slug": "tropa-baykalskih-vetrov",
@@ -2590,7 +2639,14 @@
       ],
       "accommodation": "Листвянка (3), Ольхон (3), Иркутск (1)",
       "meals": "Завтраки и часть обедов",
-      "status": "active"
+      "status": "active",
+      "images": [
+        "/img/tours/tropa-baykalskih-vetrov-1.webp",
+        "/img/tours/tropa-baykalskih-vetrov-2.webp",
+        "/img/tours/tropa-baykalskih-vetrov-3.webp",
+        "/img/tours/tropa-baykalskih-vetrov-4.webp"
+      ],
+      "image": "/img/tours/tropa-baykalskih-vetrov-1.webp"
     },
     {
       "slug": "irkutsk",
