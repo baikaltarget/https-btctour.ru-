@@ -19,13 +19,16 @@ export default function LeadForm({ source, tour, dates, dark, compact, lang = "r
     const fd = new FormData(e.currentTarget);
     if (fd.get("website")) return; // honeypot
     setState("sending");
+    let sent = false;
     try {
       const r = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...Object.fromEntries(fd), source, tour, utm: getUtm(), page: typeof window !== "undefined" ? window.location.pathname : "" }) });
       if (!r.ok) throw new Error(await r.text());
       setState("ok");
-      goal("lead_submit", { source });
-      if (tour) goal("lead_tour", { tour });
-    } catch (e) { setErr(String(e)); setState("err"); }
+    } catch (e) { setErr(String(e)); setState("err"); return; }
+    // Цели отправляем после успеха и отдельно от запроса: если аналитика упадёт,
+    // человек всё равно увидит «спасибо», а заявка уже ушла.
+    goal("lead_submit", { source });
+    if (tour) goal("lead_tour", { tour });
   }
   const input = `w-full rounded-xs border px-3 py-2.5 text-base outline-none focus:border-dawn-400 ${dark ? "border-white/20 bg-white/10 text-white placeholder:text-ice-100/50" : "border-ice-200 bg-white text-ink placeholder:text-ink/40"}`;
   if (state === "ok") return <p className={`rounded-xs p-4 ${dark ? "bg-white/10 text-white" : "bg-ice-100 text-ice-900"}`} role="status">{t.ok}</p>;

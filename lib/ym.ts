@@ -19,6 +19,11 @@ declare global {
 
 /** Отправить цель. Работает только в браузере и только если счётчик загрузился. */
 export function goal(name: Goal, params?: Record<string, unknown>) {
-  if (typeof window === "undefined" || !window.ym) return;
-  window.ym(Number(site.site.metrikaId), "reachGoal", name, params);
+  try {
+    if (typeof window === "undefined" || typeof window.ym !== "function") return;
+    window.ym(Number(site.site.metrikaId), "reachGoal", name, params);
+  } catch {
+    // Метрику мог заблокировать адблок или она не успела загрузиться.
+    // Аналитика не должна ронять то, ради чего сделан сайт.
+  }
 }
