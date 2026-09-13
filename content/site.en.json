@@ -880,6 +880,270 @@
         "Insurance",
         "Personal expenses"
       ]
+    },
+    "novyy-god-na-baykale": {
+      "title": "New Year on Lake Baikal",
+      "tagline": "Meet the New Year on the ice of the world's deepest lake",
+      "summary": "Four days that start with a New Year's banquet on Maloe More and continue onto the clear bubble ice: a festive dinner with Siberian food and fireworks on 31 December, a day on the transparent ice with a picnic and samovar tea, then Olkhon Island with Cape Khoboy by 4x4 and Shamanka Rock.",
+      "highlights": [
+        "New Year's banquet with Siberian cuisine, Father Frost and fireworks",
+        "A full day on transparent ice with methane bubbles and pressure ridges",
+        "Picnic on the ice with fish soup and samovar tea",
+        "Cape Khoboy by 4x4 and Shamanka Rock on Olkhon"
+      ],
+      "program": [
+        [
+          "31 December: Irkutsk and New Year's Eve",
+          "City tour of Irkutsk, then transfer to Maloe More. Festive banquet in the evening with a show programme and dancing."
+        ],
+        [
+          "1 January: Baikal ice, picnic and transfer to Olkhon",
+          "A day on the clear ice: bubbles, pressure ridges, a picnic with fish soup. Evening arrival in Khuzhir."
+        ],
+        [
+          "2 January: Cape Khoboy",
+          "4x4 trip to the northern tip of Olkhon through sacred sites, fish soup cooked over a fire, Shamanka Rock at sunset."
+        ],
+        [
+          "3 January: Farewell to Baikal",
+          "Transfer back to Irkutsk, arriving around 19:00–20:00. Plan return flights after 22:00 or for the next day."
+        ]
+      ],
+      "included": [
+        "Guide throughout",
+        "Accommodation: resort on Maloe More and hotel on Olkhon",
+        "Breakfasts",
+        "New Year's banquet with programme",
+        "Picnic on the ice and fish soup at Khoboy",
+        "All transfers, ice trip and 4x4 per the programme",
+        "National park entrance fees"
+      ],
+      "excluded": [
+        "Flights or trains to Irkutsk",
+        "Lunches and dinners outside the programme",
+        "Personal expenses"
+      ]
+    },
+    "irkutsk": {
+      "title": "Irkutsk City Tour",
+      "tagline": "Decembrists, merchants and the Trans-Siberian in three hours",
+      "summary": "A three-hour walking and driving tour of the city often called the Paris of Siberia. Behind the facades of merchant mansions are stories of the gold rush, political exile and the Decembrist wives who followed their husbands to Siberia.",
+      "highlights": [
+        "Spasskaya Church, one of the oldest stone buildings in Eastern Siberia",
+        "Znamensky Monastery and the Admiral Kolchak monument",
+        "The wooden lace houses of old Irkutsk",
+        "Trubetskoy House and Karl Marx Street"
+      ],
+      "program": [
+        [
+          "Spasskaya Church",
+          "30 minutes at the city's oldest surviving stone church."
+        ],
+        [
+          "Moscow Gates",
+          "A reconstructed triumphal arch on the Angara embankment."
+        ],
+        [
+          "Znamensky Monastery and the Kolchak monument",
+          "35 minutes at the monastery and the memorial to Admiral Kolchak."
+        ],
+        [
+          "Kazan Church",
+          "20 minutes at the red-and-blue church, one of the most photographed in the city."
+        ],
+        [
+          "The Lace House",
+          "20 minutes among the carved wooden facades of old Irkutsk."
+        ],
+        [
+          "Trubetskoy House and Karl Marx Street",
+          "The Decembrist quarter and the main historic street."
+        ],
+        [
+          "Monument to Alexander III",
+          "10 minutes at the embankment monument to the founder of the Trans-Siberian Railway."
+        ]
+      ],
+      "included": [
+        "Guide throughout the tour",
+        "Coach transport (walking and driving format)"
+      ],
+      "excluded": [
+        "Museum entrance fees, if you wish to go inside",
+        "Lunch"
+      ]
+    },
+    "listvyanka": {
+      "title": "Listvyanka Day Trip",
+      "tagline": "The closest shore of Baikal, one hour from Irkutsk",
+      "summary": "A full day at the village where the Angara River leaves Lake Baikal: the Taltsy open-air museum of wooden architecture, a cable car up to Chersky Stone, the Limnological Museum with its live seals, and the fish market. In summer a boat ride along the Circum-Baikal Railway is added, in winter a dog sledding run.",
+      "highlights": [
+        "Taltsy open-air museum of Siberian wooden architecture",
+        "Cable car and the viewpoint at Chersky Stone",
+        "Limnological Museum with live Baikal seals",
+        "Boat along the Circum-Baikal Railway in summer, dog sledding in winter"
+      ],
+      "program": [
+        [
+          "Transfer to Listvyanka",
+          "Pick-up from your hotel in Irkutsk and a one-hour drive along the Angara."
+        ],
+        [
+          "Taltsy Museum",
+          "Reconstructed Siberian villages, a wooden fort and peasant houses moved here from flooded valleys."
+        ],
+        [
+          "Cable car and Chersky Stone",
+          "The viewpoint over the source of the Angara and the Shaman Rock in the middle of the river."
+        ],
+        [
+          "Limnological Museum",
+          "The lake's ecosystem, a deep-water simulator and live Baikal seals."
+        ],
+        [
+          "Boat or dog sledding",
+          "Summer: a boat ride along the Circum-Baikal Railway. Winter: a dog sledding run."
+        ],
+        [
+          "Fish and souvenir market",
+          "Smoked omul and local crafts before the drive back."
+        ]
+      ],
+      "included": [
+        "Transfer from your hotel and back",
+        "Guide for the whole route",
+        "Entrance fees per the programme"
+      ],
+      "excluded": [
+        "Lunch",
+        "Boat along the Circum-Baikal Railway in summer",
+        "Dog sledding in winter"
+      ]
+    },
+    "teplokhod": {
+      "title": "Baikal Boat Trips",
+      "tagline": "See the lake from the water, from a few hours to a full day",
+      "summary": "Scheduled boat excursions on Lake Baikal in shared groups: routes range from short runs along the shore to full-day trips to Peschanaya Bay and the Circum-Baikal Railway. Price depends on the route, and children under ten travel at almost half price.",
+      "highlights": [
+        "Routes from short shoreline runs to full-day crossings",
+        "Shared groups — no need to book a whole boat",
+        "Guide on board",
+        "Children under ten at almost half price"
+      ],
+      "program": [
+        [
+          "Choose a route",
+          "From short trips along the Listvyanka shore to full-day sailings to Peschanaya Bay and the Circum-Baikal Railway."
+        ],
+        [
+          "On board",
+          "A guide travels with the group and tells the story of the lake, its winds and its shoreline."
+        ],
+        [
+          "Landings",
+          "Depending on the route there are stops for walks ashore; national park fees along the way are included."
+        ]
+      ],
+      "included": [
+        "Boat ticket",
+        "Guide",
+        "National park entrance fees along the route"
+      ],
+      "excluded": [
+        "Lunch, except on routes where it is stated separately",
+        "Personal expenses"
+      ]
+    },
+    "baykalsk": {
+      "title": "Baikalsk and the Warm Lakes",
+      "tagline": "The southern shore, the Trans-Siberian loop and the Snezhnaya river",
+      "summary": "A day along the southern shore of Baikal: the Angasolskaya railway loop, a mineral museum in Slyudyanka, the Vysota 900 viewpoint above Baikalsk and the Warm Lakes on the Snezhnaya river, where the water is noticeably warmer than in the lake itself.",
+      "highlights": [
+        "The Angasolskaya loop of the old Trans-Siberian line",
+        "Zhigalov mineral museum in Slyudyanka",
+        "Vysota 900 viewpoint over the lake",
+        "Warm Lakes on the Snezhnaya river"
+      ],
+      "program": [
+        [
+          "Angasolskaya loop",
+          "The spiral of the old railway line above the shore."
+        ],
+        [
+          "Zhigalov mineral museum",
+          "A private collection of Baikal region minerals in Slyudyanka."
+        ],
+        [
+          "Slyudyanka",
+          "The marble railway station and the town at the southern tip of the lake."
+        ],
+        [
+          "Vysota 900 viewpoint",
+          "A cable car up to the terrace above Baikalsk with a view over the southern basin."
+        ],
+        [
+          "Warm Lakes on the Snezhnaya",
+          "Shallow lakes that warm up far more than Baikal, in a pine forest by the river."
+        ],
+        [
+          "Return to Irkutsk",
+          "Evening drive back along the shore."
+        ]
+      ],
+      "included": [
+        "Transfer from Irkutsk",
+        "Guide for the whole day"
+      ],
+      "excluded": [
+        "Mineral museum — 300 RUB",
+        "Vysota 900 cable car — 800 RUB",
+        "Warm Lakes eco-park — 1,500 RUB",
+        "Lunch"
+      ]
+    },
+    "arshan": {
+      "title": "Arshan and Zhemchug",
+      "tagline": "Hot springs, a Buddhist temple and waterfalls in the Tunka Valley",
+      "summary": "A day trip into Buryatia at the foot of the Sayan Mountains: the thermal springs of Zhemchug, the Bodhidharma datsan, a Buryat lunch at the Khuzhir market, the trail to the waterfalls of the Kyngarga river and a maral deer farm.",
+      "highlights": [
+        "Thermal springs at Zhemchug",
+        "Bodhidharma Buddhist datsan",
+        "Trail to the Kyngarga waterfalls",
+        "Maral deer farm in the Tunka Valley"
+      ],
+      "program": [
+        [
+          "Zhemchug thermal springs",
+          "Open-air pools fed by hot mineral water, with the Sayan range on the horizon."
+        ],
+        [
+          "Bodhidharma datsan",
+          "A working Buddhist temple in the Tunka Valley."
+        ],
+        [
+          "Buryat lunch and the Khuzhir market",
+          "Buuzy and local produce at the roadside market."
+        ],
+        [
+          "Trail to the Kyngarga waterfalls",
+          "A walk up the river gorge through pine forest to the falls."
+        ],
+        [
+          "Maral deer farm",
+          "Siberian deer kept for their antlers, with a stop to feed them."
+        ]
+      ],
+      "included": [
+        "Transfer from Irkutsk or Listvyanka",
+        "Guide-instructor",
+        "Excursion programme at every stop"
+      ],
+      "excluded": [
+        "Tunka National Park entry — 250 RUB",
+        "Maral farm — 500 RUB (children and pensioners 300 RUB)",
+        "Thermal springs — 400–600 RUB per hour",
+        "Lunch"
+      ]
     }
   }
 }
