@@ -7,6 +7,7 @@ import TourList from "@/components/TourList";
 import LeadForm from "@/components/LeadForm";
 import Faq from "@/components/Faq";
 import DevFrame from "@/components/DevFrame";
+import TrackLink from "@/components/TrackLink";
 import JsonLd from "@/components/JsonLd";
 import IceLine from "@/components/IceLine";
 import { tours, regions, getTour, getRegion, getRegionTour, tourUrl, fmtPrice, fmtRange, daysWord, nightsWord, nextDeparture, seatsLabel, seatsClass, activeTours, seasonSort, SITE, type Tour, type RegionTour, type Departure } from "@/lib/content";
@@ -194,7 +195,7 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
                 <p className="mt-4 rounded-xs bg-ice-100 px-3 py-2 text-sm"><span className="text-ice-600">Ближайший заезд</span><br /><span className="font-semibold text-ice-900">{fmtRange(next)}</span><br /><span className={seatsClass(next)}>{seatsLabel(next).text}</span></p>
               ) : t.datesNote ? <p className="mt-4 text-sm text-ice-600">{t.datesNote}</p> : null}
               <div className="mt-5 grid gap-2">
-                <a href="#bron" className="btn-dawn">Забронировать</a>
+                <TrackLink href="#bron" event="click_booking" params={{ tour: t.slug }} className="btn-dawn">Забронировать</TrackLink>
                 <a href={SITE.telegram} target="_blank" rel="noopener" className="btn-ghost">Спросить в Telegram</a>
                 <a href={`tel:${SITE.phoneRaw}`} className="text-center text-sm font-semibold text-ice-800 no-underline">{SITE.phone}</a>
               </div>

@@ -1,4 +1,5 @@
 "use client";
+import { goal } from "@/lib/ym";
 import { useEffect, useState } from "react";
 import TourImage from "./TourImage";
 

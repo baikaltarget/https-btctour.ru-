@@ -5,8 +5,16 @@ import { NextResponse } from "next/server";
  *   TELEGRAM_CHAT_ID   — id чата/группы, куда слать (узнать через @userinfobot или getUpdates)
  * Пока ключей нет — заявка пишется в лог Vercel (Functions → Logs) и форма возвращает ок, чтобы не потерять лид.
  */
+/** Источник заявки: метки Директа и переходы. Пустая строка, если человек пришёл напрямую. */
+function utmLine(u?: Record<string, string>) {
+  if (!u || !Object.keys(u).length) return "";
+  const order = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "yclid", "gclid", "referrer", "landing"];
+  const parts = order.filter((k) => u[k]).map((k) => `  ${k}: ${u[k]}`);
+  return parts.length ? "Источник:\n" + parts.join("\n") : "";
+}
+
 export async function POST(req: Request) {
-  let data: Record<string, string> = {};
+  let data: Record<string, string> & { utm?: Record<string, string> } = {};
   try { data = await req.json(); } catch { return NextResponse.json({ ok: false, error: "bad json" }, { status: 400 }); }
   if (data.website) return NextResponse.json({ ok: true }); // honeypot
   if (!data.phone || String(data.phone).replace(/\D/g, "").length < 6) return NextResponse.json({ ok: false, error: "phone" }, { status: 400 });
@@ -20,6 +28,7 @@ export async function POST(req: Request) {
     `Откуда: ${data.source || "—"}`,
     data.page ? `Страница: https://btctour.ru${data.page}` : "",
     `Время: ${new Date().toLocaleString("ru-RU", { timeZone: "Asia/Irkutsk" })} (Иркутск)`,
+    utmLine(data.utm),
   ].filter(Boolean);
   const text = lines.join("\n");
   const token = process.env.TELEGRAM_BOT_TOKEN, chat = process.env.TELEGRAM_CHAT_ID;

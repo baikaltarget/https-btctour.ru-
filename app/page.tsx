@@ -3,6 +3,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
+import Utm from "@/components/Utm";
 import CookieBar from "@/components/CookieBar";
 import DepartureStrip from "@/components/DepartureStrip";
 import TourList from "@/components/TourList";
@@ -131,6 +132,7 @@ export default function Home() {
       <Footer />
       <MobileBar />
       <CookieBar />
+      <Utm />
     </>
   );
 }

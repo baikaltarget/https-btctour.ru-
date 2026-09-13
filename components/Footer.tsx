@@ -3,6 +3,7 @@ import site from "@/content/site.json";
 import LeadForm from "./LeadForm";
 import DevFrame from "./DevFrame";
 import IceLine from "./IceLine";
+import TrackLink from "./TrackLink";
 
 export default function Footer({ lang = "ru" }: { lang?: "ru" | "en" }) {
   const s = site.site;
@@ -28,10 +29,10 @@ export default function Footer({ lang = "ru" }: { lang?: "ru" | "en" }) {
           </div>
           <div>
             <p className="mb-2 font-semibold text-white">Связаться</p>
-            <p><a href={`tel:${s.phoneRaw}`} className="text-white no-underline">{s.phone}</a></p>
+            <p><TrackLink href={`tel:${s.phoneRaw}`} event="click_phone" params={{ place: "footer" }} className="text-white no-underline">{s.phone}</TrackLink></p>
             <p><a href={`tel:${s.phone2Raw}`} className="text-ice-100/90 no-underline">{s.phone2}</a> <span className="text-ice-100/60">({s.phone2Note})</span></p>
-            <p><a href={`mailto:${s.email}`} className="text-ice-100/90">{s.email}</a></p>
-            <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1"><a href={s.telegram} className="text-ice-100/90" rel="noopener" target="_blank">Telegram</a><a href={s.max} className="text-ice-100/90" rel="noopener" target="_blank">Max</a><a href={s.vk} className="text-ice-100/90" rel="noopener" target="_blank">ВКонтакте</a></p>
+            <p><TrackLink href={`mailto:${s.email}`} event="click_email" className="text-ice-100/90">{s.email}</TrackLink></p>
+            <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1"><TrackLink href={s.telegram} event="click_telegram" params={{ place: "footer" }} className="text-ice-100/90" rel="noopener" target="_blank">Telegram</TrackLink><TrackLink href={s.max} event="click_max" params={{ place: "footer" }} className="text-ice-100/90" rel="noopener" target="_blank">Max</TrackLink><a href={s.vk} className="text-ice-100/90" rel="noopener" target="_blank">ВКонтакте</a></p>
           </div>
           {lang === "ru" && (
             <div className="md:col-span-2">

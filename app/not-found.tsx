@@ -2,6 +2,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
+import Utm from "@/components/Utm";
 import CookieBar from "@/components/CookieBar";
 export default function NotFound() {
   return (
@@ -15,6 +16,7 @@ export default function NotFound() {
       <Footer />
       <MobileBar />
       <CookieBar />
+      <Utm />
     </>
   );
 }

@@ -1,4 +1,5 @@
 "use client";
+import { goal } from "@/lib/ym";
 import { useState } from "react";
 import LeadForm from "./LeadForm";
 /** Квиз подбора тура: 4 шага → форма. Ответы уходят в Telegram вместе с заявкой. */
@@ -26,7 +27,7 @@ export default function Quiz() {
               <p className="mb-4 font-display text-xl font-semibold text-ice-800">{STEPS[i].q}</p>
               <div className="grid gap-2 sm:grid-cols-2">
                 {STEPS[i].options.map((o) => (
-                  <button key={o} type="button" onClick={() => { setAns({ ...ans, [STEPS[i].key]: o }); setI(i + 1); }} className="rounded-xs border border-ice-200 px-4 py-3 text-left text-[15px] font-medium text-ice-900 hover:border-ice-600">{o}</button>
+                  <button key={o} type="button" onClick={() => { if (i === 0) goal("quiz_start"); if (i === STEPS.length - 1) goal("quiz_finish", { ...ans, [STEPS[i].key]: o }); setAns({ ...ans, [STEPS[i].key]: o }); setI(i + 1); }} className="rounded-xs border border-ice-200 px-4 py-3 text-left text-[15px] font-medium text-ice-900 hover:border-ice-600">{o}</button>
                 ))}
               </div>
               {i > 0 && <button type="button" onClick={() => setI(i - 1)} className="mt-4 text-sm text-ice-600">← Назад</button>}

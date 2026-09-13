@@ -1,4 +1,5 @@
 "use client";
+import { goal } from "@/lib/ym";
 import Link from "next/link";
 import { useState } from "react";
 import Logo from "./Logo";
@@ -21,7 +22,7 @@ export default function Header({ lang = "ru", altHref }: { lang?: "ru" | "en"; a
           <a href={s.telegram} target="_blank" rel="noopener" className="hidden items-center gap-1.5 text-sm font-medium text-ice-800 no-underline sm:inline-flex" aria-label="Telegram">
             <TgIcon /> Telegram
           </a>
-          <a href={`tel:${s.phoneRaw}`} className="hidden text-[15px] font-semibold text-ice-900 no-underline md:inline">{s.phone}</a>
+          <a href={`tel:${s.phoneRaw}`} onClick={() => goal("click_phone", { place: "header" })} className="hidden text-[15px] font-semibold text-ice-900 no-underline md:inline">{s.phone}</a>
           {altHref && <Link href={altHref} className="text-sm font-medium text-ice-600 no-underline" hrefLang={lang === "en" ? "ru" : "en"}>{lang === "en" ? "RU" : "EN"}</Link>}
           <button className="xl:hidden rounded-xs border border-ice-200 px-3 py-1.5 text-sm" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>{open ? "Закрыть" : "Меню"}</button>
         </div>
