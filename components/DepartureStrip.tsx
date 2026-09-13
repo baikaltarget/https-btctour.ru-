@@ -26,12 +26,12 @@ export default function DepartureStrip({ limit = 4 }: { limit?: number }) {
   const list = upcomingDepartures(limit);
   if (!list.length) return null;
   return (
-    <aside className="rounded-3xl bg-white/95 p-5 shadow-[0_20px_60px_-20px_rgba(10,39,51,.45)] backdrop-blur md:p-6" aria-label="Ближайшие заезды">
+    <aside className="min-w-0 max-w-full overflow-hidden rounded-3xl bg-white/95 p-5 shadow-[0_20px_60px_-20px_rgba(10,39,51,.45)] backdrop-blur md:p-6" aria-label="Ближайшие заезды">
       <p className="mb-3 font-semibold text-ice-800">Ближайшие заезды</p>
       <ul className="divide-y divide-ice-100">
         {list.map((d, i) => (
           <li key={i} className="py-2.5">
-            <Link href={tourUrl(d.tour)} className="group flex items-start justify-between gap-3 no-underline">
+            <Link href={tourUrl(d.tour)} className="group flex items-start justify-between gap-2 no-underline sm:gap-3">
               <span className="flex min-w-0 items-start gap-2">
                 <RowIcon tour={d.tour} />
                 <span className="min-w-0">
@@ -40,7 +40,7 @@ export default function DepartureStrip({ limit = 4 }: { limit?: number }) {
                 </span>
               </span>
               <span className="shrink-0 text-right">
-                <span className="block whitespace-nowrap text-sm font-semibold text-ice-800">от&nbsp;{fmtPrice(d.tour.priceFrom)}</span>
+                <span className="block whitespace-nowrap text-[13px] font-semibold text-ice-800 sm:text-sm">от&nbsp;{fmtPrice(d.tour.priceFrom)}</span>
                 <span className="block text-xs text-ice-500">за человека</span>
               </span>
             </Link>

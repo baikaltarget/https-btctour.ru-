@@ -103,10 +103,12 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
                 <h2 className="mb-4">Даты заездов</h2>
                 <ul className="divide-y divide-ice-200 border-y border-ice-200">
                   {upcoming.map((d) => (
-                    <li key={d.from} className="flex flex-wrap items-center justify-between gap-3 py-3">
-                      <span className="font-semibold text-ice-900">{fmtRange(d)}</span>
-                      <span className={`text-sm ${seatsClass(d)}`}>{seatsLabel(d).text}</span>
-                      <a href="#bron" className="text-sm font-semibold">Забронировать</a>
+                    <li key={d.from} className="flex items-center justify-between gap-3 py-3">
+                      <span className="min-w-0 sm:flex sm:items-center sm:gap-3">
+                        <span className="block font-semibold text-ice-900">{fmtRange(d)}</span>
+                        <span className={`block text-sm ${seatsClass(d)}`}>{seatsLabel(d).text}</span>
+                      </span>
+                      <a href="#bron" className="shrink-0 text-sm font-semibold">Забронировать</a>
                     </li>
                   ))}
                 </ul>

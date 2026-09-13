@@ -9,7 +9,7 @@ export default function TourRow({ t, index = 0 }: { t: Tour; index?: number }) {
   const href = tourUrl(t);
   const tags = t.tags.filter((x) => ["ice", "newyear", "buryatia", "cruise", "individual", "family", "couples", "active", "spa", "gastro", "short", "premium"].includes(x)).slice(0, 3);
   return (
-    <article className="group grid gap-5 border-t border-ice-200 py-6 md:grid-cols-[320px_1fr_auto] md:gap-8 md:py-8">
+    <article className="group grid min-w-0 gap-5 border-t border-ice-200 py-6 md:grid-cols-[320px_1fr_auto] md:gap-8 md:py-8">
       <Link href={href} className="relative block aspect-[4/3] overflow-hidden rounded-xs md:aspect-[16/11]" aria-hidden="true" tabIndex={-1}>
         <TourImage src={t.image} alt="" seed={index + 1} className="transition-transform duration-500 group-hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, 320px" />
         {t.hit && <span className="absolute left-3 top-3 rounded-xs bg-dawn-400 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-ice-900 shadow-sm">Хит</span>}
@@ -27,10 +27,10 @@ export default function TourRow({ t, index = 0 }: { t: Tour; index?: number }) {
           </ul>
         )}
       </div>
-      <div className="flex items-start justify-between gap-4 md:flex-col md:items-end md:text-right">
+      <div className="flex min-w-0 flex-wrap items-start justify-between gap-x-4 gap-y-2 md:flex-col md:flex-nowrap md:items-end md:text-right">
         <div>
           <DevFrame inline note={t.priceTodo ? "цена" : undefined}>
-            <p className="whitespace-nowrap font-display text-2xl font-semibold text-ice-800">{t.priceFrom ? "от\u00a0" : ""}{fmtPrice(t.priceFrom)}</p>
+            <p className="whitespace-nowrap font-display text-xl font-semibold text-ice-800 sm:text-2xl">{t.priceFrom ? "от\u00a0" : ""}{fmtPrice(t.priceFrom)}</p>
           </DevFrame>
           <p className="text-xs text-ice-600">{t.priceFrom ? (t.priceUnit === "чел" ? "за человека" : t.priceUnit === "группа" ? "за группу" : `за ${t.priceUnit}`) : "уточняйте"}</p>
         </div>

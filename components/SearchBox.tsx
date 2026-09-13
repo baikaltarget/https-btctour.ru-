@@ -31,9 +31,9 @@ export default function SearchBox({ items, tagLabels }: { items: Item[]; tagLabe
       <p className="mb-4 text-sm text-ice-600">{list.length ? `Найдено: ${list.length}` : "Ничего не нашлось. Попробуйте другое слово или позвоните — подберём вручную."}</p>
       <ul className="divide-y divide-ice-200 border-y border-ice-200">
         {list.map((t) => (
-          <li key={t.url} className="flex flex-wrap items-baseline justify-between gap-3 py-4">
+          <li key={t.url} className="flex min-w-0 flex-wrap items-baseline justify-between gap-3 py-4">
             <div><Link href={t.url} className="text-lg font-semibold no-underline hover:underline">{t.title}</Link><p className="text-sm text-ink/70">{t.tagline}</p></div>
-            <p className="text-sm text-ice-800">{t.days === 1 ? "1 день" : `${t.days} дн.`} · {t.price ? `от ${t.price.toLocaleString("ru-RU")} ₽` : "цена по запросу"}</p>
+            <p className="shrink-0 whitespace-nowrap text-sm text-ice-800">{t.days === 1 ? "1 день" : `${t.days} дн.`} · {t.price ? `от\u00a0${t.price.toLocaleString("ru-RU").replace(/[\s\u202f]/g, "\u00a0")}\u00a0₽` : "цена по запросу"}</p>
           </li>
         ))}
       </ul>

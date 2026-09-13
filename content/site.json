@@ -1643,7 +1643,11 @@
       "status": "active",
       "featured": true,
       "images": [
-        "/img/tours/baykalskiy-uikend-1.webp"
+        "/img/tours/baykalskiy-uikend-1.webp",
+        "/img/tours/baykalskiy-uikend-2.webp",
+        "/img/tours/baykalskiy-uikend-3.webp",
+        "/img/tours/baykalskiy-uikend-4.webp",
+        "/img/tours/baykalskiy-uikend-5.webp"
       ],
       "image": "/img/tours/baykalskiy-uikend-1.webp"
     },
