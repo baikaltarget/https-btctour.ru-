@@ -20,7 +20,7 @@ export default function TourRow({ t, index = 0 }: { t: Tour; index?: number }) {
           {t.groupSize ? ` · ${t.groupSize}` : ""}
         </p>
         <h3 className="mb-2"><Link href={href} className="no-underline hover:underline">{t.title}</Link></h3>
-        <p className="mb-3 max-w-2xl text-[15px] leading-relaxed text-ink/80">{t.tagline}. {t.summary.split(". ").slice(0, 1).join(". ")}.</p>
+        <p className="mb-3 max-w-2xl text-[15px] leading-relaxed text-ink/80">{`${t.tagline}. ${t.summary.split(". ")[0]}`.replace(/\.+$/, "")}.</p>
         {tags.length > 0 && (
           <ul className="flex flex-wrap gap-2 text-xs text-ice-800">
             {tags.map((x) => <li key={x} className="rounded-xs bg-ice-100 px-2 py-1">{TAG_LABELS[x]}</li>)}

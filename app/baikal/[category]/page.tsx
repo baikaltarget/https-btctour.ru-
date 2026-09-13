@@ -50,12 +50,15 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
 
       {c.howToGet && (
         <section className="wrap pt-12">
-          <DevFrame note={c.howToGet.todo}>
+          <>
             <h2 className="mb-4">{c.howToGet.title}</h2>
             <dl className="grid max-w-3xl gap-y-3 border-y border-ice-200 py-4 sm:grid-cols-[180px_1fr] sm:gap-x-6">
               {c.howToGet.rows.map(([k, v]) => <div key={k} className="contents"><dt className="font-semibold text-ice-800">{k}</dt><dd className="mb-2 text-ink/85 sm:mb-0">{v}</dd></div>)}
             </dl>
-          </DevFrame>
+            {"note" in c.howToGet && (c.howToGet as { note?: string }).note && (
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ice-600">{(c.howToGet as { note?: string }).note}</p>
+            )}
+          </>
         </section>
       )}
 

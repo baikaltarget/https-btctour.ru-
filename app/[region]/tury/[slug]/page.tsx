@@ -32,6 +32,7 @@ function normalize(region: string, slug: string): { t: Tour; draft: boolean; reg
     days: rt.days || 0, nights: rt.nights || 0, priceFrom: rt.priceFrom ?? null, priceUnit: rt.priceUnit || "чел", priceNote: "", difficulty: rt.difficulty || "", groupSize: rt.groupSize || "",
     departures: [], summary: rt.summary || `Программа тура «${rt.title}» по направлению ${rg.name}. Полное описание и даты — по запросу.`, forWhom: "", highlights: [], program: rt.program || [],
     included: rt.included || [], excluded: rt.excluded || [], status: rt.status, datesNote: rt.season, todo: rt.todo,
+    onRequest: (rt as { onRequest?: string }).onRequest, programNote: (rt as { programNote?: string }).programNote,
   } as unknown as Tour;
   return { t, draft: rt.status === "draft", regionName: rg.name };
 }
@@ -91,6 +92,15 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
               <TourGallery images={t.images && t.images.length ? t.images : [t.image ?? ""]} alt={t.title} seedBase={t.title.length} />
             </DevFrame>
             <p className="prose-site mt-8 text-[18px]">{t.summary}</p>
+            {"onRequest" in t && (t as { onRequest?: string }).onRequest && (
+              <div className="mt-6 rounded-xs border border-ice-200 bg-ice-100/70 px-5 py-4">
+                <p className="text-[15px] leading-relaxed text-ice-900">{(t as { onRequest?: string }).onRequest}</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <a href="#bron" className="btn-dawn">Запросить программу</a>
+                  <a href={`tel:${SITE.phoneRaw}`} className="btn-ghost">{SITE.phone}</a>
+                </div>
+              </div>
+            )}
             {t.forWhom && <p className="prose-site text-ink/80"><span className="font-semibold text-ice-800">Кому подойдёт: </span>{t.forWhom}</p>}
             {t.highlights.length > 0 && (
               <ul className="mt-6 grid gap-2 sm:grid-cols-2">
@@ -120,6 +130,9 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
             {t.program.length > 0 && (
               <section className="mt-12" id="programma">
                 <h2 className="mb-6">{t.type === "excursion" ? "Маршрут экскурсии" : "Программа по дням"}</h2>
+                {"programNote" in t && (t as { programNote?: string }).programNote && (
+                  <p className="mb-6 max-w-3xl rounded-xs bg-ice-100 px-4 py-3 text-[15px] text-ice-900">{(t as { programNote?: string }).programNote}</p>
+                )}
                 <ol className="relative border-l border-ice-200 pl-6">
                   {t.program.map((d) => (
                     <li key={d.day} className="relative mb-8 last:mb-0">

@@ -30,7 +30,7 @@ export default async function RegionPage({ params }: { params: Promise<{ region:
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink/80">{r.intro}</p>
       </section>
       <section className="wrap pt-10">
-        <DevFrame note={r.todo}>
+        <>
           {active.length > 0 && (
             <div className="divide-y divide-ice-200 border-y border-ice-200">
               {active.map((t) => {
@@ -72,8 +72,16 @@ export default async function RegionPage({ params }: { params: Promise<{ region:
               <ul className="grid gap-1 sm:grid-cols-2">{drafts.map((t) => <li key={t.slug} className="text-[15px]">{t.title} <span className="text-sm text-ice-600">— по запросу</span></li>)}</ul>
             </div>
           )}
-        </DevFrame>
+        </>
       </section>
+      {"text" in r && Array.isArray((r as { text?: string[] }).text) && (
+        <section className="wrap pt-14">
+          <h2 className="mb-5">{r.h1} из Иркутска</h2>
+          <div className="prose-site max-w-3xl">
+            {(r as { text: string[] }).text.map((x) => <p key={x.slice(0, 40)}>{x}</p>)}
+          </div>
+        </section>
+      )}
       <section className="wrap mt-14 grid gap-8 rounded-xs border border-ice-200 bg-white p-6 md:grid-cols-2 md:p-10">
         <div><h2>Подобрать программу</h2><p className="mt-3 text-ink/80">Скажите даты и состав — пришлём подходящие туры по направлению «{r.name}» с ценами.</p></div>
         <LeadForm source={`region: ${r.name}`} />
