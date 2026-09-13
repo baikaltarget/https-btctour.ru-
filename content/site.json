@@ -12,16 +12,21 @@
     "phone2Note": "Telegram, MAX",
     "email": "info@btctour.ru",
     "telegram": "https://t.me/baikaltravelcompany",
+    "max": "https://max.ru/u/f9LHodD0cOIW1MZiXY93xu0_0-hqI-FujEGy-wM7zsMC5wj7vVYplnOMQ5Q",
     "vk": "https://vk.com/baikaltravelcompany",
     "rto": "В031-00161-00/05882764",
     "inn": "3849102488",
     "ogrn": "1243800010090",
     "address": "г. Иркутск, ул. Ширямова, 38/4",
+    "addressStreet": "ул. Ширямова, 38/4",
+    "addressStreetEn": "Shiryamova St, 38/4",
+    "postalCode": "664009",
     "addressTodo": false,
     "hours": "Пн–Вс 09:00–21:00 (Иркутск, МСК+5)",
+    "hoursEn": "Mon–Sun 09:00–21:00 (Irkutsk time, UTC+8)",
     "geo": {
-      "lat": 52.2869,
-      "lng": 104.2811
+      "lat": 52.26338,
+      "lng": 104.347386
     },
     "metrikaId": "97885909",
     "defaultOg": "/img/og-default.jpg",
@@ -1068,14 +1073,14 @@
       "status": "active",
       "featured": true,
       "images": [
-        "/img/tours/dva-berega-baykala-1.webp",
+        "/img/tours/dva-berega-baykala-5.webp",
+        "/img/tours/dva-berega-baykala-6.webp",
+        "/img/tours/dva-berega-baykala-4.webp",
         "/img/tours/dva-berega-baykala-2.webp",
         "/img/tours/dva-berega-baykala-3.webp",
-        "/img/tours/dva-berega-baykala-4.webp",
-        "/img/tours/dva-berega-baykala-5.webp",
-        "/img/tours/dva-berega-baykala-6.webp"
+        "/img/tours/dva-berega-baykala-1.webp"
       ],
-      "image": "/img/tours/dva-berega-baykala-1.webp"
+      "image": "/img/tours/dva-berega-baykala-5.webp"
     },
     {
       "slug": "baykalskiy-led-ekspress",

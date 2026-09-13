@@ -31,7 +31,7 @@ export default function Footer({ lang = "ru" }: { lang?: "ru" | "en" }) {
             <p><a href={`tel:${s.phoneRaw}`} className="text-white no-underline">{s.phone}</a></p>
             <p><a href={`tel:${s.phone2Raw}`} className="text-ice-100/90 no-underline">{s.phone2}</a> <span className="text-ice-100/60">({s.phone2Note})</span></p>
             <p><a href={`mailto:${s.email}`} className="text-ice-100/90">{s.email}</a></p>
-            <p className="mt-2 flex gap-4"><a href={s.telegram} className="text-ice-100/90" rel="noopener" target="_blank">Telegram</a><a href={s.vk} className="text-ice-100/90" rel="noopener" target="_blank">ВКонтакте</a></p>
+            <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1"><a href={s.telegram} className="text-ice-100/90" rel="noopener" target="_blank">Telegram</a><a href={s.max} className="text-ice-100/90" rel="noopener" target="_blank">Max</a><a href={s.vk} className="text-ice-100/90" rel="noopener" target="_blank">ВКонтакте</a></p>
           </div>
           {lang === "ru" && (
             <div className="md:col-span-2">

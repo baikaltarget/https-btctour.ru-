@@ -40,7 +40,7 @@ export default function DepartureStrip({ limit = 4 }: { limit?: number }) {
                 </span>
               </span>
               <span className="shrink-0 text-right">
-                <span className="block text-sm font-semibold text-ice-800">от {fmtPrice(d.tour.priceFrom).replace(" ₽", "")} ₽</span>
+                <span className="block whitespace-nowrap text-sm font-semibold text-ice-800">от&nbsp;{fmtPrice(d.tour.priceFrom)}</span>
                 <span className="block text-xs text-ice-500">за человека</span>
               </span>
             </Link>

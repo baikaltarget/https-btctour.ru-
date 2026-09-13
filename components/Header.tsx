@@ -37,6 +37,10 @@ export default function Header({ lang = "ru", altHref }: { lang?: "ru" | "en"; a
     </header>
   );
 }
+/** Нейтральная иконка сообщения для кнопок Max — не логотип мессенджера. */
+export function MaxIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.9 3 3 6.4 3 10.6c0 2.4 1.3 4.6 3.4 6v3.2c0 .5.5.8.9.5l2.9-1.9c.6.1 1.2.2 1.8.2 5.1 0 9-3.4 9-7.6S17.1 3 12 3Z"/></svg>;
+}
 export function TgIcon({ className = "h-4 w-4" }: { className?: string }) {
   return <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.47 8.7 20.1c.48 0 .69-.21.94-.46l2.26-2.17 4.68 3.43c.86.47 1.47.22 1.7-.79l3.07-14.4c.28-1.26-.45-1.75-1.29-1.44L2.6 11.13c-1.23.48-1.21 1.17-.21 1.48l4.62 1.44 10.73-6.77c.5-.33.96-.15.58.18L9.04 15.47Z"/></svg>;
 }

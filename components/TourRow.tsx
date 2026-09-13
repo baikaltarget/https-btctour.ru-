@@ -7,7 +7,7 @@ import DevFrame from "./DevFrame";
 export default function TourRow({ t, index = 0 }: { t: Tour; index?: number }) {
   const next = nextDeparture(t);
   const href = tourUrl(t);
-  const tags = t.tags.filter((x) => ["ice", "newyear", "family", "couples", "active", "spa", "gastro", "short", "premium"].includes(x)).slice(0, 3);
+  const tags = t.tags.filter((x) => ["ice", "newyear", "buryatia", "cruise", "individual", "family", "couples", "active", "spa", "gastro", "short", "premium"].includes(x)).slice(0, 3);
   return (
     <article className="group grid gap-5 border-t border-ice-200 py-6 md:grid-cols-[320px_1fr_auto] md:gap-8 md:py-8">
       <Link href={href} className="relative block aspect-[4/3] overflow-hidden rounded-xs md:aspect-[16/11]" aria-hidden="true" tabIndex={-1}>
@@ -30,7 +30,7 @@ export default function TourRow({ t, index = 0 }: { t: Tour; index?: number }) {
       <div className="flex items-start justify-between gap-4 md:flex-col md:items-end md:text-right">
         <div>
           <DevFrame inline note={t.priceTodo ? "цена" : undefined}>
-            <p className="font-display text-2xl font-semibold text-ice-800">{t.priceFrom ? "от " : ""}{fmtPrice(t.priceFrom)}</p>
+            <p className="whitespace-nowrap font-display text-2xl font-semibold text-ice-800">{t.priceFrom ? "от\u00a0" : ""}{fmtPrice(t.priceFrom)}</p>
           </DevFrame>
           <p className="text-xs text-ice-600">{t.priceFrom ? (t.priceUnit === "чел" ? "за человека" : t.priceUnit === "группа" ? "за группу" : `за ${t.priceUnit}`) : "уточняйте"}</p>
         </div>

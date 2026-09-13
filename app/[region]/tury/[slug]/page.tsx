@@ -138,7 +138,7 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
                   {t.routes.map((r, i) => (
                     <div key={r.name} className="grid gap-2 py-5 md:grid-cols-[1fr_260px] md:gap-8">
                       <div><p className="text-sm text-ice-600">Маршрут {i + 1} · {r.time}</p><h3 className="!text-lg">{r.name}</h3><p className="mt-1 text-[15px] leading-relaxed text-ink/80">{r.text}</p></div>
-                      <dl className="grid grid-cols-3 gap-2 text-sm md:text-right">{["R-44", "Bell 206 B", "Bell 206 L"].map((m, k) => <div key={m}><dt className="text-ice-600">{m}</dt><dd className="font-semibold text-ice-900">{fmtPrice(r.prices[k])}</dd></div>)}</dl>
+                      <dl className="grid grid-cols-3 gap-2 text-sm md:text-right">{["R-44", "Bell 206 B", "Bell 206 L"].map((m, k) => <div key={m}><dt className="text-ice-600">{m}</dt><dd className="whitespace-nowrap font-semibold text-ice-900">{fmtPrice(r.prices[k])}</dd></div>)}</dl>
                     </div>
                   ))}
                 </div>
@@ -172,7 +172,7 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
           <aside className="lg:sticky lg:top-20 lg:self-start">
             <div className="rounded-xs border border-ice-200 bg-white p-5 shadow-[0_20px_50px_-30px_rgba(10,39,51,.5)]">
               <DevFrame note={t.priceTodo ? "цена от заказчика" : undefined}>
-                <p className="font-display text-3xl font-semibold text-ice-800">{t.priceFrom ? "от " : ""}{fmtPrice(t.priceFrom)}</p>
+                <p className="whitespace-nowrap font-display text-[26px] font-semibold text-ice-800 sm:text-3xl">{t.priceFrom ? "от\u00a0" : ""}{fmtPrice(t.priceFrom)}</p>
               </DevFrame>
               <p className="text-sm text-ice-600">{t.priceFrom ? (t.priceUnit === "чел" ? "за человека" : t.priceUnit === "группа" ? "за группу" : `за ${t.priceUnit}`) : "подскажем по телефону"}{t.priceNote ? `, ${t.priceNote}` : ""}</p>
               {next ? (

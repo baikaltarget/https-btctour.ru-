@@ -78,7 +78,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                       <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-xs"><TourImage src={t.image} alt="" seed={t.title.length} sizes="112px" /></div>
                       <div className="min-w-0">
                         <p className="truncate font-semibold text-ice-900">{t.title}</p>
-                        <p className="text-sm text-ice-600">{t.priceFrom ? `от ${fmtPrice(t.priceFrom)}` : "цена по запросу"}</p>
+                        <p className="whitespace-nowrap text-sm text-ice-600">{t.priceFrom ? `от\u00a0${fmtPrice(t.priceFrom)}` : "цена по запросу"}</p>
                       </div>
                     </Link>
                   ))}

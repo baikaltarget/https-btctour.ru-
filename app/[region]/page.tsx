@@ -38,7 +38,7 @@ export default async function RegionPage({ params }: { params: Promise<{ region:
                 return (
                   <article key={t.slug} className="grid gap-3 py-6 md:grid-cols-[1fr_auto] md:gap-8">
                     <div><p className="text-sm text-ice-600">{x.days ? `${x.days} дн.` : ""}</p><h2 className="!text-2xl"><Link href={`/${r.slug}/tury/${t.slug}/`} className="no-underline hover:underline">{t.title}</Link></h2><p className="mt-1 max-w-2xl text-[15px] text-ink/80">{x.tagline}</p></div>
-                    <div className="md:text-right"><p className="font-display text-2xl font-semibold text-ice-800">от {fmtPrice(x.priceFrom)}</p><Link href={`/${r.slug}/tury/${t.slug}/`} className="btn-ghost mt-2 hidden md:inline-flex">Программа</Link></div>
+                    <div className="md:text-right"><p className="whitespace-nowrap font-display text-2xl font-semibold text-ice-800">от&nbsp;{fmtPrice(x.priceFrom)}</p><Link href={`/${r.slug}/tury/${t.slug}/`} className="btn-ghost mt-2 hidden md:inline-flex">Программа</Link></div>
                   </article>
                 );
               })}
@@ -53,7 +53,7 @@ export default async function RegionPage({ params }: { params: Promise<{ region:
                     {g.items.map((it) => (
                       <div key={it.title} className="grid gap-2 py-4 md:grid-cols-[1fr_200px] md:gap-8">
                         <div><h3 className="!text-lg">{it.title}</h3><p className="text-[15px] text-ink/80">{it.text}</p></div>
-                        <p className="text-sm text-ice-800 md:text-right">{it.days} дн. · {it.season}<br /><span className="font-semibold">от {fmtPrice(it.priceFrom)}</span></p>
+                        <p className="text-sm text-ice-800 md:text-right">{it.days} дн. · {it.season}<br /><span className="whitespace-nowrap font-semibold">от&nbsp;{fmtPrice(it.priceFrom)}</span></p>
                       </div>
                     ))}
                   </div>

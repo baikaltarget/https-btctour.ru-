@@ -147,7 +147,8 @@ export function fmtRange(d: Departure) {
 }
 export function fmtPrice(n: number | null | undefined) {
   if (!n) return "по запросу";
-  return n.toLocaleString("ru-RU").replace(/\u00a0/g, " ") + " ₽";
+  // Разряды и знак рубля — через неразрывный пробел: иначе на узких экранах «3 000 ₽» рвётся и ₽ уезжает на вторую строку.
+  return n.toLocaleString("ru-RU").replace(/[\s\u202f]/g, "\u00a0") + "\u00a0₽";
 }
 export function daysWord(n: number) {
   const a = n % 10, b = n % 100;
