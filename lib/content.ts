@@ -205,3 +205,9 @@ export function readingTime(markdown: string): number {
   const words = markdown.replace(/[#*`_>[\]()!-]/g, " ").split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.round(words / 190));
 }
+
+/** Склеивает короткие предлоги и союзы со следующим словом неразрывным пробелом,
+ *  чтобы на узких экранах «с», «до», «из» не висели в конце строки. */
+export function nbsp(s: string) {
+  return s.replace(/(^|[\s(«])([а-яёa-z]{1,2}|[0-9]+)\s+/gi, "$1$2\u00a0");
+}

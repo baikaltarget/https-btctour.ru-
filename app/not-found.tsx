@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MobileBar from "@/components/MobileBar";
+import CookieBar from "@/components/CookieBar";
 export default function NotFound() {
   return (
     <>
@@ -11,6 +13,8 @@ export default function NotFound() {
         <p className="mt-6 flex justify-center gap-3"><Link href="/baikal/" className="btn-primary">Туры на Байкал</Link><Link href="/kontakty/" className="btn-ghost">Контакты</Link></p>
       </main>
       <Footer />
+      <MobileBar />
+      <CookieBar />
     </>
   );
 }

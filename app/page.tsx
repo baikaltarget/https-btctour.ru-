@@ -3,6 +3,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
+import CookieBar from "@/components/CookieBar";
 import DepartureStrip from "@/components/DepartureStrip";
 import TourList from "@/components/TourList";
 import Quiz from "@/components/Quiz";
@@ -12,7 +13,7 @@ import JsonLd from "@/components/JsonLd";
 import DevFrame from "@/components/DevFrame";
 import IceLine from "@/components/IceLine";
 import { SectionHead } from "@/components/Section";
-import { HERO, SEASON, SITE, TRUST, FAQ_GENERAL, activeTours, seasonSort, regions } from "@/lib/content";
+import { HERO, SEASON, SITE, TRUST, FAQ_GENERAL, activeTours, seasonSort, regions, nbsp } from "@/lib/content";
 import { meta, orgJsonLd } from "@/lib/seo";
 
 export const metadata = meta({
@@ -47,7 +48,11 @@ export default function Home() {
               <div>
                 <p className="mb-4 text-sm text-ice-100/85">{HERO.eyebrow}</p>
                 <h1 className="max-w-3xl text-white">{HERO.title}</h1>
-                <p className="mt-5 max-w-xl text-lg leading-relaxed text-ice-100/90">{HERO.subtitle}</p>
+                <p className="mt-5 max-w-xl text-lg leading-relaxed text-ice-100/90">
+                  {HERO.subtitle.split(". ").filter(Boolean).map((line) => (
+                    <span key={line} className="block">{nbsp(line.replace(/\.$/, ""))}.</span>
+                  ))}
+                </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <Link href={SEASON === "winter" ? "/baikal/zimnie/" : "/baikal/letnie/"} className="btn-dawn">{SEASON === "winter" ? "Зимние туры 2027" : "Летние туры"}</Link>
                   <Link href="/#podbor" className="btn-frost">Подобрать тур</Link>
@@ -125,6 +130,7 @@ export default function Home() {
       </main>
       <Footer />
       <MobileBar />
+      <CookieBar />
     </>
   );
 }
