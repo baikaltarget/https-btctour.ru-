@@ -18,14 +18,14 @@ export default function Header({ lang = "ru", altHref }: { lang?: "ru" | "en"; a
         <nav className="hidden items-center gap-4 xl:flex" aria-label="Основное меню">
           {nav.map((n) => <Link key={n.href} href={n.href} className="whitespace-nowrap text-[15px] font-medium text-ice-900 no-underline hover:text-ice-600">{n.label}</Link>)}
         </nav>
-        <div className="flex items-center gap-3">
-          <a href={s.telegram} onClick={() => goal("click_telegram", { place: "header" })} target="_blank" rel="noopener" className="hidden items-center gap-1.5 text-sm font-medium text-ice-800 no-underline sm:inline-flex" aria-label="Telegram">
+        <div className="flex shrink-0 items-center gap-3">
+          <a href={s.telegram} onClick={() => goal("click_telegram", { place: "header" })} target="_blank" rel="noopener" className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-medium text-ice-800 no-underline lg:inline-flex" aria-label="Telegram">
             <TgIcon /> Telegram
           </a>
-          <a href={s.max} onClick={() => goal("click_max", { place: "header" })} target="_blank" rel="noopener" className="hidden items-center gap-1.5 text-sm font-medium text-ice-800 no-underline sm:inline-flex" aria-label="Max">
+          <a href={s.max} onClick={() => goal("click_max", { place: "header" })} target="_blank" rel="noopener" className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-medium text-ice-800 no-underline lg:inline-flex" aria-label="Max">
             <MaxIcon /> Max
           </a>
-          <a href={`tel:${s.phoneRaw}`} onClick={() => goal("click_phone", { place: "header" })} className="hidden text-[15px] font-semibold text-ice-900 no-underline md:inline">{s.phone}</a>
+          <a href={`tel:${s.phoneRaw}`} onClick={() => goal("click_phone", { place: "header" })} className="hidden whitespace-nowrap text-[15px] font-semibold text-ice-900 no-underline md:inline">{s.phone}</a>
           {altHref && <Link href={altHref} className="text-sm font-medium text-ice-600 no-underline" hrefLang={lang === "en" ? "ru" : "en"}>{lang === "en" ? "RU" : "EN"}</Link>}
           <button className="xl:hidden rounded-xs border border-ice-200 px-3 py-1.5 text-sm" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>{open ? "Закрыть" : "Меню"}</button>
         </div>
