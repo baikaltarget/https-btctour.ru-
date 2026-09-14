@@ -31,9 +31,51 @@ export async function POST(req: Request) {
     utmLine(data.utm),
   ].filter(Boolean);
   const text = lines.join("\n");
+  // Каналы независимы: падение одного не должно лишать заказчика заявки.
+  const [tg, mail] = await Promise.all([sendTelegram(text), sendEmail(text, data)]);
+  if (!tg && !mail) {
+    console.error("[LEAD — не доставлено ни одним каналом]\n" + text);
+    return NextResponse.json({ ok: false, error: "delivery" }, { status: 502 });
+  }
+  if (!tg) console.error("[LEAD — Telegram не доставил, письмо ушло]");
+  if (!mail) console.error("[LEAD — почта не доставила, Telegram ушёл]");
+  return NextResponse.json({ ok: true, delivered: true, channels: { telegram: tg, email: mail } });
+}
+
+/** Отправка в Telegram. Возвращает true, если сообщение доставлено. */
+async function sendTelegram(text: string): Promise<boolean> {
   const token = process.env.TELEGRAM_BOT_TOKEN, chat = process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chat) { console.log("[LEAD — Telegram не настроен]\n" + text); return NextResponse.json({ ok: true, delivered: false }); }
-  const r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ chat_id: chat, text }) });
-  if (!r.ok) { console.error("[LEAD — Telegram error]", await r.text(), "\n" + text); return NextResponse.json({ ok: false, error: "telegram" }, { status: 502 }); }
-  return NextResponse.json({ ok: true, delivered: true });
+  if (!token || !chat) { console.log("[LEAD — Telegram не настроен]\n" + text); return false; }
+  try {
+    const r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chat, text }),
+    });
+    if (!r.ok) { console.error("[LEAD — Telegram error]", await r.text(), "\n" + text); return false; }
+    return true;
+  } catch (e) { console.error("[LEAD — Telegram exception]", String(e), "\n" + text); return false; }
+}
+
+/** Дублирование на почту через Resend. Работает, если заданы RESEND_API_KEY и LEAD_EMAIL_TO. */
+async function sendEmail(text: string, data: Record<string, unknown>): Promise<boolean> {
+  const key = process.env.RESEND_API_KEY, to = process.env.LEAD_EMAIL_TO;
+  if (!key || !to) return false;
+  const from = process.env.LEAD_EMAIL_FROM || "Сайт BTCTOUR <zayavki@btctour.ru>";
+  const name = String(data.name || "").trim();
+  const phone = String(data.phone || "").trim();
+  try {
+    const r = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
+      body: JSON.stringify({
+        from,
+        to: to.split(",").map((x) => x.trim()).filter(Boolean),
+        reply_to: /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(phone) ? phone : undefined,
+        subject: `Заявка с сайта: ${name || "без имени"}${phone ? " — " + phone : ""}`,
+        text,
+      }),
+    });
+    if (!r.ok) { console.error("[LEAD — Resend error]", await r.text()); return false; }
+    return true;
+  } catch (e) { console.error("[LEAD — Resend exception]", String(e)); return false; }
 }

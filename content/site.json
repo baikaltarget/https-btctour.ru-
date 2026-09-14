@@ -1282,6 +1282,7 @@
       "status": "active",
       "featured": true,
       "images": [
+        "/img/tours/baykalskiy-led-ekspress-7.webp",
         "/img/tours/baykalskiy-led-ekspress-1.webp",
         "/img/tours/baykalskiy-led-ekspress-2.webp",
         "/img/tours/baykalskiy-led-ekspress-3.webp",
@@ -1289,7 +1290,7 @@
         "/img/tours/baykalskiy-led-ekspress-5.webp",
         "/img/tours/baykalskiy-led-ekspress-6.webp"
       ],
-      "image": "/img/tours/baykalskiy-led-ekspress-1.webp",
+      "image": "/img/tours/baykalskiy-led-ekspress-cover.webp",
       "faq": [
         {
           "q": "Хватит ли трёх дней, чтобы увидеть лёд?",

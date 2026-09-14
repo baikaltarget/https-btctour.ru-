@@ -10,7 +10,7 @@ import DevFrame from "@/components/DevFrame";
 import TrackLink from "@/components/TrackLink";
 import JsonLd from "@/components/JsonLd";
 import IceLine from "@/components/IceLine";
-import { tours, regions, getTour, getRegion, getRegionTour, tourUrl, fmtPrice, fmtRange, daysWord, nightsWord, nextDeparture, seatsLabel, seatsClass, activeTours, seasonSort, SITE, type Tour, type RegionTour, type Departure } from "@/lib/content";
+import { tours, regions, getTour, getRegion, getRegionTour, tourUrl, fmtPrice, fmtRange, daysWord, nightsWord, nextDeparture, seatsLabel, seatsClass, activeTours, seasonSort, SITE, type Tour, type RegionTour, type Departure, seasonMonths } from "@/lib/content";
 import { meta, tourJsonLd } from "@/lib/seo";
 
 export const dynamicParams = false;
@@ -179,7 +179,7 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
             <section className="mt-12 rounded-xs border border-ice-200 bg-white p-5 md:p-8" id="bron">
               <h2 className="mb-2">Забронировать{t.type === "excursion" ? " экскурсию" : t.type === "helicopter" ? " полёт" : " тур"}</h2>
               <p className="mb-5 max-w-prose text-ink/80">Оставьте контакт — перезвоним, уточним детали и пришлём договор. Предоплата фиксирует место, остаток можно разбить Яндекс Сплитом.</p>
-              <LeadForm source={`tour: ${t.title}`} tour={t.slug} dates={upcoming.map(fmtRange)} />
+              <LeadForm source={`tour: ${t.title}`} tour={t.slug} dates={upcoming.length ? upcoming.map(fmtRange) : seasonMonths(t.season)} />
             </section>
             {t.faq && <Faq items={t.faq} title="Вопросы по туру" />}
           </div>

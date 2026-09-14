@@ -10,9 +10,10 @@ export default function LeadForm({ source, tour, dates, dark, compact, lang = "r
   const [state, setState] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [err, setErr] = useState("");
   const [phone, setPhone] = useState("");
+  const [consent, setConsent] = useState(true);
   const t = lang === "en"
-    ? { name: "Name", phone: "Phone or Telegram", date: "Preferred dates", people: "Travellers", btn: "Request a call", ok: "Thanks — we will get back to you shortly.", fail: "Could not send. Please call or write to Telegram.", consent: "By submitting you agree to the privacy policy", any: "any" }
-    : { name: "Имя", phone: "Телефон или Telegram", date: "Даты", people: "Сколько человек", btn: "Жду звонка", ok: "Спасибо, заявка ушла. Перезвоним в течение 15 минут в рабочее время.", fail: "Не отправилось. Позвоните нам или напишите в Telegram.", consent: "Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности", any: "любые" };
+    ? { name: "Name", phone: "Phone or Telegram", date: "Preferred dates", people: "Travellers", btn: "Request a call", ok: "Thanks — we will get back to you shortly.", fail: "Could not send. Please call or write to Telegram.", consentPre: "I agree to the processing of my personal data in line with the ", consentLink: "privacy policy", any: "any" }
+    : { name: "Имя", phone: "Телефон или Telegram", date: "Даты", people: "Сколько человек", btn: "Жду звонка", ok: "Спасибо, заявка ушла. Перезвоним в течение 15 минут в рабочее время.", fail: "Не отправилось. Позвоните нам или напишите в Telegram.", consentPre: "Согласен на обработку персональных данных в соответствии с ", consentLink: "политикой конфиденциальности", any: "любые" };
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -49,9 +50,22 @@ export default function LeadForm({ source, tour, dates, dark, compact, lang = "r
           <label className="grid gap-1 text-sm"><span className={dark ? "text-ice-100/80" : "text-ice-800"}>{t.people}</span><input name="people" inputMode="numeric" className={input} placeholder="2" /></label>
         </div>
       )}
+      <label className={`flex items-start gap-2 text-xs ${dark ? "text-ice-100/70" : "text-ink/70"}`}>
+        <input
+          type="checkbox"
+          name="consent"
+          required
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 accent-[color:var(--dawn-500,#E9B86C)]"
+        />
+        <span>
+          {t.consentPre}
+          <a href="/politika/" target="_blank" rel="noopener" className={dark ? "text-ice-100 underline" : "underline"}>{t.consentLink}</a>
+        </span>
+      </label>
       <div className="flex flex-wrap items-center gap-4">
-        <button type="submit" disabled={state === "sending"} className="btn-dawn disabled:opacity-60">{state === "sending" ? "…" : t.btn}</button>
-        <span className={`text-xs ${dark ? "text-ice-100/60" : "text-ink/60"}`}>{t.consent}</span>
+        <button type="submit" disabled={state === "sending" || !consent} className="btn-dawn disabled:opacity-60">{state === "sending" ? "…" : t.btn}</button>
       </div>
       {state === "err" && <p className="text-sm text-red-600" role="alert">{t.fail} <a href={`tel:${site.site.phoneRaw}`}>{site.site.phone}</a><span className="sr-only">{err}</span></p>}
     </form>

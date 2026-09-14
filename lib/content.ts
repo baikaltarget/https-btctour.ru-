@@ -211,3 +211,28 @@ export function readingTime(markdown: string): number {
 export function nbsp(s: string) {
   return s.replace(/(^|[\s(«])([а-яёa-z]{1,2}|[0-9]+)\s+/gi, "$1$2\u00a0");
 }
+
+/**
+ * Месяцы ближайшего сезона — подставляются в форму заявки, когда у тура
+ * ещё нет конкретных дат заездов. Человеку всё равно нужно выбрать, когда он хочет ехать.
+ */
+export function seasonMonths(season: string[] = [], lang: "ru" | "en" = "ru"): string[] {
+  const now = new Date();
+  const y = now.getFullYear(), m = now.getMonth() + 1;
+  const ru = ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"];
+  const en = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const names = lang === "en" ? en : ru;
+  const summer = [6, 7, 8, 9];
+  const winter = [1, 2, 3, 12];
+  const pick = season.includes("summer") && !season.includes("winter") ? summer
+    : season.includes("winter") && !season.includes("summer") ? winter
+    : [...summer, ...winter];
+  return pick
+    .map((mm) => {
+      // текущий и прошедшие месяцы не предлагаем: уехать в них уже поздно
+      const year = mm > m ? y : y + 1;
+      return { mm, year, label: `${names[mm - 1]} ${year}` };
+    })
+    .sort((a, b) => a.year - b.year || a.mm - b.mm)
+    .map((x) => x.label);
+}
