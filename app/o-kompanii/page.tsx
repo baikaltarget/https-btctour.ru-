@@ -9,6 +9,7 @@ const TEAM_PHOTOS = [
   { src: "/img/about/team-1.webp", alt: "Гид БиТиСи на льду Байкала" },
   { src: "/img/about/team-2.webp", alt: "Гид БиТиСи на хивусе на льду Байкала" },
   { src: "/img/about/team-3.webp", alt: "Гид БиТиСи на снегоходе на фоне гор Байкала" },
+  { src: "/img/about/team-4.webp", alt: "Группа туристов БиТиСи на закате у скалы Шаманка на Ольхоне" },
 ];
 export default function Page() {
   return (

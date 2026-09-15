@@ -17,9 +17,9 @@ export const metadata = meta({
 
 export default function BaikalHub() {
   const all = activeTours();
+  const exc = all.filter((t) => t.type === "excursion");
   const winter = all.filter((t) => t.season.includes("winter") && t.type !== "excursion").sort(seasonSort);
   const summer = all.filter((t) => t.season.includes("summer") && !t.season.includes("winter") && t.type !== "excursion").sort(seasonSort);
-  const exc = all.filter((t) => t.type === "excursion");
   const cats = categories.filter((c) => !["zimnie", "letnie", "ekskursii"].includes(c.slug));
   const faq = [
     { q: "Когда лучше ехать на Байкал?", a: "За льдом — с середины февраля до середины марта. За купанием и Ольхоном — июль и август. За тишиной — июнь и сентябрь. На Новый год лёд уже стоит у Ольхона." },
@@ -47,9 +47,8 @@ export default function BaikalHub() {
         </section>
       ))}
       <section className="wrap pt-14 md:pt-20">
-        <SectionHead id="ekskursii" title="Экскурсии на один день из Иркутска" lead="Для тех, кто уже в городе. Выезд от гостиницы утром, возвращение вечером." />
-        <TourList tours={exc} offset={30} />
-        <p className="mt-6"><Link href="/baikal/ekskursii/" className="btn-ghost">Все экскурсии</Link></p>
+        <SectionHead id="ekskursii" title="Экскурсии на один день из Иркутска" lead="Отдельный формат для тех, кто уже в городе: выезд от гостиницы утром, возвращение вечером. Ольхон, Листвянка, теплоход в бухту Песчаная, Байкальск, Аршан и обзорная по Иркутску." />
+        <p className="mt-6"><Link href="/baikal/ekskursii/" className="btn-dawn">Смотреть все экскурсии</Link></p>
       </section>
       <Faq items={faq} />
       <Reviews />

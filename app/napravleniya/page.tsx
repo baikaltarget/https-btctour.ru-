@@ -21,6 +21,11 @@ export default function Page() {
               <p className="mt-3"><Link href={`/${r.slug}/`} className="text-sm font-semibold">Программы и цены</Link></p>
             </article>
           ))}
+          <article className="border-t border-ice-200 pt-5">
+            <h2 className="!text-2xl"><Link href="/world/" className="no-underline hover:underline">Туры за границу</Link></h2>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink/80">Подбираем и бронируем зарубежные поездки под запрос: направление, даты и бюджет обсуждаем по телефону, программу и стоимость присылаем расчётом.</p>
+            <p className="mt-3"><Link href="/world/" className="text-sm font-semibold">Направления и запрос</Link></p>
+          </article>
         </div>
       </section>
     </Shell>
