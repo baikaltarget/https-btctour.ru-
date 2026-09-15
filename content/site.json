@@ -2683,7 +2683,11 @@
       "status": "active",
       "images": [
         "/img/tours/vse-o-baykale-1.webp",
-        "/img/tours/vse-o-baykale-2.webp"
+        "/img/tours/vse-o-baykale-2.webp",
+        "/img/tours/vse-o-baykale-3.webp",
+        "/img/tours/vse-o-baykale-4.webp",
+        "/img/tours/vse-o-baykale-5.webp",
+        "/img/tours/vse-o-baykale-6.webp"
       ],
       "image": "/img/tours/vse-o-baykale-1.webp",
       "faq": [
@@ -2796,15 +2800,15 @@
       "meals": "Завтраки",
       "status": "active",
       "images": [
-        "/img/tours/vostochnyy-bereg-7.webp",
         "/img/tours/vostochnyy-bereg-1.webp",
+        "/img/tours/vostochnyy-bereg-7.webp",
         "/img/tours/vostochnyy-bereg-2.webp",
         "/img/tours/vostochnyy-bereg-3.webp",
         "/img/tours/vostochnyy-bereg-4.webp",
         "/img/tours/vostochnyy-bereg-5.webp",
         "/img/tours/vostochnyy-bereg-6.webp"
       ],
-      "image": "/img/tours/vostochnyy-bereg-7.webp",
+      "image": "/img/tours/vostochnyy-bereg-1.webp",
       "faq": [
         {
           "q": "Куда прилетать на этот тур?",
@@ -3336,15 +3340,17 @@
       "meals": "Завтраки и часть обедов",
       "status": "active",
       "images": [
-        "/img/tours/tropa-baykalskih-vetrov-2.webp",
-        "/img/tours/tropa-baykalskih-vetrov-4.webp",
         "/img/tours/tropa-baykalskih-vetrov-1.webp",
+        "/img/tours/tropa-baykalskih-vetrov-2.webp",
         "/img/tours/tropa-baykalskih-vetrov-3.webp",
+        "/img/tours/tropa-baykalskih-vetrov-4.webp",
         "/img/tours/tropa-baykalskih-vetrov-5.webp",
         "/img/tours/tropa-baykalskih-vetrov-6.webp",
-        "/img/tours/tropa-baykalskih-vetrov-7.webp"
+        "/img/tours/tropa-baykalskih-vetrov-7.webp",
+        "/img/tours/tropa-baykalskih-vetrov-8.webp",
+        "/img/tours/tropa-baykalskih-vetrov-9.webp"
       ],
-      "image": "/img/tours/tropa-baykalskih-vetrov-2.webp",
+      "image": "/img/tours/tropa-baykalskih-vetrov-1.webp",
       "faq": [
         {
           "q": "Какая нужна физическая подготовка?",
@@ -3656,7 +3662,10 @@
         "/img/tours/teplokhod-1.webp",
         "/img/tours/teplokhod-2.webp",
         "/img/tours/teplokhod-3.webp",
-        "/img/tours/teplokhod-4.webp"
+        "/img/tours/teplokhod-4.webp",
+        "/img/tours/teplokhod-5.webp",
+        "/img/tours/teplokhod-6.webp",
+        "/img/tours/teplokhod-7.webp"
       ],
       "image": "/img/tours/teplokhod-1.webp",
       "faq": [
@@ -3957,8 +3966,14 @@
           "a": "Специальной подготовки не нужно, но день длинный: выезд в восемь утра, дорога до острова занимает несколько часов в каждую сторону. С маленькими детьми лучше выбрать многодневный тур с ночёвкой на Ольхоне."
         }
       ],
-      "images": [],
-      "image": "",
+      "images": [
+        "/img/tours/olkhon-1.webp",
+        "/img/tours/olkhon-2.webp",
+        "/img/tours/olkhon-3.webp",
+        "/img/tours/olkhon-4.webp",
+        "/img/tours/olkhon-5.webp"
+      ],
+      "image": "/img/tours/olkhon-1.webp",
       "oldUrl": null,
       "region": "baikal",
       "forWhom": null,
@@ -4029,8 +4044,13 @@
           "a": "Только в навигацию, пока озеро свободно ото льда. Точные даты выхода подскажем по телефону — расписание зависит от погоды на воде."
         }
       ],
-      "images": [],
-      "image": "",
+      "images": [
+        "/img/tours/peschanaya-1.webp",
+        "/img/tours/peschanaya-2.webp",
+        "/img/tours/peschanaya-3.webp",
+        "/img/tours/peschanaya-4.webp"
+      ],
+      "image": "/img/tours/peschanaya-1.webp",
       "oldUrl": null,
       "region": "baikal",
       "forWhom": null,
