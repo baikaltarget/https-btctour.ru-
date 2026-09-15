@@ -106,7 +106,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                 <div className="grid gap-4">
                   {list.slice(0, 4).map((t) => (
                     <Link key={t.slug} href={tourUrl(t)} className="group flex gap-4 rounded-xs border border-ice-200 bg-white p-3 no-underline hover:border-ice-600">
-                      <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-xs"><TourImage src={t.image} alt="" seed={t.title.length} sizes="112px" /></div>
+                      <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-xs"><TourImage src={t.image} alt={`${t.title} — фото тура`} seed={t.title.length} sizes="112px" /></div>
                       <div className="min-w-0">
                         <p className="truncate font-semibold text-ice-900">{t.title}</p>
                         <p className="whitespace-nowrap text-sm text-ice-600">{t.priceFrom ? `от\u00a0${fmtPrice(t.priceFrom)}` : "цена по запросу"}</p>

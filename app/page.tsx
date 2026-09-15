@@ -18,7 +18,7 @@ import { HERO, SEASON, SITE, TRUST, FAQ_GENERAL, activeTours, seasonSort, region
 import { meta, orgJsonLd } from "@/lib/seo";
 
 export const metadata = meta({
-  title: "Туры на Байкал 2027 от туроператора из Иркутска — зима, лёд, Ольхон, лето | BTCTOUR",
+  title: "Туры на Байкал 2027 — зима, лёд, Ольхон, лето | BTCTOUR",
   description: "Авторские туры на Байкал от иркутского туроператора: зимние туры на лёд и Ольхон от 48 400 ₽, Новый год, летние туры, круизы, экскурсии. Группы до 8 человек, встреча в аэропорту.",
   path: "/",
   alternates: { ru: SITE.domain + "/", en: SITE.domain + "/en/" },

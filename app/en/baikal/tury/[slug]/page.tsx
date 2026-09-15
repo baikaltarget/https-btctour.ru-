@@ -10,7 +10,7 @@ export const dynamicParams = false;
 export function generateStaticParams() { return enTours().map((x) => ({ slug: x.t.slug })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const x = enTour((await params).slug); if (!x) return {};
-  return meta({ title: `${x.e.title} — Lake Baikal tour, ${x.t.days} days, from ${fmtRub(x.t.priceFrom)} | Baikal Travel Company`, description: x.e.summary.slice(0, 160), path: "/en" + tourUrl(x.t), alternates: { ru: SITE.domain + tourUrl(x.t), en: SITE.domain + "/en" + tourUrl(x.t) } });
+  return meta({ title: `${x.e.title} — ${x.e.title.toLowerCase().includes("baikal") ? "" : "Lake Baikal, "}${x.t.days} ${x.t.days === 1 ? "day" : "days"}, from ${fmtRub(x.t.priceFrom)} | BTCTOUR`, description: x.e.summary.slice(0, 160), path: `/en/baikal/tury/${x.t.slug}/`, alternates: { ru: SITE.domain + tourUrl(x.t), en: SITE.domain + `/en/baikal/tury/${x.t.slug}/` } });
 }
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const x = enTour((await params).slug); if (!x) notFound();

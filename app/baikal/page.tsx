@@ -9,7 +9,7 @@ import { activeTours, seasonSort, categories, SITE, SEASON } from "@/lib/content
 import { meta } from "@/lib/seo";
 
 export const metadata = meta({
-  title: "Туры на Байкал 2026–2027 — все туры и экскурсии от иркутского туроператора | BTCTOUR",
+  title: "Все туры на Байкал 2027 — зима, лето, круизы, цены | BTCTOUR",
   description: "Все туры на Байкал: зимние туры на лёд и Ольхон, Новый год, летние программы, круизы на теплоходе, вертолётные и однодневные экскурсии из Иркутска. Цены, даты, программы по дням.",
   path: "/baikal/",
   alternates: { ru: SITE.domain + "/baikal/", en: SITE.domain + "/en/baikal/" },

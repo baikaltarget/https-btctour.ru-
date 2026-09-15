@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Shell from "@/components/Shell";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { enTours } from "@/lib/en";
 import TourGallery from "@/components/TourGallery";
 import TourList from "@/components/TourList";
 import LeadForm from "@/components/LeadForm";
@@ -40,20 +41,26 @@ function normalize(region: string, slug: string): { t: Tour; draft: boolean; reg
   return { t, draft: rt.status === "draft", regionName: rg.name };
 }
 
+const EN_SLUGS = new Set(enTours().map((x) => x.t.slug));
+function hasEn(slug: string) { return EN_SLUGS.has(slug); }
+
 export async function generateMetadata({ params }: { params: Promise<{ region: string; slug: string }> }) {
   const p = await params;
   const n = normalize(p.region, p.slug);
   if (!n) return {};
   const { t, draft } = n;
   const price = t.priceFrom ? `от ${fmtPrice(t.priceFrom)}` : "цена по запросу";
-  const dur = t.type === "excursion" ? "экскурсия на 1 день" : t.type === "helicopter" ? "8 маршрутов" : `${t.days} ${t.days === 1 ? "день" : t.days < 5 ? "дня" : "дней"}`;
+  const dur = t.type === "excursion" ? "1 день" : `${t.days} ${t.days === 1 ? "день" : t.days < 5 ? "дня" : "дней"}`;
   const region = p.region === "baikal" ? "Байкал" : n.regionName;
+  // Не повторяем в хвосте слово, которое уже есть в названии: «Экскурсия в Листвянку — тур Байкал экскурсия…»
+  const low = t.title.toLowerCase();
+  const kind = t.type === "excursion" ? (low.includes("экскурс") ? "" : "экскурсия, ") : low.includes(region.toLowerCase()) ? "" : `${region}, `;
   return meta({
-    title: `${t.title} — тур ${region} ${dur}, ${price} | BTCTOUR`,
+    title: `${t.title} — ${kind}${dur}, ${price} | BTCTOUR`,
     description: t.summary.slice(0, 155).replace(/\s+\S*$/, "") + (t.priceFrom ? `. ${price}, даты и программа по дням.` : "."),
     path: tourUrl(t),
     noindex: draft,
-    alternates: p.region === "baikal" ? { ru: SITE.domain + tourUrl(t), en: SITE.domain + "/en" + tourUrl(t) } : undefined,
+    alternates: p.region === "baikal" && hasEn(t.slug) ? { ru: SITE.domain + tourUrl(t), en: SITE.domain + `/en/baikal/tury/${t.slug}/` } : undefined,
   });
 }
 
@@ -87,7 +94,7 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
     : [{ name: "Другие направления", href: "/napravleniya/" }, { name: regionName, href: `/${p.region}/` }, { name: t.title, href: tourUrl(t) }];
 
   return (
-    <Shell altHref={p.region === "baikal" ? "/en" + tourUrl(t) : undefined}>
+    <Shell altHref={p.region === "baikal" && hasEn(t.slug) ? `/en/baikal/tury/${t.slug}/` : undefined}>
       {!draft && <JsonLd data={tourJsonLd(t, url)} />}
       <Breadcrumbs items={crumbs} />
       <article>

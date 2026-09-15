@@ -3,7 +3,7 @@ import Shell from "@/components/Shell";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { regions } from "@/lib/content";
 import { meta } from "@/lib/seo";
-export const metadata = meta({ title: "Другие направления — Камчатка, Алтай, Владивосток, Краснодарский край | BTCTOUR", description: "Кроме Байкала организуем туры на Камчатку, Алтай, во Владивосток и Краснодарский край: многодневные программы, подбор под даты и бюджет.", path: "/napravleniya/" });
+export const metadata = meta({ title: "Другие направления — Камчатка, Алтай, Приморье | BTCTOUR", description: "Кроме Байкала организуем туры на Камчатку, Алтай, во Владивосток и Краснодарский край: многодневные программы, подбор под даты и бюджет.", path: "/napravleniya/" });
 export default function Page() {
   return (
     <Shell>
