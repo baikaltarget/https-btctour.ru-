@@ -38,7 +38,7 @@ export default function LeadForm({ source, tour, dates, dark, compact, lang = "r
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       <div className={compact ? "grid gap-3" : "grid gap-3 sm:grid-cols-2"}>
         <label className="grid gap-1 text-sm"><span className={dark ? "text-ice-100/80" : "text-ice-800"}>{t.name}</span><input name="name" required className={input} autoComplete="name" /></label>
-        <label className="grid gap-1 text-sm"><span className={dark ? "text-ice-100/80" : "text-ice-800"}>{t.phone}</span><input name="phone" required inputMode="tel" className={input} autoComplete="tel" placeholder="+7 (___) ___-__-__" value={phone} onChange={(e) => setPhone(formatPhone(e.target.value))} /></label>
+        <label className="grid gap-1 text-sm"><span className={dark ? "text-ice-100/80" : "text-ice-800"}>{t.phone}</span><input name="phone" required inputMode="tel" className={input} autoComplete="tel" placeholder="+7 (___) ___-__-__" value={phone} onChange={(e) => setPhone(formatPhone(e.target.value, phone))} /></label>
       </div>
       {!compact && (
         <div className="grid gap-3 sm:grid-cols-2">

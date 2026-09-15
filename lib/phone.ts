@@ -4,7 +4,15 @@
  * когда человек явно вводит номер — то есть начал с цифры или плюса.
  * Ввод, начинающийся с @ или букв, не трогаем совсем.
  */
-export function formatPhone(raw: string): string {
+export function formatPhone(raw: string, prev = ""): string {
+  // Удаление: если стёрли разделитель — скобку, пробел или дефис — маска вернула бы его
+  // обратно и поле стало бы невозможно очистить. Поэтому при удалении снимаем ещё и цифру.
+  const deleting = raw.length < prev.length;
+  if (deleting) {
+    const kept = raw.replace(/[^\d+]/g, "");
+    const prevDigits = prev.replace(/[^\d+]/g, "");
+    if (kept === prevDigits) raw = kept.slice(0, -1);
+  }
   const first = raw.trim()[0];
   if (!first) return raw;
   if (!/[\d+]/.test(first)) return raw; // @nickname, имя в Telegram, e-mail — оставляем как есть
