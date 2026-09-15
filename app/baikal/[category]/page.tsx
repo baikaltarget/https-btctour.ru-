@@ -99,9 +99,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
             </div>
           )}
           {c.builder ? (
-            <div className="grid gap-10 md:grid-cols-2">
-              <div><h3 className="mb-3">Расскажите о поездке</h3><p className="mb-4 text-ink/80">Даты, состав, что важно. Черновик программы с ценой пришлём в течение суток.</p><LeadForm source="individual" /></div>
-              <div>
+            <div className="grid min-w-0 gap-10 md:grid-cols-2">
+              <div className="min-w-0"><h3 className="mb-3">Расскажите о поездке</h3><p className="mb-4 text-ink/80">Даты, состав, что важно. Черновик программы с ценой пришлём в течение суток.</p><LeadForm source="individual" /></div>
+              <div className="min-w-0">
                 <h3 className="mb-3">Или возьмите за основу готовый тур</h3>
                 <div className="grid gap-4">
                   {list.slice(0, 4).map((t) => (
