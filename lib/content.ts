@@ -59,7 +59,10 @@ export const getRegion = (slug: string) => regions.find((r) => r.slug === slug);
 export const getRegionTour = (region: string, slug: string) =>
   (getRegion(region)?.tours as RegionTour[] | undefined)?.find((t) => t.slug === slug);
 
-export function tourUrl(t: Pick<Tour, "slug" | "region">) {
+export function tourUrl(t: Pick<Tour, "slug" | "region"> & { type?: string }) {
+  // У вертолётов нет отдельной карточки: все ссылки ведут на раздел, чтобы не плодить
+  // вторую страницу под те же запросы.
+  if (t.type === "helicopter") return "/baikal/vertoletnye/";
   return `/${t.region}/tury/${t.slug}/`;
 }
 

@@ -15,7 +15,9 @@ import { meta, tourJsonLd } from "@/lib/seo";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-  const b = tours.map((t) => ({ region: t.region, slug: t.slug }));
+  // Вертолёты не имеют отдельной карточки: тема целиком на /baikal/vertoletnye/,
+  // иначе две страницы конкурировали бы за одни и те же запросы.
+  const b = tours.filter((t) => t.type !== "helicopter").map((t) => ({ region: t.region, slug: t.slug }));
   const r = regions.flatMap((rg) => rg.tours.map((t) => ({ region: rg.slug, slug: t.slug })));
   return [...b, ...r];
 }

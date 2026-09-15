@@ -33,7 +33,7 @@
     },
     {
       "source": "/helicoptertour",
-      "destination": "/baikal/tury/vertoletnye-ekskursii/",
+      "destination": "/baikal/vertoletnye/",
       "permanent": true
     },
     {
@@ -424,6 +424,11 @@
     {
       "source": "/page47887863.html",
       "destination": "/krasnodarskiy-kray/",
+      "permanent": true
+    },
+    {
+      "source": "/baikal/tury/vertoletnye-ekskursii",
+      "destination": "/baikal/vertoletnye/",
       "permanent": true
     }
   ],

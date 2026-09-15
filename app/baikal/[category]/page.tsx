@@ -8,7 +8,7 @@ import LeadForm from "@/components/LeadForm";
 import DevFrame from "@/components/DevFrame";
 import JsonLd from "@/components/JsonLd";
 import TourImage from "@/components/TourImage";
-import { categories, getCategory, toursForCategory, tourUrl, fmtPrice, SITE } from "@/lib/content";
+import { categories, getCategory, toursForCategory, tourUrl, fmtPrice, SITE, activeTours } from "@/lib/content";
 import { meta } from "@/lib/seo";
 
 /** Иконки-бейджи для категорий, где мотив однозначно совпадает по смыслу (маршрут / вода / природа). Остальным ничего не навязываем. */
@@ -32,6 +32,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   const c = getCategory((await params).category);
   if (!c) notFound();
   const list = toursForCategory(c);
+  // Вертолётный раздел — единственная посадочная по теме: маршруты с ценами показываем прямо здесь,
+  // отдельная карточка тура закрыта редиректом, иначе две страницы конкурировали за одни и те же запросы.
+  const heli = c.filter.type === "helicopter" ? activeTours().find((t) => t.type === "helicopter") : undefined;
   const icon = CATEGORY_ICONS[c.slug];
   const itemList = { "@context": "https://schema.org", "@type": "ItemList", name: c.h1, itemListElement: list.map((t, i) => ({ "@type": "ListItem", position: i + 1, url: SITE.domain + tourUrl(t), name: t.title })) };
   return (
@@ -98,6 +101,39 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           {categories.filter((x) => x.slug !== c.slug).slice(0, 8).map((x) => <Link key={x.slug} href={`/baikal/${x.slug}/`} className="rounded-xs bg-ice-100 px-3 py-1.5 no-underline">{x.name}</Link>)}
         </p>
       </section>
+      {heli && heli.routes && (
+        <section className="wrap pt-14 md:pt-20" id="marshruty">
+          <h2 className="mb-2">Маршруты и цены</h2>
+          <p className="mb-6 max-w-3xl text-sm text-ice-600">{heli.routesNote}</p>
+          <div className="divide-y divide-ice-200 border-y border-ice-200">
+            {heli.routes.map((r, i) => (
+              <div key={r.name} className="py-6">
+                <p className="text-sm text-ice-600">Маршрут {i + 1} · {r.time}</p>
+                <h3 className="!text-lg">{r.name}</h3>
+                <p className="mt-1 max-w-3xl text-[15px] leading-relaxed text-ink/80">{r.text}</p>
+                <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-4 text-sm sm:grid-cols-4">
+                  {["R-44", "Bell 206 B", "Bell 206 Long", "SA-316"].map((m, k) => (
+                    <div key={m} className="min-w-0 rounded-xs bg-ice-100/60 px-3 py-2">
+                      <dt className="truncate text-xs text-ice-600">{m}</dt>
+                      <dd className="whitespace-nowrap font-semibold text-ice-900">{r.prices[k] ? fmtPrice(r.prices[k]) : "по запросу"}</dd>
+                      {(r as { weights?: (number | null)[] }).weights?.[k] && (
+                        <dd className="mt-0.5 text-xs leading-snug text-ice-600">
+                          до {(r as { weights: (number | null)[] }).weights[k]} кг
+                          {(r as { weightsRefuel?: (number | null)[] }).weightsRefuel?.[k] ? <><br />{(r as { weightsRefuel: (number | null)[] }).weightsRefuel[k]} кг с дозаправкой</> : ""}
+                        </dd>
+                      )}
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 grid gap-8 md:grid-cols-2">
+            <div><h2 className="mb-4 !text-2xl">В стоимость входит</h2><ul className="space-y-2 text-[15px]">{heli.included.map((x) => <li key={x} className="flex gap-3"><span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ice-600" aria-hidden="true" />{x}</li>)}</ul></div>
+            <div><h2 className="mb-4 !text-2xl">Оплачивается отдельно</h2><ul className="space-y-2 text-[15px] text-ink/75">{heli.excluded.map((x) => <li key={x} className="flex gap-3"><span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ice-200" aria-hidden="true" />{x}</li>)}</ul></div>
+          </div>
+        </section>
+      )}
       <Faq items={c.faq} />
     </Shell>
   );
