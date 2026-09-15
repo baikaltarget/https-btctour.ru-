@@ -72,8 +72,16 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
     t.meals ? ["Питание", t.meals] : null,
     t.datesNote && !upcoming.length ? ["Даты", t.datesNote] : null,
   ].filter(Boolean) as string[][];
+  // Круглогодичные форматы (вертолёт, круиз) и экскурсии ведут в свой раздел,
+  // а не в «Зимние туры» — иначе крошка врёт о сезонности.
+  function section(x: typeof t) {
+    if (x.type === "excursion") return { name: "Экскурсии", href: "/baikal/ekskursii/" };
+    if (x.type === "helicopter") return { name: "Вертолётные экскурсии", href: "/baikal/vertoletnye/" };
+    if (x.type === "cruise") return { name: "Круизы", href: "/baikal/kruizy/" };
+    return x.season.includes("winter") ? { name: "Зимние туры", href: "/baikal/zimnie/" } : { name: "Летние туры", href: "/baikal/letnie/" };
+  }
   const crumbs = p.region === "baikal"
-    ? [{ name: "Туры на Байкал", href: "/baikal/" }, { name: t.type === "excursion" ? "Экскурсии" : t.season.includes("winter") ? "Зимние туры" : "Летние туры", href: t.type === "excursion" ? "/baikal/ekskursii/" : t.season.includes("winter") ? "/baikal/zimnie/" : "/baikal/letnie/" }, { name: t.title, href: tourUrl(t) }]
+    ? [{ name: "Туры на Байкал", href: "/baikal/" }, section(t), { name: t.title, href: tourUrl(t) }]
     : [{ name: "Другие направления", href: "/napravleniya/" }, { name: regionName, href: `/${p.region}/` }, { name: t.title, href: tourUrl(t) }];
 
   return (
@@ -152,17 +160,19 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
                 <p className="mb-6 text-sm text-ice-600">{t.routesNote}</p>
                 <div className="divide-y divide-ice-200 border-y border-ice-200">
                   {t.routes.map((r, i) => (
-                    <div key={r.name} className="grid gap-2 py-5 md:grid-cols-[1fr_260px] md:gap-8">
-                      <div><p className="text-sm text-ice-600">Маршрут {i + 1} · {r.time}</p><h3 className="!text-lg">{r.name}</h3><p className="mt-1 text-[15px] leading-relaxed text-ink/80">{r.text}</p></div>
-                      <dl className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm sm:grid-cols-4 md:text-right">
+                    <div key={r.name} className="py-6">
+                      <p className="text-sm text-ice-600">Маршрут {i + 1} · {r.time}</p>
+                      <h3 className="!text-lg">{r.name}</h3>
+                      <p className="mt-1 max-w-3xl text-[15px] leading-relaxed text-ink/80">{r.text}</p>
+                      <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-4 text-sm sm:grid-cols-4">
                         {["R-44", "Bell 206 B", "Bell 206 Long", "SA-316"].map((m, k) => (
-                          <div key={m}>
-                            <dt className="text-ice-600">{m}</dt>
+                          <div key={m} className="min-w-0 rounded-xs bg-ice-100/60 px-3 py-2">
+                            <dt className="truncate text-xs text-ice-600">{m}</dt>
                             <dd className="whitespace-nowrap font-semibold text-ice-900">{r.prices[k] ? fmtPrice(r.prices[k]) : "по запросу"}</dd>
                             {"weights" in r && (r as { weights?: (number | null)[] }).weights?.[k] && (
-                              <dd className="whitespace-nowrap text-xs text-ice-600">
+                              <dd className="mt-0.5 text-xs leading-snug text-ice-600">
                                 до {(r as { weights: (number | null)[] }).weights[k]} кг
-                                {(r as { weightsRefuel?: (number | null)[] }).weightsRefuel?.[k] ? ` · ${(r as { weightsRefuel: (number | null)[] }).weightsRefuel[k]} кг с дозаправкой` : ""}
+                                {(r as { weightsRefuel?: (number | null)[] }).weightsRefuel?.[k] ? <><br />{(r as { weightsRefuel: (number | null)[] }).weightsRefuel[k]} кг с дозаправкой</> : ""}
                               </dd>
                             )}
                           </div>
