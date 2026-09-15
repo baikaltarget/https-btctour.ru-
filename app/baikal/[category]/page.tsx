@@ -41,6 +41,23 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     <Shell>
       <JsonLd data={itemList} />
       <Breadcrumbs items={[{ name: "Туры на Байкал", href: "/baikal/" }, { name: c.name, href: `/baikal/${c.slug}/` }]} />
+      {heli ? (
+        <section className="relative isolate overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <TourImage src={heli.image} alt="Вертолёт на берегу Байкала" priority sizes="100vw" />
+            <div className="absolute inset-0 bg-gradient-to-b from-ice-900/70 via-ice-900/45 to-ice-900/75" aria-hidden="true" />
+          </div>
+          <div className="wrap py-16 md:py-24">
+            <h1 className="max-w-3xl text-white">{c.h1}</h1>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ice-100/95">{c.intro}</p>
+            <p className="mt-7 flex flex-wrap gap-3">
+              <a href="#marshruty" className="btn-dawn">Маршруты и цены</a>
+              <a href="#zayavka" className="btn-frost">Рассчитать полёт</a>
+            </p>
+            <p className="mt-6 text-sm text-ice-100/80">От {fmtPrice(heli.priceFrom)} за борт · {heli.datesNote}</p>
+          </div>
+        </section>
+      ) : (
       <section className="wrap pt-6 md:pt-10">
         {icon && (
           // eslint-disable-next-line @next/next/no-img-element
@@ -50,6 +67,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink/80">{c.intro}</p>
         {c.seasonNote && <p className="mt-3 max-w-2xl rounded-xs bg-ice-100 px-4 py-3 text-[15px] text-ice-900">{c.seasonNote}</p>}
       </section>
+      )}
 
       {c.howToGet && (
         <section className="wrap pt-12">
@@ -65,6 +83,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         </section>
       )}
 
+      {!heli && (
       <section className="wrap pt-12">
         <DevFrame note={c.todo}>
           <h2 className="mb-6">{c.builder ? "Примеры индивидуальных программ" : `Программы: ${list.length}`}</h2>
@@ -94,6 +113,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           ) : <TourList tours={list} />}
         </DevFrame>
       </section>
+      )}
 
       <section className="wrap pt-12">
         <div className="prose-site text-ink/85"><p>{c.text}</p></div>
@@ -128,9 +148,27 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
               </div>
             ))}
           </div>
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
+          {heli.images && heli.images.length > 1 && (
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              {heli.images.slice(1, 4).map((src, k) => (
+                <div key={src} className="relative aspect-[4/3] overflow-hidden rounded-xs">
+                  <TourImage src={src} alt={`Вертолётная экскурсия над Байкалом, кадр ${k + 1}`} sizes="(max-width: 640px) 100vw, 33vw" />
+                </div>
+              ))}
+            </div>
+          )}
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
             <div><h2 className="mb-4 !text-2xl">В стоимость входит</h2><ul className="space-y-2 text-[15px]">{heli.included.map((x) => <li key={x} className="flex gap-3"><span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ice-600" aria-hidden="true" />{x}</li>)}</ul></div>
             <div><h2 className="mb-4 !text-2xl">Оплачивается отдельно</h2><ul className="space-y-2 text-[15px] text-ink/75">{heli.excluded.map((x) => <li key={x} className="flex gap-3"><span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ice-200" aria-hidden="true" />{x}</li>)}</ul></div>
+          </div>
+        </section>
+      )}
+      {heli && (
+        <section className="wrap pt-14 md:pt-20" id="zayavka">
+          <div className="rounded-3xl bg-ice-900 p-6 text-ice-100 md:p-10">
+            <h2 className="!text-white">Рассчитать полёт</h2>
+            <p className="mt-3 max-w-2xl text-ice-100/85">Скажите маршрут, дату и сколько человек полетит — подберём борт под вес группы, проверим свободные окна у авиакомпании и назовём точную стоимость.</p>
+            <div className="mt-6 max-w-3xl"><LeadForm source="helicopter" dark /></div>
           </div>
         </section>
       )}
