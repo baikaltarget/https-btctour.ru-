@@ -133,7 +133,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-ice-600">{heli.routesNote}</p>
           {[
             { title: "Короткие полёты — до полутора часов", from: 0, to: 4, photo: "/img/tours/vertoletnye-wide-a.webp" },
-            { title: "Средние маршруты — полтора-два часа", from: 4, to: 8, photo: "/img/tours/vertoletnye-wide-b.webp" },
+            { title: "Средние маршруты — полтора-два часа", from: 4, to: 8, photo: undefined },
             { title: "Дальние маршруты — от двух с половиной часов", from: 8, to: 12, photo: undefined },
           ].map((group) => (
             <div key={group.title} className="mb-12 last:mb-0">
@@ -142,22 +142,20 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                 <span className="text-sm text-ice-600">{group.to - group.from} маршрута</span>
               </div>
               {group.photo && (
-                <div className="relative mb-6 aspect-[16/9] max-h-[360px] overflow-hidden rounded-xs">
+                <div className="relative mb-6 aspect-[16/9] w-full overflow-hidden rounded-xs">
                   <TourImage src={group.photo} alt="Вертолётная экскурсия над Байкалом" sizes="(max-width: 768px) 100vw, 70vw" />
                 </div>
               )}
               <div className="grid gap-4 md:grid-cols-2">
                 {heli.routes.slice(group.from, group.to).map((r) => {
-                  const from = r.prices.filter(Boolean)[0];
                   return (
                     <div key={r.name} className="rounded-xs border border-ice-200 bg-white p-5">
                       <p className="text-sm text-ice-600">{r.time}</p>
                       <h4 className="mt-1 font-display text-lg font-semibold leading-snug text-ice-900">{r.name}</h4>
                       <p className="mt-2 text-[15px] leading-relaxed text-ink/75">{r.text}</p>
-                      <p className="mt-4 whitespace-nowrap font-display text-2xl font-semibold text-ice-800">от&nbsp;{fmtPrice(from)}<span className="ml-2 align-middle text-sm font-normal text-ice-600">за борт</span></p>
-                      <details className="group mt-3" open>
-                        <summary className="cursor-pointer list-none text-sm font-semibold text-ice-700 hover:underline">Цены по бортам и вес</summary>
-                        <dl className="mt-3 grid grid-cols-2 gap-3 text-sm">
+                      <p className="mt-4 text-sm font-semibold text-ice-700">Цена за борт, суммарный вес пассажиров с вещами</p>
+                      <div className="mt-3">
+                        <dl className="grid grid-cols-2 gap-3 text-sm">
                           {["R-44", "Bell 206 B", "Bell 206 Long", "SA-316"].map((m, k) => (
                             <div key={m} className="min-w-0 rounded-xs bg-ice-100/70 px-3 py-2">
                               <dt className="truncate text-xs text-ice-600">{m}</dt>
@@ -171,7 +169,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                             </div>
                           ))}
                         </dl>
-                      </details>
+                      </div>
                     </div>
                   );
                 })}
