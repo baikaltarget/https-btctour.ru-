@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Marked } from "marked";
 import TextPage from "@/components/TextPage";
 import JsonLd from "@/components/JsonLd";
+import LeadForm from "@/components/LeadForm";
 import TourList from "@/components/TourList";
 import Faq from "@/components/Faq";
 import { getPosts, getPost, extractToc, readingTime, featuredTours, SITE } from "@/lib/content";
@@ -48,13 +49,16 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
   const html = await buildRenderer().parse(p.content);
   const toc = extractToc(p.content);
   const minutes = readingTime(p.content);
-  const otherPosts = getPosts().filter((x) => x.slug !== p.slug).slice(0, 3);
+  const otherPosts = getPosts().filter((x) => x.slug !== p.slug).slice(0, 5);
   const ld = { "@context": "https://schema.org", "@type": "BlogPosting", headline: p.title, description: p.description, datePublished: p.date, dateModified: p.date, author: { "@type": "Organization", "@id": SITE.domain + "/#org", name: SITE.brand, url: SITE.domain }, publisher: { "@type": "Organization", "@id": SITE.domain + "/#org", name: SITE.brand, logo: { "@type": "ImageObject", url: SITE.domain + "/img/logo.png" } }, mainEntityOfPage: `${SITE.domain}/blog/${p.slug}/`, image: SITE.domain + (p.image || SITE.defaultOg) };
 
   return (
     <TextPage crumbs={[{ name: "Блог", href: "/blog/" }, { name: p.title, href: `/blog/${p.slug}/` }]} h1={p.title} lead={p.description}>
       <JsonLd data={ld} />
       {p.faq && p.faq.length > 0 && <JsonLd data={faqJsonLd(p.faq)} />}
+
+      <div className="grid gap-12 lg:grid-cols-[1fr_300px]">
+        <div className="min-w-0">
 
       <p className="-mt-2 mb-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ice-600">
         <span>БиТиСи — туроператор по Байкалу из Иркутска</span>
@@ -88,19 +92,38 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
         Статью подготовили гиды <Link href="/o-kompanii/">БиТиСи</Link> — туроператора из Иркутска (реестр РТО {SITE.rto}), который больше десяти лет сам водит группы по Байкалу.
       </div>
 
-      {otherPosts.length > 0 && (
-        <section className="mt-14">
-          <h2 className="mb-6">Читайте также</h2>
-          <div className="grid gap-6 sm:grid-cols-3">
+      <section className="mt-14 rounded-3xl bg-ice-900 p-6 text-ice-100 md:p-8" id="zayavka">
+        <h2 className="!text-white">Поехать на Байкал</h2>
+        <p className="mt-3 max-w-2xl text-ice-100/85">Расскажите, когда и с кем планируете — подберём тур под даты или соберём программу с нуля.</p>
+        <div className="mt-6 max-w-3xl"><LeadForm source={`blog: ${p.slug}`} dark /></div>
+      </section>
+
+        </div>
+
+        <aside className="lg:sticky lg:top-24 lg:self-start">
+          <p className="mb-4 font-display text-lg font-semibold text-ice-900">Читайте также</p>
+          <ul className="grid gap-4 border-t border-ice-200 pt-4">
             {otherPosts.map((op) => (
-              <Link key={op.slug} href={`/blog/${op.slug}/`} className="block no-underline">
-                {op.image && <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-xs"><img src={op.image} alt={op.imageAlt || op.title} className="h-full w-full object-cover" /></div>}
-                <p className="font-semibold text-ice-900">{op.title}</p>
-              </Link>
+              <li key={op.slug}>
+                <Link href={`/blog/${op.slug}/`} className="flex gap-3 no-underline">
+                  {op.image && (
+                    <span className="relative block h-16 w-20 shrink-0 overflow-hidden rounded-xs">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={op.image} alt={op.imageAlt || op.title} className="h-full w-full object-cover" />
+                    </span>
+                  )}
+                  <span className="min-w-0 text-[15px] font-semibold leading-snug text-ice-900 hover:underline">{op.title}</span>
+                </Link>
+              </li>
             ))}
+          </ul>
+          <div className="mt-8 rounded-xs border border-ice-200 bg-ice-100/50 p-5">
+            <p className="font-semibold text-ice-900">Подобрать тур</p>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink/80">Скажите даты — подскажем, какой лёд и какая программа подойдёт.</p>
+            <p className="mt-3"><a href="#zayavka" className="text-sm font-semibold">Оставить заявку</a></p>
           </div>
-        </section>
-      )}
+        </aside>
+      </div>
 
       <section className="mt-14"><h2 className="mb-2">Туры по теме</h2><TourList tours={featuredTours(3)} offset={70} /></section>
     </TextPage>
