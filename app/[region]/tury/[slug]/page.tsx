@@ -154,7 +154,20 @@ export default async function TourPage({ params }: { params: Promise<{ region: s
                   {t.routes.map((r, i) => (
                     <div key={r.name} className="grid gap-2 py-5 md:grid-cols-[1fr_260px] md:gap-8">
                       <div><p className="text-sm text-ice-600">Маршрут {i + 1} · {r.time}</p><h3 className="!text-lg">{r.name}</h3><p className="mt-1 text-[15px] leading-relaxed text-ink/80">{r.text}</p></div>
-                      <dl className="grid grid-cols-3 gap-2 text-sm md:text-right">{["R-44", "Bell 206 B", "Bell 206 L"].map((m, k) => <div key={m}><dt className="text-ice-600">{m}</dt><dd className="whitespace-nowrap font-semibold text-ice-900">{fmtPrice(r.prices[k])}</dd></div>)}</dl>
+                      <dl className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm sm:grid-cols-4 md:text-right">
+                        {["R-44", "Bell 206 B", "Bell 206 Long", "SA-316"].map((m, k) => (
+                          <div key={m}>
+                            <dt className="text-ice-600">{m}</dt>
+                            <dd className="whitespace-nowrap font-semibold text-ice-900">{r.prices[k] ? fmtPrice(r.prices[k]) : "по запросу"}</dd>
+                            {"weights" in r && (r as { weights?: (number | null)[] }).weights?.[k] && (
+                              <dd className="whitespace-nowrap text-xs text-ice-600">
+                                до {(r as { weights: (number | null)[] }).weights[k]} кг
+                                {(r as { weightsRefuel?: (number | null)[] }).weightsRefuel?.[k] ? ` · ${(r as { weightsRefuel: (number | null)[] }).weightsRefuel[k]} кг с дозаправкой` : ""}
+                              </dd>
+                            )}
+                          </div>
+                        ))}
+                      </dl>
                     </div>
                   ))}
                 </div>

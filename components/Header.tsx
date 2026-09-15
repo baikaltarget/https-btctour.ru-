@@ -16,7 +16,25 @@ export default function Header({ lang = "ru", altHref }: { lang?: "ru" | "en"; a
       <div className="wrap flex h-16 items-center justify-between gap-6">
         <Link href={lang === "en" ? "/en/" : "/"} aria-label={s.brand} className="no-underline"><Logo /></Link>
         <nav className="hidden items-center gap-4 xl:flex" aria-label="Основное меню">
-          {nav.map((n) => <Link key={n.href} href={n.href} className="whitespace-nowrap text-[15px] font-medium text-ice-900 no-underline hover:text-ice-600">{n.label}</Link>)}
+          {nav.map((n) => {
+            const kids = (n as { children?: { label: string; href: string }[] }).children;
+            if (!kids) return <Link key={n.href} href={n.href} className="whitespace-nowrap text-[15px] font-medium text-ice-900 no-underline hover:text-ice-600">{n.label}</Link>;
+            return (
+              <div key={n.href} className="group relative">
+                <Link href={n.href} className="flex items-center gap-1 whitespace-nowrap text-[15px] font-medium text-ice-900 no-underline hover:text-ice-600">
+                  {n.label}
+                  <svg className="h-3 w-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </Link>
+                <div className="invisible absolute left-0 top-full z-50 w-56 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <ul className="rounded-xs border border-ice-200 bg-white p-2 shadow-[0_20px_40px_-20px_rgba(10,39,51,.35)]">
+                    {kids.map((k) => (
+                      <li key={k.href}><Link href={k.href} className="block rounded-xs px-3 py-2 text-[15px] text-ice-900 no-underline hover:bg-ice-100">{k.label}</Link></li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
         </nav>
         <div className="flex shrink-0 items-center gap-3">
           <a href={s.telegram} onClick={() => goal("click_telegram", { place: "header" })} target="_blank" rel="noopener" className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-medium text-ice-800 no-underline lg:inline-flex" aria-label="Telegram">
@@ -33,7 +51,21 @@ export default function Header({ lang = "ru", altHref }: { lang?: "ru" | "en"; a
       {open && (
         <nav id="mobile-menu" className="wrap border-t border-ice-100 pb-4 xl:hidden" aria-label="Мобильное меню">
           <ul className="flex flex-col divide-y divide-ice-100">
-            {nav.map((n) => <li key={n.href}><Link href={n.href} onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-ice-900 no-underline">{n.label}</Link></li>)}
+            {nav.map((n) => {
+              const kids = (n as { children?: { label: string; href: string }[] }).children;
+              return (
+                <li key={n.href}>
+                  <Link href={n.href} onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-ice-900 no-underline">{n.label}</Link>
+                  {kids && (
+                    <ul className="mb-2 ml-4 border-l border-ice-200 pl-4">
+                      {kids.slice(1).map((k) => (
+                        <li key={k.href}><Link href={k.href} onClick={() => setOpen(false)} className="block py-2 text-[15px] text-ice-800 no-underline">{k.label}</Link></li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
             {lang === "ru" && site.footerLinks.slice(0, 6).map((n) => <li key={n.href}><Link href={n.href} onClick={() => setOpen(false)} className="block py-2.5 text-sm text-ice-800 no-underline">{n.label}</Link></li>)}
           </ul>
         </nav>
