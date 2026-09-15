@@ -132,9 +132,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           <h2 className="mb-2">Маршруты и цены</h2>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-ice-600">{heli.routesNote}</p>
           {[
-            { title: "Короткие полёты — до полутора часов", from: 0, to: 4, photo: heli.images[1] },
-            { title: "Средние маршруты — полтора-два часа", from: 4, to: 8, photo: heli.images[2] },
-            { title: "Дальние маршруты — от двух с половиной часов", from: 8, to: 12, photo: heli.images[3] },
+            { title: "Короткие полёты — до полутора часов", from: 0, to: 4, photo: "/img/tours/vertoletnye-wide-a.webp" },
+            { title: "Средние маршруты — полтора-два часа", from: 4, to: 8, photo: "/img/tours/vertoletnye-wide-b.webp" },
+            { title: "Дальние маршруты — от двух с половиной часов", from: 8, to: 12, photo: undefined },
           ].map((group) => (
             <div key={group.title} className="mb-12 last:mb-0">
               <div className="mb-5 flex flex-wrap items-baseline justify-between gap-2 border-b border-ice-200 pb-3">
@@ -142,7 +142,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                 <span className="text-sm text-ice-600">{group.to - group.from} маршрута</span>
               </div>
               {group.photo && (
-                <div className="relative mb-6 aspect-[21/9] overflow-hidden rounded-xs">
+                <div className="relative mb-6 aspect-[16/9] max-h-[360px] overflow-hidden rounded-xs">
                   <TourImage src={group.photo} alt="Вертолётная экскурсия над Байкалом" sizes="(max-width: 768px) 100vw, 70vw" />
                 </div>
               )}
@@ -155,8 +155,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                       <h4 className="mt-1 font-display text-lg font-semibold leading-snug text-ice-900">{r.name}</h4>
                       <p className="mt-2 text-[15px] leading-relaxed text-ink/75">{r.text}</p>
                       <p className="mt-4 whitespace-nowrap font-display text-2xl font-semibold text-ice-800">от&nbsp;{fmtPrice(from)}<span className="ml-2 align-middle text-sm font-normal text-ice-600">за борт</span></p>
-                      <details className="group mt-3">
-                        <summary className="cursor-pointer list-none text-sm font-semibold text-ice-700 hover:underline">Цены по бортам и вес ↓</summary>
+                      <details className="group mt-3" open>
+                        <summary className="cursor-pointer list-none text-sm font-semibold text-ice-700 hover:underline">Цены по бортам и вес</summary>
                         <dl className="mt-3 grid grid-cols-2 gap-3 text-sm">
                           {["R-44", "Bell 206 B", "Bell 206 Long", "SA-316"].map((m, k) => (
                             <div key={m} className="min-w-0 rounded-xs bg-ice-100/70 px-3 py-2">
