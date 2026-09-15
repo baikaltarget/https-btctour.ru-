@@ -42,20 +42,26 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
       <JsonLd data={itemList} />
       <Breadcrumbs items={[{ name: "Туры на Байкал", href: "/baikal/" }, { name: c.name, href: `/baikal/${c.slug}/` }]} />
       {heli ? (
-        <section className="relative isolate overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <TourImage src={heli.image} alt="Вертолёт на берегу Байкала" priority sizes="100vw" />
-            <div className="absolute inset-0 bg-gradient-to-b from-ice-900/70 via-ice-900/45 to-ice-900/75" aria-hidden="true" />
+        <section className="wrap pt-6">
+          <div className="relative isolate overflow-hidden rounded-3xl">
+            <div className="absolute inset-0 -z-10">
+              <TourImage src={heli.image} alt="Вертолёт на берегу Байкала" priority sizes="100vw" />
+              <div className="absolute inset-0 bg-ice-900/55" aria-hidden="true" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ice-900/85 via-ice-900/30 to-transparent" aria-hidden="true" />
+            </div>
+            <div className="px-6 py-14 md:px-12 md:py-20">
+              <h1 className="max-w-2xl text-white drop-shadow-[0_2px_12px_rgba(10,39,51,.5)]">{c.h1}</h1>
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/90">
+                Байкал сверху: лёд с трещинами зимой, бирюзовые заливы летом и Кругобайкалка, которую с земли так не увидеть. Вылет из аэропорта Иркутска.
+              </p>
+              <p className="mt-6 flex flex-wrap gap-3">
+                <a href="#marshruty" className="btn-dawn">Маршруты и цены</a>
+                <a href="#zayavka" className="btn-frost">Рассчитать полёт</a>
+              </p>
+              <p className="mt-5 text-sm text-white/85">От {fmtPrice(heli.priceFrom)} за борт · летаем круглый год</p>
+            </div>
           </div>
-          <div className="wrap py-16 md:py-24">
-            <h1 className="max-w-3xl text-white">{c.h1}</h1>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ice-100/95">{c.intro}</p>
-            <p className="mt-7 flex flex-wrap gap-3">
-              <a href="#marshruty" className="btn-dawn">Маршруты и цены</a>
-              <a href="#zayavka" className="btn-frost">Рассчитать полёт</a>
-            </p>
-            <p className="mt-6 text-sm text-ice-100/80">От {fmtPrice(heli.priceFrom)} за борт · {heli.datesNote}</p>
-          </div>
+          <p className="mt-8 max-w-3xl text-lg leading-relaxed text-ink/80">{c.intro}</p>
         </section>
       ) : (
       <section className="wrap pt-6 md:pt-10">
@@ -124,42 +130,57 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
       {heli && heli.routes && (
         <section className="wrap pt-14 md:pt-20" id="marshruty">
           <h2 className="mb-2">Маршруты и цены</h2>
-          <p className="mb-6 max-w-3xl text-sm text-ice-600">{heli.routesNote}</p>
-          <div className="divide-y divide-ice-200 border-y border-ice-200">
-            {heli.routes.map((r, i) => (
-              <div key={r.name} className="py-6">
-                <p className="text-sm text-ice-600">Маршрут {i + 1} · {r.time}</p>
-                <h3 className="!text-lg">{r.name}</h3>
-                <p className="mt-1 max-w-3xl text-[15px] leading-relaxed text-ink/80">{r.text}</p>
-                <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-4 text-sm sm:grid-cols-4">
-                  {["R-44", "Bell 206 B", "Bell 206 Long", "SA-316"].map((m, k) => (
-                    <div key={m} className="min-w-0 rounded-xs bg-ice-100/60 px-3 py-2">
-                      <dt className="truncate text-xs text-ice-600">{m}</dt>
-                      <dd className="whitespace-nowrap font-semibold text-ice-900">{r.prices[k] ? fmtPrice(r.prices[k]) : "по запросу"}</dd>
-                      {(r as { weights?: (number | null)[] }).weights?.[k] && (
-                        <dd className="mt-0.5 text-xs leading-snug text-ice-600">
-                          до {(r as { weights: (number | null)[] }).weights[k]} кг
-                          {(r as { weightsRefuel?: (number | null)[] }).weightsRefuel?.[k] ? <><br />{(r as { weightsRefuel: (number | null)[] }).weightsRefuel[k]} кг с дозаправкой</> : ""}
-                        </dd>
-                      )}
-                    </div>
-                  ))}
-                </dl>
+          <p className="mb-8 max-w-3xl text-sm leading-relaxed text-ice-600">{heli.routesNote}</p>
+          {[
+            { title: "Короткие полёты — до полутора часов", from: 0, to: 4, photo: heli.images[1] },
+            { title: "Средние маршруты — полтора-два часа", from: 4, to: 8, photo: heli.images[2] },
+            { title: "Дальние маршруты — от двух с половиной часов", from: 8, to: 12, photo: heli.images[3] },
+          ].map((group) => (
+            <div key={group.title} className="mb-12 last:mb-0">
+              <div className="mb-5 flex flex-wrap items-baseline justify-between gap-2 border-b border-ice-200 pb-3">
+                <h3 className="!text-xl">{group.title}</h3>
+                <span className="text-sm text-ice-600">{group.to - group.from} маршрута</span>
               </div>
-            ))}
-          </div>
-          {heli.images && heli.images.length > 1 && (
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {heli.images.slice(1, 4).map((src, k) => (
-                <div key={src} className="relative aspect-[4/3] overflow-hidden rounded-xs">
-                  <TourImage src={src} alt={`Вертолётная экскурсия над Байкалом, кадр ${k + 1}`} sizes="(max-width: 640px) 100vw, 33vw" />
+              {group.photo && (
+                <div className="relative mb-6 aspect-[21/9] overflow-hidden rounded-xs">
+                  <TourImage src={group.photo} alt="Вертолётная экскурсия над Байкалом" sizes="(max-width: 768px) 100vw, 70vw" />
                 </div>
-              ))}
+              )}
+              <div className="grid gap-4 md:grid-cols-2">
+                {heli.routes.slice(group.from, group.to).map((r) => {
+                  const from = r.prices.filter(Boolean)[0];
+                  return (
+                    <div key={r.name} className="rounded-xs border border-ice-200 bg-white p-5">
+                      <p className="text-sm text-ice-600">{r.time}</p>
+                      <h4 className="mt-1 font-display text-lg font-semibold leading-snug text-ice-900">{r.name}</h4>
+                      <p className="mt-2 text-[15px] leading-relaxed text-ink/75">{r.text}</p>
+                      <p className="mt-4 whitespace-nowrap font-display text-2xl font-semibold text-ice-800">от&nbsp;{fmtPrice(from)}<span className="ml-2 align-middle text-sm font-normal text-ice-600">за борт</span></p>
+                      <details className="group mt-3">
+                        <summary className="cursor-pointer list-none text-sm font-semibold text-ice-700 hover:underline">Цены по бортам и вес ↓</summary>
+                        <dl className="mt-3 grid grid-cols-2 gap-3 text-sm">
+                          {["R-44", "Bell 206 B", "Bell 206 Long", "SA-316"].map((m, k) => (
+                            <div key={m} className="min-w-0 rounded-xs bg-ice-100/70 px-3 py-2">
+                              <dt className="truncate text-xs text-ice-600">{m}</dt>
+                              <dd className="whitespace-nowrap font-semibold text-ice-900">{r.prices[k] ? fmtPrice(r.prices[k]) : "по запросу"}</dd>
+                              {(r as { weights?: (number | null)[] }).weights?.[k] && (
+                                <dd className="mt-0.5 text-xs leading-snug text-ice-600">
+                                  до {(r as { weights: (number | null)[] }).weights[k]} кг
+                                  {(r as { weightsRefuel?: (number | null)[] }).weightsRefuel?.[k] ? <><br />{(r as { weightsRefuel: (number | null)[] }).weightsRefuel[k]} кг с дозаправкой</> : ""}
+                                </dd>
+                              )}
+                            </div>
+                          ))}
+                        </dl>
+                      </details>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          )}
-          <div className="mt-10 grid gap-8 md:grid-cols-2">
-            <div><h2 className="mb-4 !text-2xl">В стоимость входит</h2><ul className="space-y-2 text-[15px]">{heli.included.map((x) => <li key={x} className="flex gap-3"><span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ice-600" aria-hidden="true" />{x}</li>)}</ul></div>
-            <div><h2 className="mb-4 !text-2xl">Оплачивается отдельно</h2><ul className="space-y-2 text-[15px] text-ink/75">{heli.excluded.map((x) => <li key={x} className="flex gap-3"><span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ice-200" aria-hidden="true" />{x}</li>)}</ul></div>
+          ))}
+          <div className="mt-12 grid gap-8 rounded-xs bg-ice-100/60 p-6 md:grid-cols-2 md:p-8">
+            <div><h3 className="mb-4 !text-xl">В стоимость входит</h3><ul className="space-y-2 text-[15px]">{heli.included.map((x) => <li key={x} className="flex gap-3"><span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ice-600" aria-hidden="true" />{x}</li>)}</ul></div>
+            <div><h3 className="mb-4 !text-xl">Оплачивается отдельно</h3><ul className="space-y-2 text-[15px] text-ink/75">{heli.excluded.map((x) => <li key={x} className="flex gap-3"><span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ice-200" aria-hidden="true" />{x}</li>)}</ul></div>
           </div>
         </section>
       )}
