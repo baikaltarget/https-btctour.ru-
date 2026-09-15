@@ -9,19 +9,25 @@ const TEAM_PHOTOS = [
   { src: "/img/about/team-1.webp", alt: "Гид БиТиСи на льду Байкала" },
   { src: "/img/about/team-2.webp", alt: "Гид БиТиСи на хивусе на льду Байкала" },
   { src: "/img/about/team-3.webp", alt: "Гид БиТиСи на снегоходе на фоне гор Байкала" },
-  { src: "/img/about/team-4.webp", alt: "Группа туристов БиТиСи на закате у скалы Шаманка на Ольхоне" },
 ];
+const GROUP_PHOTO = { src: "/img/about/team-4.webp", alt: "Группа туристов БиТиСи на закате у скалы Шаманка на Ольхоне" };
 export default function Page() {
   return (
     <TextPage crumbs={[{ name: "О компании", href: "/o-kompanii/" }]} h1={p.h1} lead="Туроператор из Иркутска. Байкал — наш дом и наш главный продукт.">
       <div className="grid gap-12 md:grid-cols-[1fr_320px]">
         <div className="prose-site">{p.text.map((t) => <p key={t}>{t}</p>)}
-          <div className="mt-8 grid grid-cols-3 gap-3 not-prose">
-            {TEAM_PHOTOS.map((ph) => (
-              <div key={ph.src} className="relative aspect-[3/4] overflow-hidden rounded-xs">
-                <Image src={ph.src} alt={ph.alt} fill sizes="(max-width: 768px) 33vw, 220px" className="object-cover" />
-              </div>
-            ))}
+          <div className="mt-8 not-prose">
+            {/* Групповой кадр идёт первым во всю ширину: он лучше всего показывает, как выглядит поездка. */}
+            <div className="relative aspect-[16/9] overflow-hidden rounded-xs">
+              <Image src={GROUP_PHOTO.src} alt={GROUP_PHOTO.alt} fill sizes="(max-width: 768px) 100vw, 680px" className="object-cover" priority />
+            </div>
+            <div className="mt-3 grid grid-cols-3 gap-3">
+              {TEAM_PHOTOS.map((ph) => (
+                <div key={ph.src} className="relative aspect-[3/4] overflow-hidden rounded-xs">
+                  <Image src={ph.src} alt={ph.alt} fill sizes="(max-width: 768px) 33vw, 220px" className="object-cover" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <aside className="text-[15px]">
