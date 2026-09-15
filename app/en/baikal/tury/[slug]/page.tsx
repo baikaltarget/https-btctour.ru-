@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const x = enTour((await params).slug); if (!x) notFound();
   const { t, e } = x; const next = nextDeparture(t); const today = new Date().toISOString().slice(0, 10); const up = (t.departures as Departure[]).filter((d) => d.from >= today);
   const url = SITE.domain + "/en" + tourUrl(t);
-  const ld = { "@context": "https://schema.org", "@type": ["TouristTrip", "Product"], name: e.title, description: e.summary, url, provider: { "@id": SITE.domain + "/#org" }, offers: t.priceFrom ? { "@type": "Offer", priceCurrency: "RUB", price: t.priceFrom, availability: "https://schema.org/InStock", url } : undefined };
+  const ld = { "@context": "https://schema.org", "@type": ["TouristTrip", "Product"], name: e.title, description: e.summary, url, provider: { "@type": "TravelAgency", "@id": SITE.domain + "/#org", name: "Baikal Travel Company", url: SITE.domain }, offers: t.priceFrom ? { "@type": "Offer", priceCurrency: "RUB", price: t.priceFrom, availability: "https://schema.org/InStock", url } : undefined };
   return (
     <EnShell altHref={tourUrl(t)}>
       <JsonLd data={ld} />

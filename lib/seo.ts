@@ -46,6 +46,18 @@ export const faqJsonLd = (faq: { q: string; a: string }[]) => ({
   mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 });
 
+/** Верхняя граница цены для AggregateOffer. */
+function highPriceOf(t: { priceFrom: number | null }): number {
+  const routes = (t as { routes?: { prices: (number | null)[] }[] }).routes;
+  if (routes?.length) {
+    const all = routes.flatMap((r) => r.prices.filter((x): x is number => typeof x === "number"));
+    if (all.length) return Math.max(...all);
+  }
+  const to = (t as { priceTo?: number }).priceTo;
+  if (to) return to;
+  return t.priceFrom ?? 0;
+}
+
 export function tourJsonLd(t: { title: string; summary: string; slug: string; region: string; days: number; priceFrom: number | null; priceUnit?: string; departures: { from: string; to: string }[]; program?: { day: number; title: string; text: string }[]; locations?: string[] }, url: string, ratingCount = 6) {
   const base: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -54,8 +66,10 @@ export function tourJsonLd(t: { title: string; summary: string; slug: string; re
     description: t.summary,
     url,
     image: SITE.domain + SITE.defaultOg,
-    brand: { "@id": SITE.domain + "/#org" },
-    provider: { "@id": SITE.domain + "/#org" },
+    // Организация на страницах туров отдельным блоком не выводится, поэтому
+    // одной ссылки @id мало — указываем тип и название, иначе Google их игнорирует.
+    brand: { "@type": "Organization", "@id": SITE.domain + "/#org", name: SITE.brand },
+    provider: { "@type": "TravelAgency", "@id": SITE.domain + "/#org", name: SITE.brand, url: SITE.domain },
     touristType: ["Семьи", "Пары", "Компании друзей"],
     itinerary: t.program && t.program.length ? { "@type": "ItemList", numberOfItems: t.program.length, itemListElement: t.program.map((p) => ({ "@type": "ListItem", position: p.day, name: p.title, description: p.text })) } : undefined,
     aggregateRating: { "@type": "AggregateRating", ratingValue: "5", reviewCount: String(ratingCount), bestRating: "5" },
@@ -65,6 +79,9 @@ export function tourJsonLd(t: { title: string; summary: string; slug: string; re
       "@type": "AggregateOffer",
       priceCurrency: "RUB",
       lowPrice: t.priceFrom,
+      // highPrice обязателен для AggregateOffer: у вертолётов берём максимум по бортам
+      // и маршрутам, у остальных — доплату за одноместное размещение, иначе цену «от».
+      highPrice: highPriceOf(t),
       offerCount: Math.max(1, t.departures.length),
       availability: "https://schema.org/InStock",
       url,
@@ -78,7 +95,9 @@ export const reviewsJsonLd = (reviews: { name: string; text: string; source: str
   reviews.map((r) => ({
     "@context": "https://schema.org",
     "@type": "Review",
-    itemReviewed: { "@id": SITE.domain + "/#org" },
+    // Google требует явный тип оцениваемого объекта: одной ссылки @id недостаточно,
+    // иначе в Search Console «Недопустимый тип объекта в поле itemReviewed».
+    itemReviewed: { "@type": "TravelAgency", "@id": SITE.domain + "/#org", name: SITE.brand, address: { "@type": "PostalAddress", streetAddress: SITE.addressStreet, addressLocality: SITE.city, addressCountry: "RU" } },
     author: { "@type": "Person", name: r.name },
     reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
     reviewBody: r.text,

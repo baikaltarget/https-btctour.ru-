@@ -49,7 +49,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
   const toc = extractToc(p.content);
   const minutes = readingTime(p.content);
   const otherPosts = getPosts().filter((x) => x.slug !== p.slug).slice(0, 3);
-  const ld = { "@context": "https://schema.org", "@type": "BlogPosting", headline: p.title, description: p.description, datePublished: p.date, dateModified: p.date, author: { "@id": SITE.domain + "/#org" }, publisher: { "@id": SITE.domain + "/#org" }, mainEntityOfPage: `${SITE.domain}/blog/${p.slug}/`, image: SITE.domain + (p.image || SITE.defaultOg) };
+  const ld = { "@context": "https://schema.org", "@type": "BlogPosting", headline: p.title, description: p.description, datePublished: p.date, dateModified: p.date, author: { "@type": "Organization", "@id": SITE.domain + "/#org", name: SITE.brand, url: SITE.domain }, publisher: { "@type": "Organization", "@id": SITE.domain + "/#org", name: SITE.brand, logo: { "@type": "ImageObject", url: SITE.domain + "/img/logo.png" } }, mainEntityOfPage: `${SITE.domain}/blog/${p.slug}/`, image: SITE.domain + (p.image || SITE.defaultOg) };
 
   return (
     <TextPage crumbs={[{ name: "Блог", href: "/blog/" }, { name: p.title, href: `/blog/${p.slug}/` }]} h1={p.title} lead={p.description}>
