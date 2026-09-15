@@ -71,6 +71,9 @@ export function toursForCategory(c: Category): Tour[] {
   if (f.locations) list = list.filter((t) => f.locations!.some((l) => t.locations.includes(l)));
   if (f.type) list = list.filter((t) => t.type === f.type);
   if (f.excludeTypes) list = list.filter((t) => !f.excludeTypes!.includes(t.type));
+  // Однодневные экскурсии показываем только в разделе «Экскурсии»: в списках туров
+  // они смешивались с многодневными программами и путали покупателя.
+  if (c.slug !== "ekskursii" && f.type !== "excursion") list = list.filter((t) => t.type !== "excursion");
   // Сезонный приоритет: в текущем сезоне туры этого сезона идут первыми
   return list.sort(seasonSort);
 }
