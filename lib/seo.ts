@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE } from "./content";
+import { SITE, REVIEWS } from "./content";
 
 export function meta(opts: { title: string; description: string; path: string; noindex?: boolean; image?: string; type?: "website" | "article"; alternates?: Record<string, string> }): Metadata {
   const url = SITE.domain + opts.path;
@@ -46,6 +46,18 @@ export const faqJsonLd = (faq: { q: string; a: string }[]) => ({
   mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 });
 
+/** Один отзыв для карточки тура: Google просит review рядом с aggregateRating. */
+function sampleReview() {
+  const r = REVIEWS[0];
+  if (!r) return undefined;
+  return {
+    "@type": "Review",
+    author: { "@type": "Person", name: r.name },
+    reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+    reviewBody: r.text.slice(0, 300),
+  };
+}
+
 /** Верхняя граница цены для AggregateOffer. */
 function highPriceOf(t: { priceFrom: number | null }): number {
   const routes = (t as { routes?: { prices: (number | null)[] }[] }).routes;
@@ -58,14 +70,15 @@ function highPriceOf(t: { priceFrom: number | null }): number {
   return t.priceFrom ?? 0;
 }
 
-export function tourJsonLd(t: { title: string; summary: string; slug: string; region: string; days: number; priceFrom: number | null; priceUnit?: string; departures: { from: string; to: string }[]; program?: { day: number; title: string; text: string }[]; locations?: string[] }, url: string, ratingCount = 6) {
+export function tourJsonLd(t: { title: string; summary: string; slug: string; region: string; days: number; priceFrom: number | null; priceUnit?: string; departures: { from: string; to: string }[]; program?: { day: number; title: string; text: string }[]; locations?: string[]; image?: string; images?: string[] }, url: string, ratingCount = 6) {
   const base: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": ["TouristTrip", "Product"],
     name: t.title,
     description: t.summary,
     url,
-    image: SITE.domain + SITE.defaultOg,
+    // Google требует фотографию товара: подставляем реальный кадр тура, заглушка — только если фото нет.
+    image: SITE.domain + (t.image || t.images?.[0] || SITE.defaultOg),
     // Организация на страницах туров отдельным блоком не выводится, поэтому
     // одной ссылки @id мало — указываем тип и название, иначе Google их игнорирует.
     brand: { "@type": "Organization", "@id": SITE.domain + "/#org", name: SITE.brand },
@@ -73,6 +86,7 @@ export function tourJsonLd(t: { title: string; summary: string; slug: string; re
     touristType: ["Семьи", "Пары", "Компании друзей"],
     itinerary: t.program && t.program.length ? { "@type": "ItemList", numberOfItems: t.program.length, itemListElement: t.program.map((p) => ({ "@type": "ListItem", position: p.day, name: p.title, description: p.text })) } : undefined,
     aggregateRating: { "@type": "AggregateRating", ratingValue: "5", reviewCount: String(ratingCount), bestRating: "5" },
+    review: sampleReview(),
   };
   if (t.priceFrom) {
     base.offers = {

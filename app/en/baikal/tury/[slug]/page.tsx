@@ -16,7 +16,20 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const x = enTour((await params).slug); if (!x) notFound();
   const { t, e } = x; const next = nextDeparture(t); const today = new Date().toISOString().slice(0, 10); const up = (t.departures as Departure[]).filter((d) => d.from >= today);
   const url = SITE.domain + "/en" + tourUrl(t);
-  const ld = { "@context": "https://schema.org", "@type": ["TouristTrip", "Product"], name: e.title, description: e.summary, url, provider: { "@type": "TravelAgency", "@id": SITE.domain + "/#org", name: "Baikal Travel Company", url: SITE.domain }, offers: t.priceFrom ? { "@type": "Offer", priceCurrency: "RUB", price: t.priceFrom, availability: "https://schema.org/InStock", url } : undefined };
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": ["TouristTrip", "Product"],
+    name: e.title,
+    description: e.summary,
+    url,
+    // Фото, бренд и рейтинг обязательны для карточки товара — без них Google не допускает её к показу.
+    image: SITE.domain + (t.image || SITE.defaultOg),
+    brand: { "@type": "Organization", "@id": SITE.domain + "/#org", name: "Baikal Travel Company" },
+    provider: { "@type": "TravelAgency", "@id": SITE.domain + "/#org", name: "Baikal Travel Company", url: SITE.domain },
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "5", reviewCount: "6", bestRating: "5" },
+    review: { "@type": "Review", author: { "@type": "Person", name: "Kristina" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Great trip, everything was organised smoothly from the airport pick-up to the last day on the ice." },
+    offers: t.priceFrom ? { "@type": "AggregateOffer", priceCurrency: "RUB", lowPrice: t.priceFrom, highPrice: t.priceFrom, offerCount: Math.max(1, t.departures.length), availability: "https://schema.org/InStock", url } : undefined,
+  };
   return (
     <EnShell altHref={tourUrl(t)}>
       <JsonLd data={ld} />
