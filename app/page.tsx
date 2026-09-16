@@ -55,7 +55,9 @@ export default function Home() {
                   ))}
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <Link href={SEASON === "winter" ? "/baikal/zimnie/" : "/baikal/letnie/"} className="btn-dawn">{SEASON === "winter" ? "Зимние туры 2027" : "Летние туры"}</Link>
+                  {/* Первая кнопка — текущий сезон, вторая — противоположный: летом порядок меняется сам. */}
+                  <Link href={SEASON === "winter" ? "/baikal/zimnie/" : "/baikal/letnie/"} className="btn-dawn">{SEASON === "winter" ? "Зимние туры 2027" : "Летние туры 2027"}</Link>
+                  <Link href={SEASON === "winter" ? "/baikal/letnie/" : "/baikal/zimnie/"} className="btn-frost">{SEASON === "winter" ? "Летние туры 2027" : "Зимние туры 2027"}</Link>
                   <Link href="/#podbor" className="btn-frost">Подобрать тур</Link>
                 </div>
               </div>
