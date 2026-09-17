@@ -2415,7 +2415,6 @@
         "/img/tours/letnyaya-klassika-5.webp",
         "/img/tours/letnyaya-klassika-1.webp",
         "/img/tours/letnyaya-klassika-2.webp",
-        "/img/tours/letnyaya-klassika-3.webp",
         "/img/tours/letnyaya-klassika-4.webp",
         "/img/tours/letnyaya-klassika-6.webp"
       ],
@@ -2936,15 +2935,14 @@
       "status": "active",
       "featured": true,
       "images": [
-        "/img/tours/kruiz-po-baykalu-2.webp",
+        "/img/tours/kruiz-po-baykalu-4.webp",
         "/img/tours/kruiz-po-baykalu-1.webp",
         "/img/tours/kruiz-po-baykalu-3.webp",
-        "/img/tours/kruiz-po-baykalu-4.webp",
         "/img/tours/kruiz-po-baykalu-5.webp",
         "/img/tours/kruiz-po-baykalu-6.webp",
         "/img/tours/kruiz-po-baykalu-7.webp"
       ],
-      "image": "/img/tours/kruiz-po-baykalu-2.webp",
+      "image": "/img/tours/kruiz-po-baykalu-4.webp",
       "faq": [
         {
           "q": "Цена указана за человека?",
