@@ -1,0 +1,40 @@
+# Ежедневная публикация блога: пересобирает сайт, а затем сообщает Яндексу о вышедших статьях.
+#
+# Что нужно настроить один раз:
+#   секрет VERCEL_DEPLOY_HOOK — ссылка Deploy Hook из Vercel (Settings → Git → Deploy Hooks).
+# Ключ IndexNow не секретный и лежит в коде: он же в файле public/<ключ>.txt на сайте.
+name: Публикация по расписанию
+
+on:
+  schedule:
+    # 01:00 UTC = 09:00 по Иркутску.
+    - cron: "0 1 * * *"
+  workflow_dispatch: # кнопка «Run workflow» — опубликовать не дожидаясь утра
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Дёрнуть пересборку на Vercel
+        run: |
+          if [ -z "${{ secrets.VERCEL_DEPLOY_HOOK }}" ]; then
+            echo "Секрет VERCEL_DEPLOY_HOOK не задан. См. INSTRUKCIYA.md"
+            exit 1
+          fi
+          code=$(curl -s -o /dev/null -w "%{http_code}" -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}")
+          echo "Vercel ответил: $code"
+          [ "$code" = "200" ] || [ "$code" = "201" ]
+
+      - name: Подождать, пока Vercel соберёт сайт
+        run: sleep 180
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Сообщить Яндексу о новых статьях (IndexNow)
+        run: |
+          npm install gray-matter --no-audit --no-fund --silent
+          node scripts/indexnow.mjs
