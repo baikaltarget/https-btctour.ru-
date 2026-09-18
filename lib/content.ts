@@ -174,8 +174,22 @@ export function nightsWord(n: number) {
 /* ---------- Блог ---------- */
 export type Post = { slug: string; title: string; description: string; date: string; content: string; cover?: string; image?: string; imageAlt?: string; faq?: Faq[] };
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
+/** Сегодняшняя дата по Иркутску (МСК+5) в формате YYYY-MM-DD. Часовой пояс сервера сборки не важен. */
+export function todayIrkutsk(): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Irkutsk", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+}
+
+/**
+ * Статьи блога. Материалы с датой в будущем не отдаются: их нет ни в списке, ни в «Свежих»,
+ * ни в карте сайта, а страница не генерируется (прямой адрес отдаёт 404).
+ * Публикация по расписанию — это ежедневная пересборка (.github/workflows/publish.yml):
+ * в день, указанный во frontmatter, статья появляется сама.
+ * Посмотреть будущие материалы до срока: BLOG_SHOW_SCHEDULED=1 npm run dev
+ */
 export function getPosts(): Post[] {
   if (!fs.existsSync(BLOG_DIR)) return [];
+  const today = todayIrkutsk();
+  const showScheduled = process.env.BLOG_SHOW_SCHEDULED === "1";
   return fs
     .readdirSync(BLOG_DIR)
     .filter((f) => f.endsWith(".md"))
@@ -184,7 +198,17 @@ export function getPosts(): Post[] {
       const { data, content } = matter(raw);
       return { slug: f.replace(/\.md$/, ""), title: data.title, description: data.description, date: data.date, cover: data.cover, image: data.image, imageAlt: data.imageAlt, faq: data.faq, content };
     })
+    .filter((p) => showScheduled || !p.date || p.date.slice(0, 10) <= today)
     .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+/** Все статьи, включая запланированные. Для служебных проверок, не для страниц сайта. */
+export function getAllPosts(): Post[] {
+  const saved = process.env.BLOG_SHOW_SCHEDULED;
+  process.env.BLOG_SHOW_SCHEDULED = "1";
+  const all = getPosts();
+  if (saved === undefined) delete process.env.BLOG_SHOW_SCHEDULED; else process.env.BLOG_SHOW_SCHEDULED = saved;
+  return all;
 }
 export const getPost = (slug: string) => getPosts().find((p) => p.slug === slug);
 

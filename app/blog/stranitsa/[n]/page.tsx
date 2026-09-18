@@ -14,7 +14,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ n: string }> }) {
   const { n } = await params;
-  return meta({ title: `Блог о Байкале — страница ${n} | BTCTOUR`, description: `Статьи туроператора из Иркутска о Байкале, страница ${n}.`, path: `/blog/stranitsa/${n}/`, noindex: true });
+  return meta({ title: `Блог о Байкале — страница ${n} | BTCTOUR`, description: `Статьи туроператора из Иркутска о Байкале: когда ехать зимой и летом, что посмотреть на Ольхоне и в Листвянке, как одеться и сколько стоит поездка. Страница ${n}.`, path: `/blog/stranitsa/${n}/`, noindex: true });
 }
 
 export default async function Page({ params }: { params: Promise<{ n: string }> }) {
