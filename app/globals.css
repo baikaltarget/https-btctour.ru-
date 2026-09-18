@@ -37,6 +37,15 @@
   .prose-site ul { @apply mb-4 list-disc pl-6; }
   .prose-site li { @apply mb-1; }
   .prose-site a { @apply underline; }
+  /* Таблицы в статьях: шапка с подложкой, строки-полоски, на мобильном горизонтальная прокрутка */
+  .table-wrap { @apply my-8 -mx-5 overflow-x-auto px-5 md:mx-0 md:px-0; }
+  .prose-site table { @apply w-full min-w-[480px] border-collapse overflow-hidden rounded-xs text-[16px] leading-snug; }
+  .prose-site thead th { @apply border-b border-ice-200 bg-ice-100 px-4 py-3 text-left align-bottom font-semibold text-ice-900; }
+  .prose-site tbody td { @apply border-b border-ice-200/70 px-4 py-3 align-top; }
+  .prose-site tbody tr:nth-child(even) { @apply bg-ice-100/40; }
+  .prose-site tbody tr:last-child td { @apply border-b-0; }
+  .prose-site tbody td:first-child { @apply font-semibold text-ice-900; }
+  .prose-site table a { @apply font-semibold no-underline hover:underline; }
   /* Блоки, которые заказчик должен заполнить/проверить (dev.showTodos в site.json) */
   .todo-frame { outline: 2px dashed #D93025; outline-offset: 4px; position: relative; }
   .todo-frame::before { content: attr(data-todo); position: absolute; top: -12px; left: 8px; background: #D93025; color: #fff; font-size: 11px; line-height: 1; padding: 4px 6px; border-radius: 3px; font-family: 'Manrope Variable', sans-serif; z-index: 5; }

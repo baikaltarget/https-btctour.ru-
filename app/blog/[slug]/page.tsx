@@ -47,7 +47,9 @@ function buildRenderer() {
 
 export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
   const p = getPost((await params).slug); if (!p) notFound();
-  const html = await buildRenderer().parse(p.content);
+  const html = (await buildRenderer().parse(p.content))
+    .replaceAll("<table>", '<div class="table-wrap"><table>')
+    .replaceAll("</table>", "</table></div>");
   const toc = extractToc(p.content);
   const minutes = readingTime(p.content);
   const otherPosts = getPosts().filter((x) => x.slug !== p.slug).slice(0, 5);

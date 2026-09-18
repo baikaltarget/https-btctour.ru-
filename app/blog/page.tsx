@@ -1,5 +1,6 @@
 import Link from "next/link";
-import TextPage from "@/components/TextPage";
+import Shell from "@/components/Shell";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import LeadForm from "@/components/LeadForm";
 import { getPosts, fmtDate, readingTime } from "@/lib/content";
 import { meta } from "@/lib/seo";
@@ -16,10 +17,15 @@ export default function Page() {
   const recent = posts.slice(0, 5);
 
   return (
-    <TextPage crumbs={[{ name: "Блог", href: "/blog/" }]} h1="Блог о Байкале" lead="Пишем то, что рассказываем группам в дороге.">
-      <div className="grid gap-12 lg:grid-cols-[1fr_300px]">
-        <div>
-          <div className="grid gap-8 sm:grid-cols-2">
+    <Shell>
+      <Breadcrumbs items={[{ name: "Блог", href: "/blog/" }]} />
+      <section className="wrap pt-6 md:pt-10">
+      <div className="grid gap-x-12 gap-y-10 lg:grid-cols-[1fr_300px]">
+        <div className="min-w-0">
+          <h1>Блог о Байкале</h1>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink/80">Пишем то, что рассказываем группам в дороге.</p>
+
+          <div className="mt-8 grid gap-8 sm:grid-cols-2">
             {list.map((p) => (
               <article key={p.slug}>
                 <Link href={`/blog/${p.slug}/`} className="block no-underline">
@@ -61,7 +67,7 @@ export default function Page() {
           </section>
         </div>
 
-        <aside className="lg:sticky lg:top-24 lg:self-start">
+        <aside className="lg:sticky lg:top-24 lg:self-start lg:pt-2">
           <p className="mb-4 font-display text-lg font-semibold text-ice-900">Свежие статьи</p>
           <ul className="grid gap-4 border-t border-ice-200 pt-4">
             {recent.map((p) => (
@@ -88,6 +94,7 @@ export default function Page() {
           </div>
         </aside>
       </div>
-    </TextPage>
+      </section>
+    </Shell>
   );
 }
