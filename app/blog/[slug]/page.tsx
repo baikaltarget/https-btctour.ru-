@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Marked } from "marked";
-import TextPage from "@/components/TextPage";
+import Shell from "@/components/Shell";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import LeadForm from "@/components/LeadForm";
 import TourList from "@/components/TourList";
@@ -53,14 +54,19 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
   const ld = { "@context": "https://schema.org", "@type": "BlogPosting", headline: p.title, description: p.description, datePublished: p.date, dateModified: p.date, author: { "@type": "Organization", "@id": SITE.domain + "/#org", name: SITE.brand, url: SITE.domain }, publisher: { "@type": "Organization", "@id": SITE.domain + "/#org", name: SITE.brand, logo: { "@type": "ImageObject", url: SITE.domain + "/img/logo.png" } }, mainEntityOfPage: `${SITE.domain}/blog/${p.slug}/`, image: SITE.domain + (p.image || SITE.defaultOg) };
 
   return (
-    <TextPage crumbs={[{ name: "Блог", href: "/blog/" }, { name: p.title, href: `/blog/${p.slug}/` }]} h1={p.title} lead={p.description}>
+    <Shell>
+      <Breadcrumbs items={[{ name: "Блог", href: "/blog/" }, { name: p.title, href: `/blog/${p.slug}/` }]} />
+      <section className="wrap pt-6 md:pt-10">
       <JsonLd data={ld} />
       {p.faq && p.faq.length > 0 && <JsonLd data={faqJsonLd(p.faq)} />}
 
-      <div className="grid gap-12 lg:grid-cols-[1fr_300px]">
+      <div className="grid gap-x-12 gap-y-10 lg:grid-cols-[1fr_300px]">
         <div className="min-w-0">
 
-      <p className="-mt-2 mb-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ice-600">
+      <h1>{p.title}</h1>
+      {p.description && <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink/80">{p.description}</p>}
+
+      <p className="mt-5 mb-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ice-600">
         <span>БиТиСи — туроператор по Байкалу из Иркутска</span>
         <span aria-hidden="true">·</span>
         <span>{minutes} мин чтения</span>
@@ -100,7 +106,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
 
         </div>
 
-        <aside className="lg:sticky lg:top-24 lg:self-start">
+        <aside className="lg:sticky lg:top-24 lg:self-start lg:pt-2">
           <p className="mb-4 font-display text-lg font-semibold text-ice-900">Читайте также</p>
           <ul className="grid gap-4 border-t border-ice-200 pt-4">
             {otherPosts.map((op) => (
@@ -126,6 +132,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
       </div>
 
       <section className="mt-14"><h2 className="mb-2">Туры по теме</h2><TourList tours={featuredTours(3)} offset={70} /></section>
-    </TextPage>
+      </section>
+    </Shell>
   );
 }

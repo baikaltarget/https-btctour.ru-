@@ -660,6 +660,16 @@
       "source": "/baikal/tury/vertoletnye-ekskursii/",
       "destination": "/baikal/vertoletnye/",
       "permanent": true
+    },
+    {
+      "source": "/blog/olkhon-zimoy-i-letom",
+      "destination": "/blog/olkhon-zimoy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/olkhon-zimoy-i-letom/",
+      "destination": "/blog/olkhon-zimoy/",
+      "permanent": true
     }
   ],
   "headers": [
